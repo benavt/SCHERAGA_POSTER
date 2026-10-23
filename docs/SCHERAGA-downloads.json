@@ -1,25 +1,89 @@
 {
-  "source_branch": "SCHERAGA",
-  "source_url": "https://github.com/benavt/Structure_Clustering/tree/SCHERAGA",
-  "reading_url": "https://github.com/benavt/Structure_Clustering/blob/SCHERAGA/README.md",
-  "working_release": "https://github.com/benavt/Structure_Clustering/releases/tag/scheraga-poster-2026-10-23-v13",
-  "physical_poster_pdf": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_phone_v011.pdf",
-    "bytes": 10852530,
-    "sha256": "0a6091a053c1c62bb9e246aa9c379bbb5f855983985112d284f77c10a07b6222"
+  "schema_version": 2,
+  "status_checked_date": "2026-10-23",
+  "repository": "https://github.com/benavt/SCHERAGA_POSTER",
+  "source_release": "https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0",
+  "website": {
+    "url": "https://scheraga-poster.netlify.app",
+    "status": "landing_page_with_five_disabled_coming_soon_links",
+    "interactive_poster_deployed": false
   },
-  "PyMOL_session": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-22-v5/Scheraga_four_comparisons_robust_controls_v008.pse",
-    "bytes": 4963017,
-    "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98"
-  },
-  "code_only_archive": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA-code-only.zip",
-  "website": null,
   "Zenodo": {
-    "Adk_resources": null,
-    "Mad2_resources": null
+    "Adk_resources": {
+      "concept_url": "https://doi.org/10.5281/zenodo.23601146",
+      "version_url": "https://doi.org/10.5281/zenodo.23601147",
+      "record_url": "https://zenodo.org/records/23601147",
+      "verification_source": "https://zenodo.org/api/records/23601147",
+      "status": "published_incomplete_correction_required",
+      "expected_files": 14,
+      "published_files": 9,
+      "missing_files": [
+        "outputs.tar.gz",
+        "provenance.tar.gz",
+        "reports.tar.gz",
+        "source.tar.gz",
+        "zenodo-metadata.json"
+      ],
+      "present_file_sizes_and_md5_match": true
+    },
+    "Mad2_resources": {
+      "concept_url": "https://doi.org/10.5281/zenodo.23601144",
+      "version_url": "https://doi.org/10.5281/zenodo.23601145",
+      "record_url": "https://zenodo.org/records/23601145",
+      "verification_source": "https://zenodo.org/api/records/23601145",
+      "status": "published_complete",
+      "expected_files": 14,
+      "published_files": 14,
+      "missing_files": [],
+      "present_file_sizes_and_md5_match": true
+    }
   },
-  "visibility": "Private GitHub repository; unchanged. Website and Zenodo not published.",
+  "artifacts": {
+    "editable_pptx": {
+      "filename": "SCHERAGA_poster_36x48_both_11methods_v014.pptx",
+      "bytes": 9338829,
+      "sha256": "d8c2f7da31d2b5112e5235e35ee8073bd05412734185c3e90c881f348626021b",
+      "url": null,
+      "status": "validated_local_not_publicly_distributed"
+    },
+    "phone_pdf": {
+      "filename": "SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf",
+      "bytes": 11159274,
+      "sha256": "bd734aba21f678962c240af2fbd5087b2b1dac54da8ef2302a602afb4f2c7521",
+      "url": null,
+      "status": "validated_local_not_publicly_distributed"
+    },
+    "print_pdf": {
+      "filename": "SCHERAGA_poster_36x48_both_11methods_print_v014.pdf",
+      "bytes": 23999597,
+      "sha256": "85cdfe7618242c70ebbcfdd0c4d8718abfd027e1a363a9f84b1cf609d2b1a7d3",
+      "url": null,
+      "status": "validated_local_not_publicly_distributed"
+    },
+    "preview_png": {
+      "filename": "SCHERAGA_poster_36x48_both_11methods_v014_preview.png",
+      "bytes": 1919784,
+      "sha256": "dd7edb716a14eefe5d97729b27bce0ccbe04272552ecb636a691d16ba13e0b45",
+      "url": null,
+      "status": "validated_local_not_publicly_distributed"
+    },
+    "abstract_text": {
+      "filename": "abstract-verbatim-v014.txt",
+      "bytes": 1593,
+      "sha256": "3ca88b48ba144cc290b354791c4f63db840dd3fa2b3d56adf39e3bbf55657c91",
+      "url": null,
+      "status": "validated_local_not_publicly_distributed"
+    },
+    "interactive_html": {
+      "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
+      "bytes": 88285521,
+      "sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
+      "url": null,
+      "status": "validated_local_not_deployed",
+      "saved_browser_checks": 14
+    }
+  },
+  "historical_download_metadata": "docs/archive/SCHERAGA-downloads-pre-publication.json",
   "Adk_confidence": {
     "models": 11000,
     "physical_projection": "Boltz2 template-only refold pTM",
@@ -35,37 +99,6 @@
     "virtual_movie_default": "chainbow",
     "virtual_movie_alternative": "Boltz2 template-only refold pLDDT; AlphaFold colors; original AIS coordinates",
     "current_frame_refold_pTM": "Displayed to two decimals on the reference-TM line"
-  },
-  "virtual_poster_HTML": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_virtual_poster_complete_references_v022.html",
-    "bytes": 87875880,
-    "sha256": "c1b1b18ca8c1f5604d85e8535165f5f2e6f2f95c9c441e90111c3c1174a735af"
-  },
-  "static_hosting_package": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_Cloudflare_Pages_upload_v031.zip",
-    "bytes": 52710666,
-    "sha256": "dc0ffb7674d72f640d2449287b884daacf7dcbb90d5d24afa68d6628ee2695ec"
-  },
-  "physical_poster_pdf_plasma": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_phone_v011.pdf",
-    "bytes": 10852530,
-    "sha256": "0a6091a053c1c62bb9e246aa9c379bbb5f855983985112d284f77c10a07b6222"
-  },
-  "Zenodo_placeholder_DOIs": {
-    "Adk_resources": "10.5281/zenodo.XXXXXXX",
-    "Mad2_resources": "10.5281/zenodo.YYYYYYY",
-    "status": "Unlinked placeholders; neither reserved nor published"
-  },
-  "virtual_projection_legend_position": "Above the projections, included in the expanded-view viewport",
-  "static_hosting_guide": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/Cloudflare-account-and-upload-guide.md",
-    "bytes": 12993,
-    "sha256": "a16b86cea79173e995aafbbaf5bde34a83cae121528a378a51a4ae5ef90f5103"
-  },
-  "physical_poster_print_pdf": {
-    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_print_v011.pdf",
-    "bytes": 23459026,
-    "sha256": "6094f6a11d1ba19e45bca4b2cbd96948ffbf68ff5c9695d4f1c5115ed643b2cb"
   },
   "analysis_counts": {
     "Adk_predictions": 11000,
@@ -136,7 +169,7 @@
       "Mad2": 197
     },
     "quantity": "Measured coordinate similarity, distinct from pTM confidence",
-    "virtual_projection_option": "AIS \u2194 Boltz2 refold TM",
+    "virtual_projection_option": "AIS ↔ Boltz2 refold TM",
     "virtual_default_unchanged": "Boltz2 refold pTM",
     "palette": "Plasma; observed full-cohort minimum/maximum per target",
     "ranges": {
@@ -157,5 +190,6 @@
   },
   "physical_reference_count": 6,
   "virtual_reference_count": 21,
-  "virtual_reference_catalog": "docs/SCHERAGA-reference-catalog.json"
+  "virtual_reference_catalog": "docs/SCHERAGA-reference-catalog.json",
+  "virtual_projection_legend_position": "Above the projections, included in the expanded-view viewport"
 }

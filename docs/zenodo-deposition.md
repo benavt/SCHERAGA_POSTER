@@ -1,6 +1,6 @@
 # Upstream Zenodo implementation notes
 
-**Read [the project sandbox runbook](../zenodo/README.md) first.** This is historical upstream documentation, not authorization to execute its production or publish examples. This public project currently permits offline preparation and explicitly approved Sandbox drafts only. No configuration has been supplied; stop before any network request until the user supplies and verifies it. Creating tags/releases requires a separate explicit yes.
+**Read [the current project runbook](../zenodo/README.md) and [distribution status](distribution-status.md) first.** This is historical upstream documentation, not authorization to execute its production or publish examples. Both production dataset records have since been published manually; Adk v1 requires correction. Completed runtime configurations and packages are private. The examples below describe initial deposition preparation and do not implement recovery of a published record through a new version. Creating new tags/releases requires a separate explicit yes.
 
 Use `python3 tools/zenodo_deposition.py --help` from a source checkout. The
 command requires only Python 3.11+, Git and, for actual uploading, an authenticated
@@ -10,10 +10,10 @@ from a Git event. The default remote environment is Zenodo Sandbox.
 
 ## Set up a deposition
 
-No project deposition configuration is supplied. Read the project runbook and stop offline until the user writes and verifies the required config.
+Tracked files under `zenodo/configs/` preserve earlier owner-review configurations. They are not the final private runtime configurations. Read the project runbook and verify the configuration and package selected for any future operation.
 
 
-The project creator profile is [zenodo/creators.json](../zenodo/creators.json). Author order is T.L. Benavides, then G.T. Montelione, with the supplied ORCIDs and departmental affiliations. Deposition configurations are intentionally absent and must be written and reviewed by the user. Do not fabricate config metadata.
+The project creator profile is [zenodo/creators.json](../zenodo/creators.json). Author order is T.L. Benavides, then G.T. Montelione, with the supplied ORCIDs and departmental affiliations. Metadata changes must be reviewed; do not fabricate config metadata.
 
 Set these values deliberately:
 
@@ -111,7 +111,7 @@ python3 tools/zenodo_deposition.py draft --apply --environment sandbox \
   --receipt local/zenodo/my-release.sandbox.json
 ```
 
-Production use and publication are outside the current scope. Do not use a production token, production environment or publish subcommand.
+Production drafts use the separate project wrapper and reviewed operation scope described in the current runbook. Publication remains manual. Do not invoke the upstream publish subcommand.
 
 Rerun the exact `draft --apply` command to resume. Completed remote files are
 skipped only when size and checksum match. Conflicting or unexpected remote files
@@ -129,4 +129,4 @@ concept needs a separately reviewed new-version workflow.
 
 ## Publication is not authorized
 
-The upstream tool contains a publish implementation, but this project has no approval to invoke it. Sandbox draft review is the stopping point. A future production workflow would require a separate concrete plan and explicit approval.
+The upstream tool contains a publish implementation, but this project has no approval to invoke it. The owner published the existing production records manually. Future draft operations and new-version recovery require their concrete reviewed scope; publication remains with the owner.
