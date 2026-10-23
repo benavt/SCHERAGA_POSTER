@@ -11,6 +11,8 @@
 
 The [manifest](manifest.json) records exact byte counts and SHA-256 hashes. Verify downloaded files with `sha256sum -c SHA256SUMS` from this directory. The editable PPTX is retained locally.
 
+For a smaller printer upload, use the [compact print copy (2.1 MB)](../print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true). It keeps the same page dimensions and layout at a lower image resolution; these original files remain unchanged.
+
 ![Final physical poster preview](SCHERAGA_poster_36x48_both_11methods_v014_preview.png)
 
 The poster links the existing Adk and Mad2 concept DOIs. Adk's published v1 data upload is incomplete; see [distribution status](../../docs/distribution-status.md). That dataset correction does not change the owner's final-poster designation.
