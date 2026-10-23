@@ -20,6 +20,7 @@ Repair Adk through a corrected new version within the existing concept DOI. Pres
 | Artifact | Current validated version | Distribution state |
 | --- | --- | --- |
 | Print and phone poster PDFs | Final v014, confirmed by owner | [Public repository files](../poster/final/README.md); original bytes preserved |
+| Compact print PDF | v014 derivative, 120 dpi | [2.1 MB printer download](../poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true); same 36 × 48 inch page and links |
 | Preview and abstract text | Final v014 | In `poster/final/`; hashes recorded |
 | Editable PPTX | v014 | Retained locally |
 | Interactive poster HTML | v025 | Local; 14 saved browser checks; includes both concept DOIs and v014 phone PDF |

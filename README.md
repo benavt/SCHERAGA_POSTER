@@ -6,6 +6,8 @@ Code and documentation for **Beyond a Single Structure: Exploring Multistate Pro
 
 The **final physical poster** is preserved in [`poster/final/`](poster/final/README.md): [full-resolution print PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true), [smaller phone PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true), preview and abstract. The owner confirmed this v014 export as final; its bytes are unchanged.
 
+For printers with upload or memory limits, use the [compact print PDF (2.1 MB)](poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true). It preserves the 36 × 48 inch layout and links, with a 120-dpi compressed image; the print master remains available above.
+
 **Data availability:** Mad2 v1 is complete. Adk v1 was published after an upload failure and contains 9 of 14 expected files; its model-output archive is absent. A corrected version is needed under the existing Adk concept DOI. See [distribution status](docs/distribution-status.md) before downloading or reusing the data.
 
 We compare AI-sampled protein conformations with experimental open and closed references, then explore them through projections, structural comparisons and synchronized molecular views. This independent repository is a **snapshot**, not a fork of the private development history.

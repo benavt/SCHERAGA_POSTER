@@ -89,6 +89,21 @@
       "url": null,
       "status": "validated_local_not_deployed",
       "saved_browser_checks": 14
+    },
+    "compact_print_pdf": {
+      "filename": "SCHERAGA_poster_36x48_print_compact_v014.pdf",
+      "bytes": 2087975,
+      "sha256": "24acc7c5b3bef39b981a32e192c4488138a6f80006cf20a6b2f963057238b52f",
+      "repository_path": "poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf",
+      "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true",
+      "status": "public_compact_print_derivative",
+      "source_export": "v014",
+      "dpi": 120,
+      "dimensions_inches": [
+        36,
+        48
+      ],
+      "original_final_unchanged": true
     }
   },
   "historical_download_metadata": "docs/archive/SCHERAGA-downloads-pre-publication.json",

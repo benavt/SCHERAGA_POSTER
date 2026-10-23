@@ -36,6 +36,7 @@ cache/
 # Owner-approved final poster PDFs only; other generated PDFs remain ignored.
 !/poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf
 !/poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf
+!/poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf
 # Generated site files are reviewed separately before deliberate inclusion
 site/dist/
 site/upload/
