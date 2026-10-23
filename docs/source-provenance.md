@@ -9,3 +9,5 @@ Included: SCHERAGA study/reference/display documentation, two native poster-pane
 Private infrastructure wording and paths are removed from public copies while preserving scientific content. The MIT source copyright is retained in `LICENSE`; authored-content licensing is separate. No raw model, score-array, bulk archive, runtime binding, token or private history is included.
 
 Public-facing study-guide and extension-page introductions are reconciled to the final eleven-method cohort; historical six-method status claims and development-only links are replaced with current companion links. Numerical results, frozen media distinctions and source pins are preserved.
+
+Bibliography identities and source links are preserved while virtual reference numbers follow the revised 22,000-model abstract. The earlier fourteen-entry JSON is retained under `docs/archive/` as historical metadata; it is not the active bibliography.
