@@ -1,0 +1,161 @@
+{
+  "source_branch": "SCHERAGA",
+  "source_url": "https://github.com/benavt/Structure_Clustering/tree/SCHERAGA",
+  "reading_url": "https://github.com/benavt/Structure_Clustering/blob/SCHERAGA/README.md",
+  "working_release": "https://github.com/benavt/Structure_Clustering/releases/tag/scheraga-poster-2026-10-23-v13",
+  "physical_poster_pdf": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_phone_v011.pdf",
+    "bytes": 10852530,
+    "sha256": "0a6091a053c1c62bb9e246aa9c379bbb5f855983985112d284f77c10a07b6222"
+  },
+  "PyMOL_session": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-22-v5/Scheraga_four_comparisons_robust_controls_v008.pse",
+    "bytes": 4963017,
+    "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98"
+  },
+  "code_only_archive": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA-code-only.zip",
+  "website": null,
+  "Zenodo": {
+    "Adk_resources": null,
+    "Mad2_resources": null
+  },
+  "visibility": "Private GitHub repository; unchanged. Website and Zenodo not published.",
+  "Adk_confidence": {
+    "models": 11000,
+    "physical_projection": "Boltz2 template-only refold pTM",
+    "virtual_projection_default": "Boltz2 template-only refold pTM",
+    "virtual_movie_default": "chainbow",
+    "virtual_movie_alternative": "Boltz2 template-only refold pLDDT; AlphaFold colors; original AIS coordinates",
+    "current_frame_refold_pTM": "Displayed to two decimals on the reference-TM line"
+  },
+  "Mad2_confidence": {
+    "models": 11000,
+    "physical_projection": "Boltz2 template-only refold pTM",
+    "virtual_projection_default": "Boltz2 template-only refold pTM",
+    "virtual_movie_default": "chainbow",
+    "virtual_movie_alternative": "Boltz2 template-only refold pLDDT; AlphaFold colors; original AIS coordinates",
+    "current_frame_refold_pTM": "Displayed to two decimals on the reference-TM line"
+  },
+  "virtual_poster_HTML": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_virtual_poster_complete_references_v022.html",
+    "bytes": 87875880,
+    "sha256": "c1b1b18ca8c1f5604d85e8535165f5f2e6f2f95c9c441e90111c3c1174a735af"
+  },
+  "static_hosting_package": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_Cloudflare_Pages_upload_v031.zip",
+    "bytes": 52710666,
+    "sha256": "dc0ffb7674d72f640d2449287b884daacf7dcbb90d5d24afa68d6628ee2695ec"
+  },
+  "physical_poster_pdf_plasma": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_phone_v011.pdf",
+    "bytes": 10852530,
+    "sha256": "0a6091a053c1c62bb9e246aa9c379bbb5f855983985112d284f77c10a07b6222"
+  },
+  "Zenodo_placeholder_DOIs": {
+    "Adk_resources": "10.5281/zenodo.XXXXXXX",
+    "Mad2_resources": "10.5281/zenodo.YYYYYYY",
+    "status": "Unlinked placeholders; neither reserved nor published"
+  },
+  "virtual_projection_legend_position": "Above the projections, included in the expanded-view viewport",
+  "static_hosting_guide": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/Cloudflare-account-and-upload-guide.md",
+    "bytes": 12993,
+    "sha256": "a16b86cea79173e995aafbbaf5bde34a83cae121528a378a51a4ae5ef90f5103"
+  },
+  "physical_poster_print_pdf": {
+    "url": "https://github.com/benavt/Structure_Clustering/releases/download/scheraga-poster-2026-10-23-v13/SCHERAGA_poster_36x48_both_11methods_print_v011.pdf",
+    "bytes": 23459026,
+    "sha256": "6094f6a11d1ba19e45bca4b2cbd96948ffbf68ff5c9695d4f1c5115ed643b2cb"
+  },
+  "analysis_counts": {
+    "Adk_predictions": 11000,
+    "Mad2_predictions": 11000,
+    "total_predictions": 22000,
+    "Adk_methods": 11,
+    "Mad2_methods": 11,
+    "models_per_method": 1000,
+    "experimental_controls_per_target": 2
+  },
+  "Mad2_analysis": {
+    "prediction_groups": 15,
+    "shared_CA_positions": 175,
+    "full_prediction_residues": 197,
+    "highest_TM_states": [
+      {
+        "state": "S1",
+        "model_id": "AF_Cluster_native__MAD2_afcluster_0675",
+        "method": "AF-Cluster",
+        "reference": "1DUJ",
+        "TM_similarity": 0.80107,
+        "TM_similarity_display": "0.80"
+      },
+      {
+        "state": "S2",
+        "model_id": "Boltz2_Exact_40pct__1KLQ_MAD2_ALONE__Boltz2_Exact_40pct__0852",
+        "method": "Boltz2",
+        "reference": "1S2H",
+        "TM_similarity": 0.8292,
+        "TM_similarity_display": "0.83"
+      }
+    ],
+    "movie": "Retained original100-model open-to-closed movie; its opening model remains OpenDDE0787 and differs from new physical S1.",
+    "abstract": "Preserved unchanged at author request; current cohort counts are reported outside the abstract."
+  },
+  "Adk_analysis": {
+    "prediction_groups": 6,
+    "shared_CA_positions": 214,
+    "full_prediction_residues": 214,
+    "highest_TM_states": [
+      {
+        "state": "S1",
+        "model_id": "AlphaFlow_MD_native__1AKE_alphaflow-md_0703",
+        "method": "AlphaFlow-MD",
+        "reference": "4AKE",
+        "TM_similarity": 0.96544,
+        "TM_similarity_display": "0.97"
+      },
+      {
+        "state": "S2",
+        "model_id": "AlphaFlow_PDB_native__1AKE_alphaflow-pdb_0327",
+        "method": "AlphaFlow-PDB",
+        "reference": "1AKE",
+        "TM_similarity": 0.98559,
+        "TM_similarity_display": "0.99"
+      }
+    ],
+    "movie": "Retained original 100-model open-to-closed movie, AFSample2 0348 to OpenDDE 0572; its endpoints differ from new physical S1/S2.",
+    "abstract": "Preserved unchanged at author request; current cohort counts are reported outside the abstract."
+  },
+  "original_refold_TM": {
+    "models_per_target": 11000,
+    "total_pairs": 22000,
+    "directional_calls": 44000,
+    "definition": "Mean bidirectional full-search US-align TM, average-length normalized, original AIS versus its matched Boltz2 exact no-MSA template-only refold",
+    "full_CA_positions": {
+      "Adk": 214,
+      "Mad2": 197
+    },
+    "quantity": "Measured coordinate similarity, distinct from pTM confidence",
+    "virtual_projection_option": "AIS \u2194 Boltz2 refold TM",
+    "virtual_default_unchanged": "Boltz2 refold pTM",
+    "palette": "Plasma; observed full-cohort minimum/maximum per target",
+    "ranges": {
+      "Adk": {
+        "min": 0.3034,
+        "median": 0.9174599999999999,
+        "max": 0.99933
+      },
+      "Mad2": {
+        "min": 0.40742,
+        "median": 0.97729,
+        "max": 0.99917
+      }
+    },
+    "current_frame_readout": "Paired TM shown only while this coloring is active",
+    "score_table_sha256": "269ffe3fba009d3c388fff9b81697b1aed41342c393cb6829bce531560710152",
+    "projections_clusters_trees_and_movies_unchanged": true
+  },
+  "physical_reference_count": 6,
+  "virtual_reference_count": 21,
+  "virtual_reference_catalog": "docs/SCHERAGA-reference-catalog.json"
+}
