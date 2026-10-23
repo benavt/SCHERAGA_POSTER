@@ -4,6 +4,8 @@ Two resource records have been published manually by the owner: [Adk](https://do
 
 **Current recovery status, checked 2026-10-23:** Mad2 v1 has all 14 expected files. Adk v1 has 9 of 14; its model-output archive and four other files are missing after an upload failure. Both complete packages are preserved locally and passed fresh seal checks. See [distribution status](../docs/distribution-status.md) for the missing files and finalization plan. Preserve the two existing concept DOIs.
 
+**Next metadata work:** resume the [metadata rework plan](metadata-rework-plan.md) to revise field handling, titles and especially the scientific descriptions. Title and description changes are supported both for existing records and future versions; metadata-only edits do not change the DOI. This plan is saved for later and performs no remote operation.
+
 The remaining sections describe the original preparation and draft-upload workflow. Their missing-config and missing-release gates describe the earlier preparation stage: the source release now exists, and the completed runtime configs/packages are private. The tracked configs remain historical review templates, not the upload-ready configurations. New-version recovery is not implemented by these wrappers; do not resume a published record as an editable draft. Publication remains manual; this runbook authorizes no publication or unreviewed upload.
 
 ## Stop conditions and review order
