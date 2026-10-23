@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "creators": [
+    {
+      "id": "TL",
+      "name": "Benavides, T.L.",
+      "orcid": "0000-0002-5795-4273",
+      "affiliation": "Biological Sciences, Rensselaer Polytechnic Institute",
+      "placeholder": false
+    },
+    {
+      "id": "GTM",
+      "name": "Montelione, G.T.",
+      "orcid": "0000-0002-9440-3059",
+      "affiliation": "Department of Chemistry and Chemical Biology, Rensselaer Polytechnic Institute",
+      "placeholder": false
+    }
+  ]
+}

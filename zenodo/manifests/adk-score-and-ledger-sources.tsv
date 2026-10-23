@@ -1,0 +1,5 @@
+dataset	role	model_id	method	scope	asset_root	relative_path	bytes	sha256
+Adk	private-source-ledger			provenance-or-score-not-an-AI-model	asset-011	analysis-intakes.json	19174693	b315d5427787be28ca1ecf64ae5edc901e800386896b31ade29f21b16fbb8cda
+Adk	private-source-ledger			provenance-or-score-not-an-AI-model	asset-011	analysis/ADK_ELEVEN_METHODS/experimental_references.json	336989	bf1bb2205442966cf518990e6c8c51347646fbbbaa9bd96c47f7dced6608472a
+Adk	private-source-ledger			provenance-or-score-not-an-AI-model	asset-011	refold-confidence-join.json	25016136	90cea8b8ef803030f3498d842f0b5df91d7bf78eb1f246448882db6d1a496331
+Adk	reference-TM-score-table			provenance-or-score-not-an-AI-model	asset-012	per-model-reference-TM.csv	4261523	e9d8b766276c7b3cc6add2c24f7e554cf671208840950ce8580445853d902776

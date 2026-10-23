@@ -1,0 +1,5 @@
+dataset	role	model_id	method	scope	asset_root	relative_path	bytes	sha256
+Mad2	private-source-ledger			provenance-or-score-not-an-AI-model	asset-025	analysis-intakes.json	17008489	e99ab597934c5bd7790c8cd224072c2454c4dc2f34f9235547a88a0c965e9050
+Mad2	private-source-ledger			provenance-or-score-not-an-AI-model	asset-025	analysis/MAD2_ELEVEN_METHODS/experimental_references.json	207680	249b703cce658397ead12095651065d4e5c58808ad976ac1e6c4aaa7cd7b6c1c
+Mad2	private-source-ledger			provenance-or-score-not-an-AI-model	asset-025	refold-confidence-join.json	25159958	cda69c9e4c1fd6000d578da56add7c29d26f7f98077f3b72fda7b1846800321e
+Mad2	reference-TM-score-table			provenance-or-score-not-an-AI-model	asset-026	per-model-reference-TM.csv	4393675	37fe0343e82f0d4ff65ae800575ac3e154aa32e7fd0ca8f8763b4d587b9febbb

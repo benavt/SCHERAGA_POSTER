@@ -1,0 +1,6 @@
+dataset	role	model_id	method	scope	asset_root	relative_path	bytes	sha256
+shared	private-pair-ledger			shared-two-target-evidence-count-once	asset-029	paired-inputs.json	25660242	3af2618123b069981c68e47b344efc66a7471bdd5a286cfb30e96f14b665c8aa
+shared	shared-22000-pair-TM-table			shared-two-target-evidence-count-once	asset-030	original-refold-TM.csv	9603992	269ffe3fba009d3c388fff9b81697b1aed41342c393cb6829bce531560710152
+shared	shared-directional-raw-evidence			shared-two-target-evidence-count-once	asset-031	paired-TM-evidence.jsonl.gz	6084259	921aa5577eee862c74f614b2fea5d54fc116303cf7aec8d83ab063b2c29b7044
+shared	shared-independent-verification			shared-two-target-evidence-count-once	asset-032	completion.json	2495	bfbd170216a5b44de99194bdca9a57672f56ae09432ce18bb410ad9fcd4ee5f1
+shared	shared-scientific-review			shared-two-target-evidence-count-once	asset-033	root-scientific-review.json	1104	668dfbc92d24734c1bf6ced5b1ff79b72291dfadb345e3c59e63c91c8fd42179

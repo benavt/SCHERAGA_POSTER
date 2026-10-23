@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "branch": "main",
+  "tag": "REPLACE_ME_REVIEWED_DATASET_RELEASE_TAG",
+  "data_provenance": "Current eleven-method Mad2 cohort: 11,000 AIS predictions and 11,000 exact matched Boltz2 no-MSA template-only refolds. Construct sequence SHA-256 5e536a6215dbe1fb1b2f11628d6e182409edfa252fb3287058e81f192b5e8f26. All-model eleven-method analysis and intake records are retained. Original/refold pairing and 22,000 bidirectional two-target comparisons passed independent validation (44,000 directional results). The complete two-target score table SHA-256 is 269ffe3fba009d3c388fff9b81697b1aed41342c393cb6829bce531560710152; each target package must include only its 11,000 rows. Freeze the per-target membership and coordinate/score hashes before packaging. No new prediction or scientific regeneration is authorized by this config. This is the Mad2-alone monomer collection, not the earlier Mad2–peptide complex collection.",
+  "metadata": {
+    "title": "Mad2: all models and scores",
+    "upload_type": "dataset",
+    "publication_date": "REPLACE_ME_PUBLICATION_DATE",
+    "description": "This record contains all 11,000 original Artificial Intelligence Sampling (AIS) models of the 1KLQ-derived Mad2 monomer construct with 197 modeled residues and wild-type sequence at modeled positions, their 11,000 matched Boltz2 no-MSA template-only refolds, and associated scores. There are 1,000 original AIS models from each of eleven sampling methods: AF2/AFSample2, AF3/AFSample3, OpenDDE Exact, Boltz2 Exact, BioEmu v1.1, BioEmu2-preview, SPEACH_AF, AF-Cluster, AlphaFlow-PDB, AlphaFlow-MD and ESMFlow-PDB. The first four methods used 40% stochastic MSA column masking. Both BioEmu methods used native unmasked conditioning; the other five methods retained their own native sampling protocols. All generated AIS models are retained, including native physicality-filter failures, with passed, failed and unavailable flags kept distinct. Sampling counts are not equilibrium populations.\n\nOriginal AIS structures and their matched refolds are organized separately within this target record. Scores include native inference confidence where available, Boltz2 template-only refold pTM, per-residue refold pLDDT, experimental-reference TM similarity and original-AIS versus matched-refold TM similarity. Confidence values are not structural TM scores. Raw refold pLDDT values use their recorded 0–1 scale; any 0–100 display conversion is explicit. Missing native confidence is not replaced with refold confidence. Original/refold pairs are joined by model ID and both coordinate hashes.\n\nExperimental controls are PDB 1DUJ (open) and 1S2H (closed, R133A mutant), using the 175 shared resolved target positions 3–101 and 112–187. Controls, original deposited coordinates, comparison copies and source citations are separately identified and excluded from the 11,000 AIS-model and 11,000-refold counts. The 1S2H author-numbered R133A substitution maps to target position 125; unresolved residues and construct differences remain explicit. No residues are silently trimmed from deposited originals. Original/refold TM similarity instead uses the full 197-residue predicted construct, with bidirectional full US-align searches and average-length normalization; the reported score is the mean of both directions.\n\nThe package preserves model/run/checkpoint provenance, physical-filter flags, sequence/residue mappings, scored-model identities and applicable upstream notices. PDB archive sources retain their CC0 attribution; other data and code retain their applicable rights, including AF3 output terms. A blanket license is not inferred from a software repository license. BioEmu2-preview is identified by the v0.1.0rc0 release family, the actual inference commit and checkpoint revision in provenance.\n\nThe Adk and Mad2 resources are separate target-level Zenodo records. Each target record contains both the original AIS models and matched template-only refolds; these are separate file groups within the record.\n\nThis research sponsored in part by NIH/NIGMS T32GM141865 and NIH/NIA R25AG088409. Thanks goes also to members of the Montelione Lab for useful insight and discussion: T.A Ramelot, Y.J. Huang, B.A. Shurina, and L.E. Spaman.",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "keywords": [
+      "Mad2",
+      "AI sampling",
+      "protein conformational ensembles",
+      "Boltz2 template-only refold",
+      "no MSA",
+      "pTM",
+      "pLDDT",
+      "TM-score",
+      "1DUJ",
+      "1S2H",
+      "AF2 / AFSample2",
+      "AF3 / AFSample3",
+      "OpenDDE Exact",
+      "Boltz2 Exact",
+      "BioEmu v1.1",
+      "BioEmu2-preview v0.1.0rc0",
+      "SPEACH_AF",
+      "AF-Cluster",
+      "AlphaFlow-PDB",
+      "AlphaFlow-MD",
+      "ESMFlow-PDB"
+    ],
+    "contributors": [],
+    "communities": [],
+    "grants": [],
+    "related_identifiers": [
+      {
+        "identifier": "10.2210/pdb1duj/pdb",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.2210/pdb1s2h/pdb",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/73338",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/nsmb748",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s42003-025-07791-9",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/wallnerlab/AFsample2",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s41586-021-03819-2",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/alphafold",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.64898/2026.01.16.699904",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/wallnerlab/afsample3",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s41586-024-07487-w",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/alphafold3",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.48550/arXiv.2607.03787",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/aurekaresearch/OpenDDE",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1101/2025.06.14.659707",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/jwohlwend/boltz",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1126/science.adv9817",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/microsoft/bioemu",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/microsoft/bioemu2",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/microsoft/bioemu2/releases/tag/v0.1.0rc0",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.48550/arXiv.1802.03426",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/lmcinnes/umap",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1098/rsta.2015.0202",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s41587-026-03220-2",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.5281/zenodo.20370956",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/dhdegroot/Bonsai-data-representation",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s41592-022-01585-1",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/pylelab/USalign",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1103/PhysRevLett.129.238101",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/jproney/AF2Rank",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1371/journal.pcbi.1010483",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/RSvan/SPEACH_AF",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.1038/s41586-023-06832-9",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/HWaymentSteele/AF_Cluster",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "10.48550/arXiv.2402.04845",
+        "scheme": "doi",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/bjing2016/alphaflow",
+        "scheme": "url",
+        "relation": "references"
+      },
+      {
+        "identifier": "https://github.com/benavt/SCHERAGA_POSTER",
+        "scheme": "url",
+        "relation": "isSupplementTo"
+      }
+    ],
+    "references": [
+      "Luo X, Fang G, Coldiron M, Lin Y, Yu H, Kirschner MW, Wagner G. (PDB 1DUJ). (2000). Structure of the Mad2 spindle assembly checkpoint protein and its interaction with Cdc20. Nature Structural Biology 7, 224–229. doi:10.1038/73338.",
+      "Luo X, Tang Z, Xia G, Wassmann K, Matsumoto T, Rizo J, Yu H. (PDB 1S2H). (2004). The Mad2 spindle checkpoint protein has two distinct natively folded states. Nature Structural & Molecular Biology 11, 338–345. doi:10.1038/nsmb748.",
+      "Kalakoti Y, Wallner B. (2025). AFsample2 predicts multiple conformations and ensembles with AlphaFold2. Communications Biology 8, 373. doi:10.1038/s42003-025-07791-9. https://github.com/wallnerlab/AFsample2.",
+      "Jumper J, Evans R, Pritzel A, Green T, Figurnov M, Ronneberger O, Tunyasuvunakool K, Bates R, Žídek A, Potapenko A, Bridgland A, Meyer C, Kohl SAA, Ballard AJ, Cowie A, Romera-Paredes B, Nikolov S, Jain R, Adler J, Back T, Petersen S, Reiman D, Clancy E, Zielinski M, Steinegger M, Pacholska M, Berghammer T, Bodenstein S, Silver D, Vinyals O, Senior AW, Kavukcuoglu K, Kohli P, Hassabis D. (2021). Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589. doi:10.1038/s41586-021-03819-2. https://github.com/google-deepmind/alphafold.",
+      "Kalakoti Y, Wallner B. (2026). AFsample3: generating and selecting multiple conformational states with AlphaFold3. bioRxiv. doi:10.64898/2026.01.16.699904. https://github.com/wallnerlab/afsample3.",
+      "Abramson J, Adler J, Dunger J, Evans R, Green T, Pritzel A, Ronneberger O, Willmore L, Ballard AJ, Bambrick J, Bodenstein SW, Evans DA, Hung CC, O’Neill M, Reiman D, Tunyasuvunakool K, Wu Z, Žemgulytė A, Arvaniti E, Beattie C, Bertolli O, Bridgland A, Cherepanov A, Congreve M, Cowen-Rivers AI, Cowie A, Figurnov M, Fuchs FB, Gladman H, Jain R, Khan YA, Low CMR, Perlin K, Potapenko A, Savy P, Singh S, Stecula A, Thillaisundaram A, Tong C, Yakneen S, Zhong ED, Zielinski M, Žídek A, Bapst V, Kohli P, Jaderberg M, Hassabis D, Jumper JM. (2024). Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature 630, 493–500. doi:10.1038/s41586-024-07487-w. https://github.com/google-deepmind/alphafold3.",
+      "Aureka AI OpenDDE project. (2026). Folding, reasoning, and scaling with open-source drug discovery engine. arXiv, 2607.03787. doi:10.48550/arXiv.2607.03787. https://github.com/aurekaresearch/OpenDDE.",
+      "Passaro S, Corso G, Wohlwend J, Reveiz M, Thaler S, Somnath VR, Getz N, Portnoi T, Roy J, Stark H, Kwabi-Addo D, Beaini D, Jaakkola T, Barzilay R. (2025). Boltz-2: towards accurate and efficient binding affinity prediction. bioRxiv. doi:10.1101/2025.06.14.659707. https://github.com/jwohlwend/boltz.",
+      "Lewis S, Hempel T, Jiménez-Luna J, Gastegger M, Xie Y, Foong AYK, Satorras VG, Abdin O, Veeling BS, Zaporozhets I, Chen Y, Yang S, Foster AE, Schneuing A, Nigam J, Barbero F, Stimper V, Campbell A, Yim J, Lienen M, Shi Y, Zheng S, Schulz H, Munir U, Sordillo R, Tomioka R, Clementi C, Noé F. (2025). Scalable emulation of protein equilibrium ensembles with generative deep learning. Science 389, eadv9817. doi:10.1126/science.adv9817. https://github.com/microsoft/bioemu.",
+      "Microsoft Research AI for Science. (2026). BioEmu2: a foundation model for biomolecular structure and dynamics. Software, BioEmu2-preview v0.1.0rc0. https://github.com/microsoft/bioemu2. v0.1.0rc0 release, 20 October 2026.",
+      "McInnes L, Healy J, Melville J. (2018; revised 2020). UMAP: uniform manifold approximation and projection for dimension reduction. arXiv, 1802.03426. doi:10.48550/arXiv.1802.03426. https://github.com/lmcinnes/umap.",
+      "Jolliffe IT, Cadima J. (2016). Principal component analysis: a review and recent developments. Philosophical Transactions of the Royal Society A 374, 20150202. doi:10.1098/rsta.2015.0202.",
+      "van der Maaten L, Hinton G. (2008). Visualizing data using t-SNE. Journal of Machine Learning Research 9, 2579–2605. JMLR article. https://lvdmaaten.github.io/tsne/.",
+      "de Groot DH, Morillo Leonardo SX, Pachkov M, van Nimwegen E. (2026). Bonsai reconstructs tree representations for distortion-free visualization and exploration of high-dimensional data. Nature Biotechnology, advance online publication. doi:10.1038/s41587-026-03220-2. software doi:10.5281/zenodo.20370956. https://github.com/dhdegroot/Bonsai-data-representation.",
+      "Zhang C, Shine M, Pyle AM, Zhang Y. (2022). US-align: universal structure alignments of proteins, nucleic acids, and macromolecular complexes. Nature Methods 19, 1109–1115. doi:10.1038/s41592-022-01585-1. https://github.com/pylelab/USalign.",
+      "Roney JP, Ovchinnikov S. (2022). State-of-the-art estimation of protein model accuracy using AlphaFold. Physical Review Letters 129, 238101. doi:10.1103/PhysRevLett.129.238101. https://github.com/jproney/AF2Rank.",
+      "Stein RA, Mchaourab HS. (2022). SPEACH_AF: sampling protein ensembles and conformational heterogeneity with AlphaFold2. PLOS Computational Biology 18, e1010483. doi:10.1371/journal.pcbi.1010483. https://github.com/RSvan/SPEACH_AF.",
+      "Wayment-Steele HK, Ojoawo A, Otten R, Apitz JM, Pitsawong W, Hömberger M, Ovchinnikov S, Colwell L, Kern D. (2024). Predicting multiple conformations via sequence clustering and AlphaFold2. Nature 625, 832–839. doi:10.1038/s41586-023-06832-9. https://github.com/HWaymentSteele/AF_Cluster.",
+      "Jing B, Berger B, Jaakkola T. (2024). AlphaFold meets flow matching for generating protein ensembles. Proceedings of Machine Learning Research 235, 22277–22303. ICML 2024 proceedings. doi:10.48550/arXiv.2402.04845. https://github.com/bjing2016/alphaflow."
+    ]
+  },
+  "assets": [
+    {
+      "role": "inputs",
+      "name": "target-and-settings",
+      "path": "inputs",
+      "description": "Target sequence, selected settings and run/engine/checkpoint provenance. Include only inputs cleared for redistribution; no private runtime bindings, weights or bulk MSA databases."
+    },
+    {
+      "role": "outputs",
+      "name": "original-ais-models",
+      "path": "models/ais",
+      "description": "Exactly 11,000 original AIS predictions, organized by the eleven method keys; one canonical coordinate file per model ID. Retain native physicality-filter failures with flags."
+    },
+    {
+      "role": "outputs",
+      "name": "boltz2-template-only-refolds",
+      "path": "models/boltz2_refolds",
+      "description": "Exactly 11,000 matched Boltz2 no-MSA template-only refold coordinate files. Preserve their identities separately from original AIS coordinates."
+    },
+    {
+      "role": "reports",
+      "name": "all-scores-and-confidence",
+      "path": "scores",
+      "description": "Native confidence where available, matched refold pTM and per-residue pLDDT, original-AIS versus experimental-reference TM tables, original-AIS versus refold TM tables, and exact ID/hash joins. Preserve units and missing values; no bulky PAE matrices or latents."
+    },
+    {
+      "role": "inputs",
+      "name": "experimental-pdb-controls",
+      "path": "references",
+      "description": "Separately attributed original PDB CIFs, protein-only comparison copies, reference catalog, source/publication DOIs, SHA-256 values and reversible residue maps. Experimental controls are not AIS predictions or refolds."
+    },
+    {
+      "role": "reports",
+      "name": "joint-analysis",
+      "path": "analysis",
+      "description": "Reviewed existing shared-residue masks, clustering/projection outputs, variance/TM matrices, Bonsai trees and representative-state selections. Exclude draft posters with the historical six-method abstract; no new analysis is implied."
+    },
+    {
+      "role": "provenance",
+      "name": "model-lineage-and-rights",
+      "path": "provenance",
+      "description": "Complete model inventory, original/native/refold identities and hashes, physical-filter status, source/run/settings/checkpoint receipts, licenses/notices and a reviewed rights manifest. Replace private paths with documented portable locators."
+    }
+  ],
+  "draft_review": {
+    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_UPLOAD_READY",
+    "authorization": "Local config drafting only; packaging, Zenodo access, DOI reservation, uploads and publication remain with the user/other agent.",
+    "record_layout": "One record per target; original AIS models and refolds are separate file groups inside that record.",
+    "access_right": "Open is proposed and requires owner confirmation.",
+    "creator_choice": "The poster two-author list is proposed inline. The older shared creator profile is unchanged and is not inherited because it contains an unresolved B entry.",
+    "required_before_execution": [
+      "Review scientific description, title and final cohort membership",
+      "Confirm creator names/order, ORCIDs and affiliations",
+      "Choose actual publication date and reviewed release tag",
+      "Resolve scoped rights and a valid record-level license; preserve AF3 output notices and derivatives review",
+      "Confirm access status and funding identifiers",
+      "Stage and privacy-review exactly the assets below; freeze per-target hashes; exclude draft posters, secrets, model weights, bulk PAE/MSA/latent files",
+      "Only after author review should the separate deposition agent package or upload"
+    ],
+    "funding_numbers_to_resolve": [
+      "T32GM141865",
+      "R25AG088409"
+    ],
+    "funding_note": "No unverified controlled-vocabulary grant IDs are inserted. R25AG088409 must not be classified as T32 from the literal acknowledgment wording.",
+    "expected_content": {
+      "AIS_models": 11000,
+      "matched_template_only_refolds": 11000,
+      "sampling_methods": 11,
+      "AIS_models_per_method": 1000,
+      "experimental_PDB_entries": 2,
+      "full_construct_residues": 197,
+      "experimental_shared_CA_positions": 175,
+      "sequence_sha256": "5e536a6215dbe1fb1b2f11628d6e182409edfa252fb3287058e81f192b5e8f26",
+      "method_counts": {
+        "AFSample2_40pct": 1000,
+        "AFSample3_40pct": 1000,
+        "AF_Cluster_native": 1000,
+        "AlphaFlow_MD_native": 1000,
+        "AlphaFlow_PDB_native": 1000,
+        "BioEmu2_preview_native_unmasked": 1000,
+        "BioEmu_v1p1_native_unmasked": 1000,
+        "Boltz2_Exact_40pct": 1000,
+        "ESMFlow_PDB_native": 1000,
+        "OpenDDE_Exact_40pct": 1000,
+        "SPEACH_AF_native": 1000
+      },
+      "include_physical_filter_failures": true,
+      "PDB_controls_counted_as_AIS_or_refolds": false
+    },
+    "staging": "Every asset path is relative to a future per-target data-root. That tree has not been created by this drafting task.",
+    "existing_draft_id": null,
+    "DOI": null
+  },
+  "creator_profile": "../creators.json"
+}
