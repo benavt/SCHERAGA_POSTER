@@ -5,6 +5,8 @@ Set FLEET_ROOT to the private Fleet checkout; no machine binding is committed.
 Only the explicitly public repository-owner URL is exempt from private user matches.
 """
 import importlib.util
+import ast
+import subprocess
 import os
 from pathlib import Path
 import re
@@ -24,6 +26,29 @@ def extra_violations(content):
     if PRIVATE_ADDRESS.search(content): errors.append("private network address")
     return errors
 
+
+def credential_values(directory):
+    """Read only known ignored credential files; never expose their contents."""
+    directory=Path(directory)
+    if any(p.is_symlink() for p in [directory, directory.parent]):
+        raise ValueError("Private credential directory must not be a symlink.")
+    values=[]
+    for name, variable in [("production.env", "ZENODO_ACCESS_TOKEN"), ("sandbox.env", "ZENODO_SANDBOX_TOKEN")]:
+        path=directory/name
+        if path.is_symlink(): raise ValueError("Private credential file must not be a symlink.")
+        if not path.exists(): continue
+        for line in path.read_text().splitlines():
+            prefix="export "+variable+"="
+            if line.startswith(prefix):
+                value=ast.literal_eval(line[len(prefix):])
+                if isinstance(value,str) and value: values.append(value)
+    return values
+
+def project_credentials():
+    common=Path(subprocess.check_output(["git", "rev-parse", "--git-common-dir"], cwd=ROOT, text=True).strip())
+    if not common.is_absolute(): common=(ROOT/common).resolve()
+    return credential_values(common.parent/"local"/"zenodo")
+
 def main():
     fleet_root = os.environ.get("FLEET_ROOT")
     if not fleet_root:
@@ -32,7 +57,7 @@ def main():
     source = Path(fleet_root).resolve()/"scripts/check_privacy.py"
     spec=importlib.util.spec_from_file_location("fleet_privacy", source)
     module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
-    values=module.private_values(); secrets=module.notification_secrets()
+    values=module.private_values(); secrets=module.notification_secrets()+project_credentials()
     module.ROOT=ROOT
     module.ALLOWED_FILES.update({"LICENSE", "LICENSE-CONTENT.md", "NOTICE.md", "CITATION.cff"})
     module.ALLOWED_DIRS.update({"tools", "src", "config", "poster", "site", "data", "zenodo"})

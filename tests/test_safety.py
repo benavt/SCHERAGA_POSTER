@@ -1,5 +1,6 @@
 import importlib.util
 import os
+import tempfile
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
@@ -23,6 +24,15 @@ class Safety(unittest.TestCase):
         u=SimpleNamespace(SOURCE_PATHS=[],main=lambda a:calls.append(a) or 0)
         with patch.dict(os.environ,{},clear=True): self.assertEqual(m.main(["verify"],u),0)
         self.assertEqual(calls,[["verify"]]); self.assertEqual(set(u.HOSTS),{"sandbox"})
+    def test_private_project_credentials_are_available_to_exact_match_gate(self):
+        m=load("check_privacy")
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)/"local"/"zenodo";root.mkdir(parents=True)
+            (root/"production.env").write_text("export ZENODO_ACCESS_TOKEN='private-canary-value'\n")
+            self.assertEqual(m.credential_values(root),["private-canary-value"])
+            (root/"sandbox.env").symlink_to(root/"production.env")
+            with self.assertRaises(ValueError):m.credential_values(root)
+
     def test_locations_and_public_owner(self):
         m=load("check_privacy")
         for value in [b"/"+b"home"+b"/private-user/data", b"192"+b".168.1.23", b"private-node"+b".ts.net"]:
