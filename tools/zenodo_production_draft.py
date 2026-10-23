@@ -116,6 +116,18 @@ def main(argv=None, upstream=None):
         spec.loader.exec_module(upstream)
     upstream.HOSTS = {"production": "https://zenodo.org"}
     upstream.SOURCE_PATHS = list(dict.fromkeys(upstream.SOURCE_PATHS + SOURCE_ADDITIONS))
+    config_path = option(argv, "--config")
+    if argv[0] in {"plan", "prepare"} and config_path:
+        try:
+            config = upstream.load(config_path)
+            if any(isinstance(a, dict) and "manifest" in a for a in config.get("assets", [])):
+                adapter_spec = importlib.util.spec_from_file_location("zenodo_manifest_assets", ROOT / "tools/zenodo_manifest_assets.py")
+                adapter_module = importlib.util.module_from_spec(adapter_spec)
+                adapter_spec.loader.exec_module(adapter_module)
+                adapter_module.install(upstream, config_path)
+        except (OSError, ValueError, TypeError, KeyError):
+            print("Production draft gate: Cannot load manifest asset configuration.", file=sys.stderr)
+            return 2
     sidecar = None
     if argv[0] == "draft":
         if option(argv, "--environment") is None:

@@ -30,6 +30,9 @@ class Safety(unittest.TestCase):
             root=Path(directory)/"local"/"zenodo";root.mkdir(parents=True)
             (root/"production.env").write_text("export ZENODO_ACCESS_TOKEN='private-canary-value'\n")
             self.assertEqual(m.credential_values(root),["private-canary-value"])
+            (root/"production.env").write_text("export ZENODO_ACCESS_TOKEN=private-canary-value\n")
+            with self.assertRaises(ValueError) as error:m.credential_values(root)
+            self.assertNotIn("private-canary-value",str(error.exception))
             (root/"sandbox.env").symlink_to(root/"production.env")
             with self.assertRaises(ValueError):m.credential_values(root)
 

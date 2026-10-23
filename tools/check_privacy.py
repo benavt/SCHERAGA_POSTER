@@ -40,7 +40,10 @@ def credential_values(directory):
         for line in path.read_text().splitlines():
             prefix="export "+variable+"="
             if line.startswith(prefix):
-                value=ast.literal_eval(line[len(prefix):])
+                try:
+                    value=ast.literal_eval(line[len(prefix):])
+                except (ValueError,SyntaxError):
+                    raise ValueError("Cannot parse private credential assignment; value withheld.") from None
                 if isinstance(value,str) and value: values.append(value)
     return values
 
