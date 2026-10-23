@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "source": "poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf",
+  "source_sha256": "85cdfe7618242c70ebbcfdd0c4d8718abfd027e1a363a9f84b1cf609d2b1a7d3",
+  "output_sha256": "24acc7c5b3bef39b981a32e192c4488138a6f80006cf20a6b2f963057238b52f",
+  "bytes": 2087975,
+  "source_bytes": 23999597,
+  "reduction_percent": 91.29995807846274,
+  "dimensions_inches": [
+    36,
+    48
+  ],
+  "raster_dimensions": [
+    4320,
+    5760
+  ],
+  "dpi": 120,
+  "jpeg_quality": 60,
+  "chroma_subsampling": "4:2:0",
+  "pages": 1,
+  "hyperlinks_preserved": 56,
+  "original_unchanged": true,
+  "visual_checks": [
+    "full_page",
+    "small_reference_text",
+    "captions",
+    "plot_labels"
+  ],
+  "filename": "SCHERAGA_poster_36x48_print_compact_v014.pdf"
+}
