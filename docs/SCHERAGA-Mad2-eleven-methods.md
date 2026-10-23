@@ -1,6 +1,6 @@
 # Mad2 eleven-method update
 
-The current Mad2 analysis contains **11,000 original AIS monomer predictions**, 1,000 from each of eleven methods, plus the unscored experimental controls [1DUJ open](https://www.rcsb.org/structure/1DUJ) and [1S2H closed](https://www.rcsb.org/structure/1S2H). Adk remains at 6,000 models. All former native physicality-filter failures are retained.
+The current Mad2 analysis contains **11,000 original AIS monomer predictions**, 1,000 from each of eleven methods, plus the unscored experimental controls [1DUJ open](https://www.rcsb.org/structure/1DUJ) and [1S2H closed](https://www.rcsb.org/structure/1S2H). The corresponding Adk analysis also contains 11,000 predictions; see its [results page](SCHERAGA-Adk-eleven-methods.md). All former native physicality-filter failures are retained.
 
 The new 5,000-model collection adds SPEACH_AF, AF-Cluster, AlphaFlow-PDB, AlphaFlow-MD and ESMFlow-PDB to the original six methods. Each has a hash-bound Boltz2 exact no-MSA template-only refold, with literal `/ptm` scores and sequence-validated residue pLDDT. Confidence is mapped to the original AIS structures; refold coordinates do not replace the sampled coordinates.
 
@@ -32,10 +32,10 @@ The new movie search screened all 11,000 predictions; 8,853 passed the unchanged
 
 The virtual all-medoid TM grid contains 15 prediction representatives and both PDB controls. The animation-inclusive Bonsai additionally contains all 100 displayed movie models.
 
-**The abstract is deliberately unchanged at the author’s request.** Its previous counts and method list will be revised separately; current figure captions and this page describe the expanded cohort.
+The manuscript abstract is maintained separately from these frozen numerical results; the current study cohort is 22,000 original predictions.
 
 The reusable model-label configuration is [`SCHERAGA_Mad2_eleven_methods`](../src/app/templates/model_type_configs/SCHERAGA_Mad2_eleven_methods.json). Select this schema when reusing the analysis; it preserves the original six-method rules and adds specific model-name/source-path rules for the five new methods.
 
 ## Preservation and delivery
 
-Earlier analyses, poster versions, raw coordinates, movie media, Adk figures and reference structures are preserved. The downloadable PyMOL session retains the prior comparison states; it does not yet include the new physical-poster S1, AF-Cluster 0675. The update uses local CPU analysis only, with no new folding/refolding jobs or paid calls. Both the print PDF and smaller phone PDF are linked from the [branch README](../README.md#downloads-and-links). Website and Zenodo links remain unpublished placeholders.
+Earlier analyses, poster versions, raw coordinates, movie media, Adk figures and reference structures are preserved. The downloadable PyMOL session retains the prior comparison states; it does not yet include the new physical-poster S1, AF-Cluster 0675. The update uses local CPU analysis only, with no new folding/refolding jobs or paid calls. Both the print PDF and smaller phone PDF are linked from the [distribution guide](../poster/README.md). Website and Zenodo links remain unpublished placeholders.

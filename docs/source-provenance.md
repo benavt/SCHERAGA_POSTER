@@ -7,3 +7,5 @@ Included: SCHERAGA study/reference/display documentation, two native poster-pane
 `tools/zenodo_deposition.py` and the upstream implementation notes derive from MIT-licensed source commit `6aee527d69d53f71f9e481b28e3f75efb2974704`; no live Zenodo requests or credentials were used during preparation. The project Sandbox runbook narrows the upstream tool’s capabilities: no production or publication, no invented config, and no tags/releases without a separate explicit yes.
 
 Private infrastructure wording and paths are removed from public copies while preserving scientific content. The MIT source copyright is retained in `LICENSE`; authored-content licensing is separate. No raw model, score-array, bulk archive, runtime binding, token or private history is included.
+
+Public-facing study-guide and extension-page introductions are reconciled to the final eleven-method cohort; historical six-method status claims and development-only links are replaced with current companion links. Numerical results, frozen media distinctions and source pins are preserved.

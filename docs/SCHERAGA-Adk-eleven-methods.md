@@ -34,8 +34,8 @@ Projection coloring uses verified Boltz2 template-only refold pTM with observed 
 
 The reusable model-label configuration is [`SCHERAGA_Adk_eleven_methods`](../src/app/templates/model_type_configs/SCHERAGA_Adk_eleven_methods.json). It preserves all original rules and adds specific model-name/source-path rules for the five new methods.
 
-**The poster abstract is deliberately unchanged at the author’s request.** Its previous counts and method list will be revised separately; current figures and these results pages describe the expanded cohort. The [Mad2 extension page](SCHERAGA-Mad2-eleven-methods.md) records the preceding update; its statement that Adk then had 6,000 models is historical.
+The manuscript abstract is maintained separately from these frozen numerical results; the current study cohort is 22,000 original predictions.
 
 ## Preservation and delivery
 
-Mad2 coordinates, scores, projections, tree, figures and movie remain unchanged. Earlier Adk analyses, raw coordinates, movies and PDB sources are preserved. The downloadable PyMOL session retains the prior comparison states and does not yet contain the new physical Adk S1/S2. No new folding/refolding jobs, paid calls or environment installs were used. Smaller phone and full-resolution print PDFs are available from the [branch README](../README.md#downloads-and-links); website and the two target-specific Zenodo links remain unpublished placeholders.
+Mad2 coordinates, scores, projections, tree, figures and movie remain unchanged. Earlier Adk analyses, raw coordinates, movies and PDB sources are preserved. The downloadable PyMOL session retains the prior comparison states and does not yet contain the new physical Adk S1/S2. No new folding/refolding jobs, paid calls or environment installs were used. Smaller phone and full-resolution print PDFs are available from the [distribution guide](../poster/README.md); website and the two target-specific Zenodo links remain unpublished placeholders.
