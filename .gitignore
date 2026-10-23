@@ -1,0 +1,41 @@
+# Private state and credentials
+local/
+.env
+.env.*
+!.env.example
+*token*
+*secret*
+*.pem
+*.key
+*.p12
+credentials*
+# Scientific bulk outputs stay in separately verified archives/depositions
+outputs/
+runs/
+raw/
+models/
+cache/
+*.pdb
+*.cif
+*.mmcif
+*.npz
+*.npy
+*.pkl
+*.pt
+*.ckpt
+*.pse
+*.dcd
+*.xtc
+*.trr
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.pdf
+*.pptx
+# Generated site files are reviewed separately before deliberate inclusion
+site/dist/
+site/upload/
+__pycache__/
+*.pyc
+.DS_Store

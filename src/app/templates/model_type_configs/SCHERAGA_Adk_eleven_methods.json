@@ -1,0 +1,1560 @@
+{
+  "schema_version": 2,
+  "display_name": "Model Origin",
+  "rules": [
+    {
+      "key": "scheraga_speachaf_native",
+      "name": "SPEACH_AF",
+      "enabled": true,
+      "priority": -1500,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "SPEACH_AF_native"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "SPEACH_AF",
+        "model_version": "speachaf"
+      },
+      "color": "#CC6677",
+      "notes": "New Adk monomer native-method cohort;1,000 source-bound predictions. Boltz2 refold confidence kept separate from native score fields."
+    },
+    {
+      "key": "scheraga_afcluster_native",
+      "name": "AF-Cluster",
+      "enabled": true,
+      "priority": -1499,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AF_Cluster_native"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AF-Cluster",
+        "model_version": "afcluster"
+      },
+      "color": "#999933",
+      "notes": "New Adk monomer native-method cohort;1,000 source-bound predictions. Boltz2 refold confidence kept separate from native score fields."
+    },
+    {
+      "key": "scheraga_alphaflow_pdb_native",
+      "name": "AlphaFlow-PDB",
+      "enabled": true,
+      "priority": -1498,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AlphaFlow_PDB_native"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AlphaFlow-PDB",
+        "model_version": "alphaflow-pdb"
+      },
+      "color": "#882255",
+      "notes": "New Adk monomer native-method cohort;1,000 source-bound predictions. Boltz2 refold confidence kept separate from native score fields."
+    },
+    {
+      "key": "scheraga_alphaflow_md_native",
+      "name": "AlphaFlow-MD",
+      "enabled": true,
+      "priority": -1497,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AlphaFlow_MD_native"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AlphaFlow-MD",
+        "model_version": "alphaflow-md"
+      },
+      "color": "#44AA99",
+      "notes": "New Adk monomer native-method cohort;1,000 source-bound predictions. Boltz2 refold confidence kept separate from native score fields."
+    },
+    {
+      "key": "scheraga_esmflow_pdb_native",
+      "name": "ESMFlow-PDB",
+      "enabled": true,
+      "priority": -1496,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "ESMFlow_PDB_native"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "ESMFlow-PDB",
+        "model_version": "esmflow-pdb"
+      },
+      "color": "#88CCEE",
+      "notes": "New Adk monomer native-method cohort;1,000 source-bound predictions. Boltz2 refold confidence kept separate from native score fields."
+    },
+    {
+      "key": "1ake_afsample2_mask40",
+      "name": "AFSample2 (40%)",
+      "enabled": true,
+      "priority": -100,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample2 (40%)",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1ake_afsample3_mask40",
+      "name": "AFSample3 (40%)",
+      "enabled": true,
+      "priority": -99,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3 (40%)",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1ake_opendde_mask40",
+      "name": "OpenDDE Exact (40%)",
+      "enabled": true,
+      "priority": -98,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "OpenDDE_Exact_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "OpenDDE Exact (40%)",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1ake_boltz2_mask40",
+      "name": "Boltz2 Exact (40%)",
+      "enabled": true,
+      "priority": -97,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "Boltz2_Exact_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz2 Exact (40%)",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1ake_pdb_reference_7x7s",
+      "name": "PDB reference: 7X7S apo NMR",
+      "enabled": true,
+      "priority": -3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_7X7S_apo_NMR"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 7X7S apo NMR",
+        "model_version": null
+      },
+      "color": "#000000",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "1ake_pdb_reference_1z83",
+      "name": "PDB reference: 1Z83 AP5A crystal",
+      "enabled": true,
+      "priority": -2,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_1Z83_AP5A_Xray"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 1Z83 AP5A crystal",
+        "model_version": null
+      },
+      "color": "#E69F00",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "1ake_pdb_reference_2c95",
+      "name": "PDB reference: 2C95 AP4A crystal",
+      "enabled": true,
+      "priority": -1,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_2C95_AP4A_Xray"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 2C95 AP4A crystal",
+        "model_version": null
+      },
+      "color": "#845EC2",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "1ake_afsample2_40pct",
+      "name": "AFSample2 (40%)",
+      "enabled": true,
+      "priority": 1,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample2 (40%)",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "1ake_afsample3_40pct",
+      "name": "AFSample3 (40%)",
+      "enabled": true,
+      "priority": 2,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3 (40%)",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "1ake_opendde_exact_40pct",
+      "name": "OpenDDE Exact (40%)",
+      "enabled": true,
+      "priority": 3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "OpenDDE_Exact_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "OpenDDE Exact (40%)",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "1ake_boltz2_exact_40pct",
+      "name": "Boltz2 Exact (40%)",
+      "enabled": true,
+      "priority": 4,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "Boltz2_Exact_40pct"
+        ],
+        "contains_all": [
+          "1AKE"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz2 Exact (40%)",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "scheraga_bioemu2_preview_native_unmasked",
+      "name": "BioEmu2 preview (native unmasked)",
+      "enabled": true,
+      "priority": -1100,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "BioEmu2_preview_native_unmasked"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "BioEmu2 preview (native unmasked)",
+        "model_version": "bioemu2-preview"
+      },
+      "color": "#D55E00",
+      "notes": "Native unmasked equilibrium EDM,200 steps; exact native physicality-passing models. No pTM/pLDDT/ranking confidence. Raw1KLQ is fullA197+B12; shared-state analysis uses an explicitly derived A-only copy."
+    },
+    {
+      "key": "scheraga_bioemu_v11_native_unmasked",
+      "name": "BioEmu v1.1 (native unmasked)",
+      "enabled": true,
+      "priority": -1000,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "BioEmu_v1p1_native_unmasked"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "BioEmu v1.1 (native unmasked)",
+        "model_version": "bioemu-v1.1"
+      },
+      "color": "#E69F00",
+      "notes": "Native unmasked MSA, backbone/C\u03b2 samples; physical filter primary subset. No pTM/ipTM/pLDDT; Mad2 has no peptide."
+    },
+    {
+      "key": "mad2_pdb_1s2h",
+      "name": "PDB 1S2H: unliganded closed, R133A mutant",
+      "enabled": true,
+      "priority": -197,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_1S2H"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB 1S2H: unliganded closed, R133A mutant",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "Explicit experimental control from the approved catalog; never confidence ranked."
+    },
+    {
+      "key": "mad2_pdb_3gmh",
+      "name": "PDB 3GMH: reported intermediate, open-like dimer protomer",
+      "enabled": true,
+      "priority": -198,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_3GMH"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB 3GMH: reported intermediate, open-like dimer protomer",
+        "model_version": null
+      },
+      "color": "#D55E00",
+      "notes": "Explicit experimental control from the approved catalog; never confidence ranked."
+    },
+    {
+      "key": "mad2_pdb_1klq",
+      "name": "PDB 1KLQ: MBP1-bound closed",
+      "enabled": true,
+      "priority": -199,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_1KLQ"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB 1KLQ: MBP1-bound closed",
+        "model_version": null
+      },
+      "color": "#0072B2",
+      "notes": "Explicit experimental control from the approved catalog; never confidence ranked."
+    },
+    {
+      "key": "mad2_pdb_1duj",
+      "name": "PDB 1DUJ: open, C-terminally truncated",
+      "enabled": true,
+      "priority": -200,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_1DUJ"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB 1DUJ: open, C-terminally truncated",
+        "model_version": null
+      },
+      "color": "#009E73",
+      "notes": "Explicit experimental control from the approved catalog; never confidence ranked."
+    },
+    {
+      "key": "7x7s_afsample2_mask40",
+      "name": "AFSample2 (40%)",
+      "enabled": true,
+      "priority": -100,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample2 (40%)",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "7x7s_afsample3_mask40",
+      "name": "AFSample3 (40%)",
+      "enabled": true,
+      "priority": -99,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3 (40%)",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "7x7s_opendde_mask40",
+      "name": "OpenDDE Exact (40%)",
+      "enabled": true,
+      "priority": -98,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "OpenDDE_Exact_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "OpenDDE Exact (40%)",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "7x7s_boltz2_mask40",
+      "name": "Boltz2 Exact (40%)",
+      "enabled": true,
+      "priority": -97,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "Boltz2_Exact_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz2 Exact (40%)",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1klq_afsample2_mask40",
+      "name": "AFSample2 (40%)",
+      "enabled": true,
+      "priority": -100,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2_40pct"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample2 (40%)",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1klq_afsample3_mask40",
+      "name": "AFSample3 (40%)",
+      "enabled": true,
+      "priority": -99,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3_40pct"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3 (40%)",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1klq_opendde_mask40",
+      "name": "OpenDDE Exact (40%)",
+      "enabled": true,
+      "priority": -98,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "OpenDDE_Exact_40pct"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "OpenDDE Exact (40%)",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "1klq_boltz2_mask40",
+      "name": "Boltz2 Exact (40%)",
+      "enabled": true,
+      "priority": -97,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "Boltz2_Exact_40pct"
+        ],
+        "contains_all": [
+          "1KLQ"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz2 Exact (40%)",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "Run-specific exact method tokens, all models use 40% column masking."
+    },
+    {
+      "key": "7x7s_pdb_reference_7x7s",
+      "name": "PDB reference: 7X7S apo NMR",
+      "enabled": true,
+      "priority": -3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_7X7S_apo_NMR"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 7X7S apo NMR",
+        "model_version": null
+      },
+      "color": "#000000",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "7x7s_pdb_reference_1z83",
+      "name": "PDB reference: 1Z83 AP5A crystal",
+      "enabled": true,
+      "priority": -2,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_1Z83_AP5A_Xray"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 1Z83 AP5A crystal",
+        "model_version": null
+      },
+      "color": "#E69F00",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "7x7s_pdb_reference_2c95",
+      "name": "PDB reference: 2C95 AP4A crystal",
+      "enabled": true,
+      "priority": -1,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "PDB_REF_2C95_AP4A_Xray"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "PDB reference: 2C95 AP4A crystal",
+        "model_version": null
+      },
+      "color": "#845EC2",
+      "notes": "Experimental human AK1 reference; retained PDB ID, state, chain and NMR model identity. Original B-factors are not prediction confidence. Sequence differences and residue mapping are recorded in reference-inventory.json."
+    },
+    {
+      "key": "7x7s_afsample2_40pct",
+      "name": "AFSample2 (40%)",
+      "enabled": true,
+      "priority": 1,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample2 (40%)",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "7x7s_afsample3_40pct",
+      "name": "AFSample3 (40%)",
+      "enabled": true,
+      "priority": 2,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3 (40%)",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "7x7s_opendde_exact_40pct",
+      "name": "OpenDDE Exact (40%)",
+      "enabled": true,
+      "priority": 3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "OpenDDE_Exact_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "OpenDDE Exact (40%)",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "7x7s_boltz2_exact_40pct",
+      "name": "Boltz2 Exact (40%)",
+      "enabled": true,
+      "priority": 4,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "Boltz2_Exact_40pct"
+        ],
+        "contains_all": [
+          "7X7S"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz2 Exact (40%)",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "7X7S method-specific analysis tokens; all runs use 40% MSA column masking. Boltz2 is classified only if recovered output is imported."
+    },
+    {
+      "key": "experimental_pdb",
+      "name": "Experimental",
+      "enabled": true,
+      "priority": 0,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "__ExperimentalPDB__"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Experimental",
+        "model_version": "No Version"
+      },
+      "color": "#CC79A7",
+      "notes": "Imported sequence-verified experimental PDB protein chains. Deposited B factors are not prediction confidence. Explicit No Version prevents predictor tokens in parent paths from assigning a generation-model version."
+    },
+    {
+      "key": "5ntase_afsample3",
+      "name": "AFSample3",
+      "enabled": true,
+      "priority": 3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "5NTase_P07024__AFSample3"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "5NTase imported analysis paths preserve physical-filter groups and original frame provenance."
+    },
+    {
+      "key": "rbp_bioemu_gated",
+      "name": "BioEMU gated at filtering",
+      "enabled": true,
+      "priority": 1,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "BioEMU_gated_at_filtering"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "BioEMU gated at filtering",
+        "model_version": null
+      },
+      "color": "#D55E00",
+      "notes": "RBP imported analysis paths preserve physical-filter groups and original frame provenance."
+    },
+    {
+      "key": "rbp_bioemu_passing",
+      "name": "BioEMU passing filtering",
+      "enabled": true,
+      "priority": 2,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "BioEMU_passing_filtering"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "BioEMU passing filtering",
+        "model_version": null
+      },
+      "color": "#009E73",
+      "notes": "RBP imported analysis paths preserve physical-filter groups and original frame provenance."
+    },
+    {
+      "key": "rbp_afsample3",
+      "name": "AFSample3",
+      "enabled": true,
+      "priority": 3,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "RBP_P02925__AFSample3"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFSample3",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "RBP imported analysis paths preserve physical-filter groups and original frame provenance."
+    },
+    {
+      "key": "origin_md",
+      "name": "MD",
+      "enabled": true,
+      "priority": 10,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "MD_",
+          "_MD/",
+          "_MD__",
+          "/MD/",
+          "ptwte_"
+        ],
+        "contains_all": [],
+        "contains_none": [
+          "non_md",
+          "non-md"
+        ],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "MD",
+        "model_version": null
+      },
+      "color": "#D55E00",
+      "notes": "MD trajectories take precedence over the method used to generate their starting structure."
+    },
+    {
+      "key": "origin_md_suffix",
+      "name": "MD directory suffix",
+      "enabled": true,
+      "priority": 11,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [],
+        "contains_all": [],
+        "contains_none": [
+          "non_md",
+          "non-md"
+        ],
+        "regex_any": [
+          "(?:^|[/_])[A-Za-z0-9]*MD(?:[/_]|$)"
+        ],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "MD",
+        "model_version": null
+      },
+      "color": "#D55E00",
+      "notes": "Directory names such as BRD3ETMD encode MD in a suffix; a boundary regex avoids arbitrary interior matches."
+    },
+    {
+      "key": "origin_bioemu",
+      "name": "BioEmu",
+      "enabled": true,
+      "priority": 20,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "BioEmu"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "BioEmu",
+        "model_version": null
+      },
+      "color": "#E69F00",
+      "notes": "Model family, independent of target or sampling settings."
+    },
+    {
+      "key": "origin_afalt",
+      "name": "AFAlt",
+      "enabled": true,
+      "priority": 30,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFAlt"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFAlt",
+        "model_version": null
+      },
+      "color": "#CC79A7",
+      "notes": "Explicit AFAlt family token supplied by the user."
+    },
+    {
+      "key": "origin_afs3",
+      "name": "AFS3",
+      "enabled": true,
+      "priority": 40,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample3",
+          "AFS3"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFS3",
+        "model_version": "AF3"
+      },
+      "color": "#0072B2",
+      "notes": "Combine template/masking variants into one model-origin category."
+    },
+    {
+      "key": "origin_afs2",
+      "name": "AFS2",
+      "enabled": true,
+      "priority": 50,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample2",
+          "AFS2"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFS2",
+        "model_version": "AF2"
+      },
+      "color": "#009E73",
+      "notes": "Run before the broader AFS fallback."
+    },
+    {
+      "key": "origin_afs",
+      "name": "AFS",
+      "enabled": true,
+      "priority": 60,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFSample_",
+          "AFSample1",
+          "AFS_",
+          "/AFS/",
+          "AFS__"
+        ],
+        "contains_all": [],
+        "contains_none": [
+          "AFSample2",
+          "AFSample3",
+          "AFS2",
+          "AFS3"
+        ],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFS",
+        "model_version": "AF2"
+      },
+      "color": "#56B4E9",
+      "notes": "Original AFS/AFSample models; excludes numbered newer families."
+    },
+    {
+      "key": "origin_af3",
+      "name": "AF3",
+      "enabled": true,
+      "priority": 70,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AlphaFold3",
+          "AF3_",
+          "AF3__",
+          "/AF3/",
+          "_AF3"
+        ],
+        "contains_all": [],
+        "contains_none": [
+          "AFSample3",
+          "AFS3"
+        ],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AF3",
+        "model_version": "AF3"
+      },
+      "color": "#845EC2",
+      "notes": "Use explicit family tokens; target names alone do not imply a model origin."
+    },
+    {
+      "key": "origin_af2_unrelaxed_multimer",
+      "name": "AF2",
+      "enabled": true,
+      "priority": 78,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [],
+        "contains_all": [
+          "unrelaxed_model_",
+          "_multimer"
+        ],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AF2",
+        "model_version": "AF2"
+      },
+      "color": "#4B5563",
+      "notes": "AlphaFold2 multimer output names in archived targets, including 2NMB. More specific sampling-family rules run first."
+    },
+    {
+      "key": "origin_af2",
+      "name": "AF2",
+      "enabled": true,
+      "priority": 80,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AlphaFold2",
+          "AF2_",
+          "AF2__",
+          "/AF2/",
+          "_AF2"
+        ],
+        "contains_all": [],
+        "contains_none": [
+          "AFSample",
+          "AFS2",
+          "AFS3",
+          "AFS_",
+          "AFAlt"
+        ],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AF2",
+        "model_version": "AF2"
+      },
+      "color": "#4B5563",
+      "notes": "Plain AF2 predictions."
+    },
+    {
+      "key": "origin_nmr",
+      "name": "NMR",
+      "enabled": true,
+      "priority": 90,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "NMR_",
+          "_NMR",
+          "/NMR/"
+        ],
+        "contains_all": [],
+        "contains_none": [
+          "MD_",
+          "ptwte_"
+        ],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "NMR",
+        "model_version": null
+      },
+      "color": "#8C564B",
+      "notes": "Experimental NMR ensembles."
+    },
+    {
+      "key": "origin_experimental",
+      "name": "Experimental",
+      "enabled": true,
+      "priority": 100,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "exp_",
+          "experimental",
+          "crystal_"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Experimental",
+        "model_version": null
+      },
+      "color": "#000000",
+      "notes": "Experimental structures with an explicit origin token."
+    },
+    {
+      "key": "origin_boltz",
+      "name": "Boltz",
+      "enabled": true,
+      "priority": 25,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "/boltz/",
+          "/boltz_",
+          "__boltz__"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "Boltz",
+        "model_version": null
+      },
+      "color": "#332288",
+      "notes": "Stable family color shared by PCA, UMAP and t-SNE across runs; match explicit family tokens only."
+    },
+    {
+      "key": "origin_colabfold",
+      "name": "ColabFold",
+      "enabled": true,
+      "priority": 26,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "ColabFold",
+          "-colab-",
+          "/colab/"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "ColabFold",
+        "model_version": null
+      },
+      "color": "#AA4499",
+      "notes": "Stable family color shared by PCA, UMAP and t-SNE across runs; match explicit family tokens only."
+    },
+    {
+      "key": "origin_proteinebm",
+      "name": "ProteinEBM",
+      "enabled": true,
+      "priority": 27,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "ProteinEBM"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "ProteinEBM",
+        "model_version": null
+      },
+      "color": "#44AA99",
+      "notes": "Stable family color shared by PCA, UMAP and t-SNE across runs; match explicit family tokens only."
+    },
+    {
+      "key": "origin_afcluster",
+      "name": "AFCluster",
+      "enabled": true,
+      "priority": 28,
+      "match": {
+        "fields": [
+          "model",
+          "source_path"
+        ],
+        "contains_any": [
+          "AFCluster"
+        ],
+        "contains_all": [],
+        "contains_none": [],
+        "regex_any": [],
+        "case_insensitive": true
+      },
+      "assign": {
+        "model_type": "AFCluster",
+        "model_version": null
+      },
+      "color": "#999933",
+      "notes": "Stable family color shared by PCA, UMAP and t-SNE across runs; match explicit family tokens only."
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "roots": {
+    "asset-001": {
+      "dataset": "Adk",
+      "role": "ais-analysis",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-002": {
+      "dataset": "Adk",
+      "role": "ais-native-source",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-21_1AKE-six-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-003": {
+      "dataset": "Adk",
+      "role": "ais-native-source",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-004": {
+      "dataset": "Adk",
+      "role": "confidence-summary",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Adk-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-005": {
+      "dataset": "Adk",
+      "role": "confidence-summary",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-006": {
+      "dataset": "Adk",
+      "role": "matched-refold",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Adk-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-007": {
+      "dataset": "Adk",
+      "role": "matched-refold",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-008": {
+      "dataset": "Adk",
+      "role": "pdb-CA-comparison",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-009": {
+      "dataset": "Adk",
+      "role": "pdb-analysis",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-010": {
+      "dataset": "Adk",
+      "role": "pdb-original",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-21_print-monomer-bestTM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-011": {
+      "dataset": "Adk",
+      "role": "private-source-ledger",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-012": {
+      "dataset": "Adk",
+      "role": "reference-TM-score-table",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-013": {
+      "dataset": "Adk",
+      "role": "residue-plddt",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Adk-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-014": {
+      "dataset": "Adk",
+      "role": "residue-plddt",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Adk-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-015": {
+      "dataset": "Mad2",
+      "role": "ais-analysis",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-016": {
+      "dataset": "Mad2",
+      "role": "ais-native-source",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-20_MAD2_alone_6000_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-017": {
+      "dataset": "Mad2",
+      "role": "ais-native-source",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-018": {
+      "dataset": "Mad2",
+      "role": "confidence-summary",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Mad2-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-019": {
+      "dataset": "Mad2",
+      "role": "confidence-summary",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-020": {
+      "dataset": "Mad2",
+      "role": "matched-refold",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Mad2-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-021": {
+      "dataset": "Mad2",
+      "role": "matched-refold",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-022": {
+      "dataset": "Mad2",
+      "role": "pdb-CA-comparison",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-023": {
+      "dataset": "Mad2",
+      "role": "pdb-analysis",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-024": {
+      "dataset": "Mad2",
+      "role": "pdb-original",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-19_four-method-analysis_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-025": {
+      "dataset": "Mad2",
+      "role": "private-source-ledger",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-026": {
+      "dataset": "Mad2",
+      "role": "reference-TM-score-table",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-027": {
+      "dataset": "Mad2",
+      "role": "residue-plddt",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-22_Mad2-Boltz2-refold-intake_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-028": {
+      "dataset": "Mad2",
+      "role": "residue-plddt",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_Mad2-eleven-method_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-029": {
+      "dataset": "shared",
+      "role": "private-pair-ledger",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_original-refold-TM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-030": {
+      "dataset": "shared",
+      "role": "shared-22000-pair-TM-table",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_original-refold-TM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-031": {
+      "dataset": "shared",
+      "role": "shared-directional-raw-evidence",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_original-refold-TM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-032": {
+      "dataset": "shared",
+      "role": "shared-independent-verification",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_original-refold-TM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    },
+    "asset-033": {
+      "dataset": "shared",
+      "role": "shared-scientific-review",
+      "description": "Logical root of an existing canonical scientific artifact directory; not a directory in this repository.",
+      "source_run_id": "2026-10-23_original-refold-TM_001",
+      "binding": "Private external root dictionary supplied through SCHERAGA_ASSET_ROOTS_FILE"
+    }
+  }
+}

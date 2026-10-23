@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite this poster companion and the applicable method papers and dataset records."
+type: software
+title: "Beyond a Single Structure: Exploring Multistate Protein Conformational Landscapes with AI Structure Prediction"
+url: "https://github.com/benavt/SCHERAGA_POSTER"
+license: MIT
+authors:
+  - family-names: Benavides
+    given-names: T.L.
+    orcid: "https://orcid.org/0000-0002-5795-4273"
+    affiliation: "Biological Sciences, Rensselaer Polytechnic Institute"
+  - family-names: Montelione
+    given-names: G.T.
+    orcid: "https://orcid.org/0000-0002-9440-3059"
+    affiliation: "Department of Chemistry and Chemical Biology, Rensselaer Polytechnic Institute"
