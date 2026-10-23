@@ -4,6 +4,7 @@ The owner confirmed **v014 as the final physical poster** on 2026-10-23. The fin
 
 - [36 × 48 inch print PDF](final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true)
 - [Smaller phone PDF](final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true)
+- [Compact print PDF, 2.1 MB](print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true) for printers with file-size or memory limits; same 36 × 48 inch page, compressed to 120 dpi
 - [PNG preview](final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png)
 - [Verbatim abstract](final/abstract-verbatim-v014.txt)
 
