@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED_OFFLINE_INVENTORY_NOT_PACKAGE_SELECTION",
+  "verified_UTC": "2026-10-23T15:04:31.101669+00:00",
+  "source_scope": "Exact membership of existing paired-inputs and target confidence/intake ledgers; no traversal or additional asset selection.",
+  "assets_copied": 0,
+  "source_mutations": 0,
+  "datasets": {
+    "Adk": {
+      "role_reference_rows": 55010,
+      "role_reference_bytes": 4930978642,
+      "distinct_canonical_file_paths": 55010,
+      "distinct_canonical_path_bytes": 4930978642,
+      "AIS_models": 11000,
+      "matched_refold_models": 11000,
+      "methods": 11,
+      "models_each_method": 1000,
+      "experimental_PDB_entries": 2,
+      "PDBs_counted_as_AI_models": 0,
+      "full_modeled_residues": 214,
+      "by_role": {
+        "ais-analysis": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1770037710,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1770037710
+        },
+        "ais-native-source": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1485322691,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1485322691
+        },
+        "confidence-summary": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 4868716,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 4868716
+        },
+        "matched-refold": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1609996276,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1609996276
+        },
+        "pdb-CA-comparison": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 33828,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 33828
+        },
+        "pdb-analysis": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 378995,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 378995
+        },
+        "pdb-original": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 808662,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 808662
+        },
+        "private-source-ledger": {
+          "role_reference_rows": 3,
+          "role_reference_bytes": 44527818,
+          "distinct_canonical_file_paths": 3,
+          "distinct_canonical_path_bytes": 44527818
+        },
+        "reference-TM-score-table": {
+          "role_reference_rows": 1,
+          "role_reference_bytes": 4261523,
+          "distinct_canonical_file_paths": 1,
+          "distinct_canonical_path_bytes": 4261523
+        },
+        "residue-plddt": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 10742423,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 10742423
+        }
+      },
+      "shared_evidence_applicability": "shared-score-evidence.tsv applies to both datasets; shared table has 22000 pairs, not 11000; excluded from target-only totals."
+    },
+    "Mad2": {
+      "role_reference_rows": 55010,
+      "role_reference_bytes": 4442523773,
+      "distinct_canonical_file_paths": 55010,
+      "distinct_canonical_path_bytes": 4442523773,
+      "AIS_models": 11000,
+      "matched_refold_models": 11000,
+      "methods": 11,
+      "models_each_method": 1000,
+      "experimental_PDB_entries": 2,
+      "PDBs_counted_as_AI_models": 0,
+      "full_modeled_residues": 197,
+      "by_role": {
+        "ais-analysis": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1421611845,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1421611845
+        },
+        "ais-native-source": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1421994100,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1421994100
+        },
+        "confidence-summary": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 4867143,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 4867143
+        },
+        "matched-refold": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 1535864363,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 1535864363
+        },
+        "pdb-CA-comparison": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 27666,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 27666
+        },
+        "pdb-analysis": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 575924,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 575924
+        },
+        "pdb-original": {
+          "role_reference_rows": 2,
+          "role_reference_bytes": 661769,
+          "distinct_canonical_file_paths": 2,
+          "distinct_canonical_path_bytes": 661769
+        },
+        "private-source-ledger": {
+          "role_reference_rows": 3,
+          "role_reference_bytes": 42376127,
+          "distinct_canonical_file_paths": 3,
+          "distinct_canonical_path_bytes": 42376127
+        },
+        "reference-TM-score-table": {
+          "role_reference_rows": 1,
+          "role_reference_bytes": 4393675,
+          "distinct_canonical_file_paths": 1,
+          "distinct_canonical_path_bytes": 4393675
+        },
+        "residue-plddt": {
+          "role_reference_rows": 11000,
+          "role_reference_bytes": 10151161,
+          "distinct_canonical_file_paths": 11000,
+          "distinct_canonical_path_bytes": 10151161
+        }
+      },
+      "shared_evidence_applicability": "shared-score-evidence.tsv applies to both datasets; shared table has 22000 pairs, not 11000; excluded from target-only totals."
+    }
+  },
+  "shared_evidence": {
+    "role_reference_rows": 5,
+    "role_reference_bytes": 41352092,
+    "distinct_canonical_file_paths": 5,
+    "distinct_canonical_path_bytes": 41352092
+  },
+  "all_scopes": {
+    "role_reference_rows": 110025,
+    "role_reference_bytes": 9414854507,
+    "distinct_canonical_file_paths": 110025,
+    "distinct_canonical_path_bytes": 9414854507
+  },
+  "reference_PDBs_counted_as_AI_models": 0,
+  "source_configs_complete": false,
+  "limitations": [
+    "Not an inventory of all native generation inputs, features, MSAs, bulky PAE, latents, weights, complete reports or full run directories.",
+    "Native-source and analysis-coordinate roles can reference distinct copies of identical bytes; role counts are not unique-model totals.",
+    "A listed source ledger or raw evidence payload may contain private paths; listing its path/hash is not public-payload clearance.",
+    "The shared TM CSV contains both targets and is listed once, with shared applicability in each dataset; no filtered copy was made.",
+    "No Zenodo metadata/config files were drafted, filled or repaired; owner-authored configs are required before any packaging.",
+    "Authentication, releases/tags, packaging, uploads, DOI reservation and publication were not attempted."
+  ],
+  "resource_bounds": {
+    "hash_workers": 2,
+    "CPU_affinity_count": 2,
+    "RAM_limit_GiB": 4,
+    "wallclock_cap_minutes": 45,
+    "elapsed_seconds": 15.187
+  }
+}

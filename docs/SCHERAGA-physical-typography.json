@@ -1,0 +1,19 @@
+{
+  "family": "RPI Geist",
+  "caption_css_px": 26,
+  "caption_printed_points": 19.5,
+  "caption_title": "same size, bold",
+  "axis_title_printed_points": 15,
+  "tick_printed_points": 13.5,
+  "axes_weight": "normal",
+  "method_labels_css_px": 18,
+  "method_weight": "bold",
+  "filename_css_px": 22,
+  "filename_weight": "normal",
+  "citation_scale": 0.6666666666666666,
+  "citation_baseline": 0.42,
+  "legend_thickness_points": 10,
+  "source_conversion": "source_font_pt = desired_printed_pt * source_figure_width_in / final_placed_width_in",
+  "fixed_canvas_required": true,
+  "helper_sha256": "af4d33d5dff236b8e37b1a1dee7a4f7cd77ee2a7420e440ed68c22f9ac95a384"
+}
