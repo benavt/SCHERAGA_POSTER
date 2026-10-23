@@ -1,0 +1,2 @@
+# Preserve final PDF bytes and suppress text diffs for PDF object streams.
+final/*.pdf binary

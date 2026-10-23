@@ -19,8 +19,9 @@ Repair Adk through a corrected new version within the existing concept DOI. Pres
 
 | Artifact | Current validated version | Distribution state |
 | --- | --- | --- |
-| Print and phone poster PDFs | v014 | Local; public release downloads needed |
-| Editable PPTX, preview and abstract text | v014 | Local; hashes recorded |
+| Print and phone poster PDFs | Final v014, confirmed by owner | [Public repository files](../poster/final/README.md); original bytes preserved |
+| Preview and abstract text | Final v014 | In `poster/final/`; hashes recorded |
+| Editable PPTX | v014 | Retained locally |
 | Interactive poster HTML | v025 | Local; 14 saved browser checks; includes both concept DOIs and v014 phone PDF |
 | Public website | Landing page | Five disabled “Coming soon” links; interactive poster not deployed |
 | Companion source | `scheraga-poster-v1.0.0` | Public GitHub release; no attached artifact files |
@@ -30,10 +31,10 @@ The [machine-readable artifact inventory](SCHERAGA-downloads.json) records the f
 
 ## Finalization order
 
-1. Agree the Zenodo titles, descriptions and archive organization. Keep one record per target and retain both concept DOIs unless the scientific resource boundaries change. A useful organization separates native coordinates, analysis copies, matched refolds, scores, reports and provenance; method-level coordinate archives would reduce individual transfer size. Retain alias mappings and exact member hashes.
+1. Resume the [Zenodo metadata rework plan](../zenodo/metadata-rework-plan.md) to agree titles, descriptions, field handling and archive organization. Keep one record per target and retain both concept DOIs unless the scientific resource boundaries change. A useful organization separates native coordinates, analysis copies, matched refolds, scores, reports and provenance; method-level coordinate archives would reduce individual transfer size. Retain alias mappings and exact member hashes.
 2. Prepare the corrected Adk version from verified existing data. Reconcile remote state before writing; verify every remote file and the metadata before manual publication. Preserve AF3 output notices, PDB attribution, creator order and the distinction between authored CC BY content and third-party rights.
 3. Rework Mad2 metadata or files only where the agreed organization calls for it. Its present v1 package is complete.
-4. Distribute the validated poster PDFs and editable source with fixed filenames and hashes; update download links only after assets exist publicly. Decide whether to update the historical PyMOL session to the final selected states or label its earlier scope.
+4. The final poster PDFs, preview and abstract are distributed in `poster/final/` with fixed filenames and hashes. Editable source remains local. Decide whether to update the historical PyMOL session to the final selected states or label its earlier scope.
 5. Deploy the validated interactive poster and replace all five disabled landing-page entries with verified destinations. Display an accurate Adk availability notice until the corrected version is published.
 6. Check GitHub README, release notes, citation metadata, website and poster links together. Use concept DOIs for durable navigation and exact version DOIs for dataset citations. Keep release history and old hashes rather than renaming old artifacts as final.
 
