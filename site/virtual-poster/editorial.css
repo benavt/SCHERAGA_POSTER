@@ -1,0 +1,61 @@
+/* v026: restrained RPI poster typography and navigation; science styles retained. */
+:root{--paper:#fff;--rule:#d8d8d4;--red:#D6001C;--gray:#54585A;--ink:#242424}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{background:#f3f3f0;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+main{max-width:1640px;margin:24px auto 0;padding:30px 42px 0;background:var(--paper);border-top:7px solid var(--red)}
+header{border-bottom:1px solid var(--rule);padding-bottom:28px;gap:28px;grid-template-columns:minmax(0,1fr) 180px 100px}
+h1{font-size:clamp(27px,2.45vw,39px);font-weight:700;line-height:1.12;letter-spacing:-.7px;margin:0 0 19px;max-width:1120px}
+header p{font-size:14px;line-height:1.55}header p:first-of-type{font-size:16px;margin-bottom:10px}
+header img.nih-nigms-logo{width:180px;margin-top:5px}header img.rpi-logo{width:100px}
+h2{font-size:23px;font-weight:700;letter-spacing:-.3px;line-height:1.2;color:var(--red)}
+h3{font-size:17px;color:#292929;line-height:1.35}
+a{text-underline-offset:3px;color:#a60018}a:hover{text-decoration-thickness:2px}
+button,select{border-radius:2px;border-color:#bdbdb8;padding:6px 10px;box-shadow:none}
+button:hover{border-color:#656561;background:#f5f5f2}button.primary:hover{background:#b00018;color:white}
+.target-tabs{gap:0;margin:0;border-bottom:1px solid #a9a9a3;background:#fff;backdrop-filter:none;padding:0;min-height:64px;align-items:stretch}
+.target-tabs .eyebrow{font-size:10px;letter-spacing:1.4px;align-self:center;margin-right:auto;padding:0 18px 0 0;color:#70706b}
+.target-tabs button{font-weight:600;font-size:14px;border:0;border-bottom:3px solid transparent;border-radius:0;padding:17px 18px 14px;background:transparent;color:#555550;min-height:58px}
+.target-tabs button[aria-pressed="true"]{background:transparent;border-color:var(--red);color:#a70017}
+.target-tabs button:hover{background:#f6f6f3;color:#262626}
+.poster-index{display:flex;gap:8px 22px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--rule);font-size:12px;min-height:42px}
+.poster-index a{color:#53534e;text-decoration:none}.poster-index a:hover{color:#a60018;text-decoration:underline}
+.poster-index .index-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#85857e;margin-right:4px}
+.skip-link{position:absolute;left:-9999px;top:0}.skip-link:focus{left:20px;top:10px;background:white;padding:12px;z-index:100}
+.working-abstract{margin:32px 0 36px;padding:0 0 30px;border:0;border-bottom:1px solid var(--rule);border-radius:0;background:transparent}
+.working-abstract h2{font-size:23px;line-height:1.2}
+.working-abstract>p{font-size:17px;line-height:1.75;max-width:none;margin-top:17px;column-count:2;column-gap:44px;column-rule:1px solid #e6e6e1;orphans:3;widows:3}
+.working-abstract .code-access-inline{font-size:inherit}
+.poster-section{border:0;border-top:1px solid var(--rule);border-radius:0;padding:23px 0 26px;margin:0;background:transparent;scroll-margin-top:calc(var(--tabs-height,64px) + 22px);min-width:0}
+.poster-section>h2{font-size:21px;margin:0 0 16px}.poster-section p{font-size:14px;max-width:115ch}
+.source-intro.poster-section{border-top:0;padding-top:0}.source-intro p{display:inline-block;vertical-align:top;width:48%;margin:0;padding-right:24px}
+.session-download-actions{gap:10px;margin:12px 0}.session-download-actions a{font-size:13px;line-height:1.4;font-weight:600;border-radius:0;border:1px solid #bbbcb6;color:#a60018;padding:10px 15px;background:white}
+.session-download-actions a:first-child{background:white;color:#a60018;border-color:#a60018}.session-download-actions a:hover{background:#fff5f5}
+.Adk-session-version-note{font-size:12px!important;color:var(--gray)}
+.usage-guide ol{display:grid;grid-template-columns:1fr 1fr;gap:12px 42px;max-width:none;font-size:14px;padding-left:22px}.usage-guide li{padding:0 0 0 3px}
+.usage-guide h3{margin-top:24px}.useful-links{font-size:13px}.poster-references ol{max-width:none;columns:2;column-gap:44px;font-size:12px;line-height:1.6;padding-left:20px}.poster-references li{padding:0 0 12px;break-inside:avoid}
+.funding-acknowledgment p{font-size:13px}
+.target-page{padding-top:28px}.target-page>.target-head{border-left:4px solid var(--red);padding-left:14px;margin-bottom:22px}.target-page h2{font-size:26px;color:#292929}
+.movie-entry,.target,.supplement{border-radius:0;box-shadow:none}.movie-entry{border:0;border-top:1px solid var(--rule)}
+.movie-entry>summary{font-size:14px;letter-spacing:.1px;color:#4e4e48;padding:12px 0;list-style-position:inside}
+.movie-entry[open]>summary{border-bottom:1px solid var(--rule)}.movie-entry>.target{padding:14px 0}
+.controls{border-radius:0;background:#f8f8f5;border:1px solid #d7d7d0;box-shadow:none;backdrop-filter:none;padding:10px 12px}
+.controls .primary{border-radius:0}.support-color-menu{gap:6px 8px;margin:4px 0 14px;font-size:12px}
+.support-color-menu button{font-size:11px;line-height:1.3;padding:6px 8px;background:white;color:#55554f;border:1px solid #d1d1c9;border-radius:0}
+.support-color-menu button[aria-pressed="true"]{border:1px solid #a60018;background:#fff4f4;color:#9e0015}
+.structure-color-menu button{border-radius:0;font-size:11px}.structure-color-menu button[aria-pressed="true"]{background:#f0f0eb;border-color:#7a7a70}
+.frame-caption{border-radius:0;background:#f4f4ef;border-top:1px solid #dadad2;border-bottom:1px solid #dadad2;padding:11px 12px}.frame-caption .model-id{line-height:1.4}
+.plot{border-radius:0;border-color:#deded6}.panels.featured-layout>.plot.featured-plot{border-color:#bdbdb2;padding:10px}.joint-analysis-label{font-size:12px;text-transform:none;font-weight:400;color:#62625c}
+.target>.target-movie-methods{border:0;border-top:1px solid var(--rule);border-radius:0;background:transparent;padding:15px 0;font-size:13px}.target-movie-methods>summary{font-size:14px}
+.below{margin-top:28px}.supplement{border:0;border-top:3px solid #55554d;padding:23px 0 0}.supplement>h2{font-size:23px;line-height:1.3;margin-bottom:25px;color:#282822}
+.support-figure{border-top:1px solid var(--rule);padding:23px 0;margin:0 0 15px;min-width:0;scroll-margin-top:calc(var(--tabs-height,64px) + 20px)}
+.support-figure>h3{font-size:18px;margin:0 0 14px;color:#34342f}.support-figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;margin:12px auto;max-height:none}
+.support-figure .expanded-variance{max-width:100%;margin:12px auto}.support-figure .expanded-variance>img{max-height:none}
+.support-figure figcaption,.support-figure .reference-caption{font-size:12px;line-height:1.6}
+.tm-readable-grid .tm-readable-image{max-height:none}.tm-page-controls button{border-radius:0;font-size:11px}.tm-page-controls button[aria-pressed="true"]{background:#fff4f4;border-color:#a60018;color:#a60018}
+footer{border-top:1px solid var(--rule);padding:24px 0;margin-top:30px}
+@media(min-width:1800px){main{margin-top:32px}}
+@media(max-width:1150px){main{padding:24px 28px 0;margin-top:0}header{grid-template-columns:minmax(0,1fr) 130px 85px;gap:20px}header img.nih-nigms-logo{width:130px}header img.rpi-logo{width:85px}.target-tabs .eyebrow{display:none}.target-tabs button{flex:1;padding-inline:12px}.working-abstract>p{font-size:16px;column-gap:32px}}
+@media(max-width:800px){header{grid-template-columns:minmax(0,1fr) 80px}.poster-title-copy{grid-column:1/-1}header img.nih-nigms-logo{grid-column:1;width:150px}header img.rpi-logo{grid-column:2;width:80px}.target-tabs button{font-size:12px;min-height:55px;padding:11px 9px 9px}.working-abstract>p{column-count:1;font-size:16px;line-height:1.7}.usage-guide ol{grid-template-columns:1fr}.source-intro p{display:block;width:100%;margin:10px 0}.poster-references ol{columns:1}.poster-index{gap:8px 16px;font-size:11px}}
+@media(max-width:760px){main{padding:20px 18px 0}.target-tabs{position:sticky;top:0;z-index:40;flex-wrap:nowrap}.target-tabs button{white-space:normal;line-height:1.3}.controls{position:static}.working-abstract{margin:25px 0}.target-page{padding-top:22px}.target-page h2{font-size:22px}.target-head{min-height:0}.support-color-menu{gap:5px}.support-figure{padding-top:18px}.poster-section{padding-block:20px}.session-download-actions a{padding:9px 12px}.movie-entry>.target{padding-inline:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white}main{max-width:none;margin:0;padding:12px}.target-tabs,.poster-index,.controls,.support-color-menu,.structure-color-menu,.downloads{display:none!important}.poster-section,.support-figure{break-inside:avoid}.working-abstract>p{font-size:12px}.poster-references ol{columns:2}}

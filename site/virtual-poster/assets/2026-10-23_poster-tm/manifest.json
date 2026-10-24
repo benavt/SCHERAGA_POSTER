@@ -1,0 +1,27 @@
+{
+  "operation": "Presentation-only addition of exact physical-poster state matrices; remove four Mad2 display crops",
+  "physical_poster_version": "v014",
+  "physical_poster_PDF_sha256": "bd734aba21f678962c240af2fbd5087b2b1dac54da8ef2302a602afb4f2c7521",
+  "provenance": "PNG bytes verified against final v014 PowerPoint media by source audit; no TM values regenerated",
+  "files": {
+    "7X7S": {
+      "path": "Adk-TM.png",
+      "sha256": "d575f709c1d00255f2a821901074d093cfca2d805bccaf20c16e37cd1b8a24bb",
+      "full_matrix_sha256": "bd1dc8bc24177296e9690d5127e015beb611aa17412b79542c6d7fa7215edeca",
+      "source": "Structure_Clustering/outputs/SCHERAGA/2026-10-23_print-typography_001/QA/Adk-TM.png",
+      "physical_poster_media": "image10",
+      "dimensions": [2208, 1952],
+      "labels": ["S1", "S2", "4AKE open", "1AKE closed"]
+    },
+    "Mad2": {
+      "path": "Mad2-TM.png",
+      "sha256": "cd35019abc8e8a5926687d2ceb514c6970308a74678cb8c4282ae387f2c7a04b",
+      "full_matrix_sha256": "4dfc1ca4c1f2a2fafcdf1daae63d3b4f80d0bcaf4e8a670c2f34fa98b07cf97a",
+      "source": "Structure_Clustering/outputs/SCHERAGA/2026-10-23_print-typography_001/QA/Mad2-TM.png",
+      "physical_poster_media": "image4",
+      "dimensions": [2208, 1952],
+      "labels": ["S1", "S2", "1DUJ open", "1S2H closed"]
+    }
+  },
+  "interpretation": "S1 and S2 are selected best-TM poster states, not cluster medoids; the four-state panel is not a mathematical subset of the full medoid matrix."
+}

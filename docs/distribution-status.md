@@ -6,12 +6,12 @@
 
 | Target | All-versions DOI | Checked version | Availability |
 | --- | --- | --- | --- |
-| Adk | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | [v1: 23601147](https://zenodo.org/records/23601147) | **Incomplete: 9 of 14 expected files** |
+| Adk | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | [Corrected: 23607500](https://zenodo.org/records/23607500) | Complete: 14 of 14 expected files |
 | Mad2 | [10.5281/zenodo.23601144](https://doi.org/10.5281/zenodo.23601144) | [v1: 23601145](https://zenodo.org/records/23601145) | Complete: 14 of 14 expected files |
 
 All files present in the checked public records matched the expected sizes and MD5 checksums. The complete prepared packages also passed SHA-256 and MD5 checks against their package manifests. File verification does not independently validate the scientific conclusions.
 
-**Adk v1 does not provide the complete model distribution.** The following expected files are missing: `outputs.tar.gz`, `provenance.tar.gz`, `reports.tar.gz`, `source.tar.gz` and `zenodo-metadata.json`. A corrected dataset version is needed under the existing Adk all-versions DOI. Until it is published, use the present record only within its documented file coverage.
+The corrected Adk version, `scheraga-poster-v1.0.0-corrected` ([10.5281/zenodo.23607500](https://doi.org/10.5281/zenodo.23607500)), restores `outputs.tar.gz`, `provenance.tar.gz`, `reports.tar.gz`, `source.tar.gz` and `zenodo-metadata.json`. Its public description and version were verified, and the all-versions DOI resolves to this corrected record. The [initial v1 record](https://zenodo.org/records/23601147) remains in the version history with 9 of 14 expected files; it does not provide the complete model distribution.
 
 All-versions (concept) DOIs provide durable navigation to a dataset's version family. For reproducible work, cite the exact version used.
 
@@ -25,7 +25,7 @@ All-versions (concept) DOIs provide durable navigation to a dataset's version fa
 | Editable presentation source | v014 | Not included in this repository |
 | Interactive poster | v025 | Not yet publicly deployed; [availability guide](../site/README.md) |
 | Companion source snapshot | `scheraga-poster-v1.0.0` | [GitHub source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) |
-| PyMOL comparison session | v008, earlier selected states | [Session and quick guide](../data/pymol/README.md); does not include all final-poster S1/S2 selections |
+| PyMOL comparison session | Corrected v010 | [Session and quick guide](../data/pymol/README.md); Adk S1/S2 match the final physical poster, while Mad2 comparisons remain unchanged; original v008 retained |
 
 The [poster landing page](https://scheraga-poster.netlify.app) showed disabled “Coming soon” links at the status check. Use the repository's poster downloads above. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
 

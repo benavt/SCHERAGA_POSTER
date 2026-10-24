@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/vercel/geist-font",
+  "commit": "75d647056bcbd9eaba3a14b1b58290d0692685d6",
+  "license": "SIL Open Font License 1.1",
+  "license_sha256": "c683bfbcc7e087f5d37a54ef628f10387c451a83ddc459b151403a164ac46c90",
+  "files": {
+    "Geist-Variable.woff2": {
+      "family": "Geist",
+      "bytes": 69760,
+      "sha256": "2ffebe993e969069a9789d15164b7715d42491b5835516c5e3b935d5f81b05f1",
+      "source": "https://raw.githubusercontent.com/vercel/geist-font/75d647056bcbd9eaba3a14b1b58290d0692685d6/fonts/Geist/webfonts/Geist%5Bwght%5D.woff2",
+      "features": {"ss01": "No tail a", "ss03": "Alt l", "ss04": "Alt R", "ss09": "Alt numbers"}
+    },
+    "GeistMono-Variable.woff2": {
+      "family": "Geist Mono",
+      "bytes": 71596,
+      "sha256": "afaacc4c5fbba89d2ebf7a02dc4070208540874592a5504d57175782fe893101",
+      "source": "https://raw.githubusercontent.com/vercel/geist-font/75d647056bcbd9eaba3a14b1b58290d0692685d6/fonts/GeistMono/webfonts/GeistMono%5Bwght%5D.woff2",
+      "features": {"ss01": "No tail a", "ss03": "Alt l", "ss04": "Alt R", "ss09_disabled": "Default slashed zero retained"}
+    }
+  },
+  "feature_sources": [
+    "https://github.com/vercel/geist-font/blob/75d647056bcbd9eaba3a14b1b58290d0692685d6/sources/Geist.glyphspackage/fontinfo.plist",
+    "https://github.com/vercel/geist-font/blob/75d647056bcbd9eaba3a14b1b58290d0692685d6/sources/GeistMono.glyphspackage/fontinfo.plist"
+  ]
+}
