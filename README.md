@@ -29,7 +29,7 @@ We compare 1,000 predictions from each method with experimentally determined ope
 | Download or reuse research data | [Dataset guide and availability](data/README.md) |
 | Inspect the code or contribute | [Repository guide](#repository-guide) and [contributing](CONTRIBUTING.md) |
 
-**Availability, checked 23 October 2026:** the poster PDFs are included here. Mad2 v1 and the [corrected Adk version](https://doi.org/10.5281/zenodo.23607500) each contain all 14 expected files, with verified sizes and MD5 checksums. The corrected Adk version restores the files omitted from v1. See the [availability details](docs/distribution-status.md). The interactive poster is not yet publicly deployed; see the [interactive-poster guide](site/README.md).
+**Availability, checked 23 October 2026:** [explore the interactive poster](https://benavt.github.io/SCHERAGA_POSTER/) or download the poster PDFs below. Mad2 v1 and the [corrected Adk version](https://doi.org/10.5281/zenodo.23607500) each contain all 14 expected files, with verified sizes and MD5 checksums. The corrected Adk version restores the files omitted from v1. See the [availability details](docs/distribution-status.md) and [interactive-poster guide](site/README.md).
 
 [![Conference poster preview](poster/final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png)](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true)
 

@@ -23,10 +23,10 @@ All-versions (concept) DOIs provide durable navigation to a dataset's version fa
 | Compact print PDF | v014, 120 dpi | [2.1 MB download and printing guide](../poster/print-friendly/README.md) |
 | Poster preview and abstract | Final v014 | [Poster files](../poster/final/README.md) |
 | Editable presentation source | v014 | Not included in this repository |
-| Interactive poster | v025 | Not yet publicly deployed; [availability guide](../site/README.md) |
+| Interactive poster | v036 | [GitHub Pages](https://benavt.github.io/SCHERAGA_POSTER/); [offline HTML release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-23_virtual-poster-v036) |
 | Companion source snapshot | `scheraga-poster-v1.0.0` | [GitHub source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) |
 | PyMOL comparison session | Corrected v010 | [Session and quick guide](../data/pymol/README.md); Adk S1/S2 match the final physical poster, while Mad2 comparisons remain unchanged; original v008 retained |
 
-The [poster landing page](https://scheraga-poster.netlify.app) showed disabled “Coming soon” links at the status check. Use the repository's poster downloads above. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
+GitHub Pages hosts the standalone interactive poster. The earlier [Netlify landing page](https://scheraga-poster.netlify.app) is unchanged. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
 
 For dataset packaging and maintenance, see the [deposition guide](../zenodo/README.md). Planned metadata improvements are described in the [metadata roadmap](../zenodo/metadata-rework-plan.md).

@@ -1,13 +1,13 @@
 # Reproducible virtual-poster source
 
-The current offline export is indexed in `latest-output.json`. Large generated
+The current offline export is indexed in `latest-preview.json`. Large generated
 HTML files remain in ignored `local/`; the repository contains the small source,
 font files, exact matrix figures and their provenance manifests. The builder
 never publishes, makes network requests or overwrites an existing output.
 
 The presentation puts research first: black and white, a restrained RPI red
 (`#D6001C`) rule and active navigation, and original scientific plot colors.
-A single 44px navigation row serves phones and tablets. At widths of 700px or
+A compact 34px navigation row and 36px playback toolbar serve phones and tablets. At widths of 700px or
 more, the movie structure and featured projection appear side by side. A rotated
 phone uses the remaining viewport for that pair; legends, thumbnails and model
 metadata follow below. Native selectors call the original metric/palette handlers.
@@ -46,13 +46,13 @@ Pax exports use `local/site-exports/`.
 ```sh
 python3 site/virtual-poster/build_preview.py \
   --source local/site-exports/doi-update_001/SCHERAGA_virtual_poster_published_DOIs_v025.html \
-  --design-predecessor local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v033.html \
+  --design-predecessor local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v035.html \
   --poster-figures site/virtual-poster/assets/2026-10-23_poster-tm/manifest.json \
   --pymol-session "$PSE_V010" \
   --pymol-guide "$GUIDE_V010" \
   --pymol-sha256 67dfb349c61b24403a33a98a66f10df39fe9ed6fa67db03e9e4d094c9093a107 \
   --guide-sha256 90022331e3c24286d8bff6e3da7c536650fd653e42701d9766b0c1585d3c2e84 \
-  --output local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v034.html
+  --output local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html
 ```
 
 The final export requires the v010 session and guide. Omitting them is supported
