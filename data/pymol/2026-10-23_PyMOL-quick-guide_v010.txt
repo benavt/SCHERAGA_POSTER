@@ -1,0 +1,25 @@
+PyMOL comparison session v010 — 2026-10-23
+
+Open 2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse in PyMOL. The right-side panel selects four saved comparisons, with the AIS model on the left and its experimental PDB reference on the right. No plugin or companion script is required.
+
+The Adk saved states now match the final physical poster:
+  S1: AlphaFlow-MD model 0703 (AlphaFlow_MD_native__1AKE_alphaflow-md_0703), compared with open 4AKE.
+  S2: AlphaFlow-PDB model 0327 (AlphaFlow_PDB_native__1AKE_alphaflow-pdb_0327), compared with closed 1AKE.
+Each Adk protein has the complete 214-residue construct. Only saved rigid display transformations and the existing left-panel translation were applied. Scientific coordinate sources, membership, scores and model identities are unchanged.
+
+The four PDB experimental reference objects and both existing Mad2 AIS objects are preserved, including their complete residues, cameras, labels and mutation annotations. Mad2 remains the prior comparison selection; its S1 is distinct from the final poster AF-Cluster 0675. The session opens in the unchanged Mad2 closed comparison.
+
+Color buttons
+  Chainbow (default): the existing N-to-C residue coloring.
+  Variance regions R1 / R2: the existing saved comparison partition, R1 blue, R2 orange and other residues gray. This is the preserved session partition.
+  pLDDT (AlphaFold): native model confidence using the AlphaFold palette. The Adk B fields come directly from the selected native AlphaFlow PDB files. No scores are imputed or recomputed. Experimental PDB B factors are not confidence and references appear gray in this mode.
+
+The official palette is orange #FF7D45 for 0<=pLDDT<50; yellow #FFDB13 for 50<=pLDDT<70; cyan #65CBF3 for 70<=pLDDT<90; blue #0053D6 for 90<=pLDDT<=100. The verified Mad2 substitution remains pink on both partners; pink is a mutation-color override, not a confidence value.
+
+Adk native CA confidence ranges
+  AlphaFlow_MD_native__1AKE_alphaflow-md_0703: 88.01–98.87; 214/214 CA values.
+  AlphaFlow_PDB_native__1AKE_alphaflow-pdb_0327: 93.28–98.92; 214/214 CA values.
+
+Scene changes preserve the selected color scheme. Buttons retain short dispatch commands with complete instructions embedded in the PSE, avoiding the historical PyMOL command-length limit. Original v008 session bytes are retained in the predecessor snapshot.
+
+References and rights: experimental structures retain their original PDB attribution; existing provenance and applicable third-party terms remain in force. Source data and study documentation: https://github.com/benavt/SCHERAGA_POSTER . AlphaFold palette source: https://github.com/google-deepmind/alphafold/blob/v2.3.2/alphafold/common/confidence.py .

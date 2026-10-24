@@ -11,19 +11,15 @@
   "Zenodo": {
     "Adk_resources": {
       "concept_url": "https://doi.org/10.5281/zenodo.23601146",
-      "version_url": "https://doi.org/10.5281/zenodo.23601147",
-      "record_url": "https://zenodo.org/records/23601147",
-      "verification_source": "https://zenodo.org/api/records/23601147",
-      "status": "published_incomplete_correction_required",
+      "version_url": "https://doi.org/10.5281/zenodo.23607500",
+      "record_url": "https://zenodo.org/records/23607500",
+      "verification_source": "https://zenodo.org/api/records/23607500",
+      "version": "scheraga-poster-v1.0.0-corrected",
+      "previous_version_url": "https://doi.org/10.5281/zenodo.23601147",
+      "status": "published_complete",
       "expected_files": 14,
-      "published_files": 9,
-      "missing_files": [
-        "outputs.tar.gz",
-        "provenance.tar.gz",
-        "reports.tar.gz",
-        "source.tar.gz",
-        "zenodo-metadata.json"
-      ],
+      "published_files": 14,
+      "missing_files": [],
       "present_file_sizes_and_md5_match": true
     },
     "Mad2_resources": {
@@ -106,24 +102,24 @@
       "original_final_unchanged": true
     },
     "pymol_session": {
-      "filename": "Scheraga_four_comparisons_robust_controls_v008.pse",
-      "bytes": 4963017,
-      "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98",
-      "repository_path": "data/pymol/Scheraga_four_comparisons_robust_controls_v008.pse",
-      "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/data/pymol/Scheraga_four_comparisons_robust_controls_v008.pse?raw=true",
-      "status": "public_virtual_poster_download_copy",
-      "session_version": "v008",
-      "identical_to_embedded_virtual_poster_download": true
+      "filename": "2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse",
+      "bytes": 4955928,
+      "sha256": "67dfb349c61b24403a33a98a66f10df39fe9ed6fa67db03e9e4d094c9093a107",
+      "repository_path": "data/pymol/2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse",
+      "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/data/pymol/2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse?raw=true",
+      "status": "public_corrected_comparison_session",
+      "session_version": "v010",
+      "Adk_saved_states_match_final_physical_poster": true,
+      "historical_manifest": "data/pymol/history/2026-10-23_v008/manifest.json"
     },
     "pymol_quick_guide": {
-      "filename": "PyMOL-quick-guide.txt",
-      "bytes": 2236,
-      "sha256": "703d411d72468a02d4272ea528c80d941f173a1e2012c0e3527fd6d7b21eaa3c",
-      "repository_path": "data/pymol/PyMOL-quick-guide.txt",
-      "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/data/pymol/PyMOL-quick-guide.txt?raw=true",
-      "status": "public_virtual_poster_download_copy",
-      "session_version": "v008",
-      "identical_to_embedded_virtual_poster_download": true
+      "filename": "2026-10-23_PyMOL-quick-guide_v010.txt",
+      "bytes": 2724,
+      "sha256": "90022331e3c24286d8bff6e3da7c536650fd653e42701d9766b0c1585d3c2e84",
+      "repository_path": "data/pymol/2026-10-23_PyMOL-quick-guide_v010.txt",
+      "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/data/pymol/2026-10-23_PyMOL-quick-guide_v010.txt?raw=true",
+      "status": "public_corrected_comparison_guide",
+      "session_version": "v010"
     }
   },
   "historical_download_metadata": "docs/archive/SCHERAGA-downloads-pre-publication.json",

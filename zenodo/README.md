@@ -4,10 +4,12 @@ The poster compares 11,000 original AI-sampled structures per protein, with matc
 
 | Dataset | All-versions DOI | Availability checked 23 October 2026 |
 | --- | --- | --- |
-| Adenylate kinase (Adk) | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | v1 incomplete: 9 of 14 expected files |
+| Adenylate kinase (Adk) | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | [Corrected version](https://doi.org/10.5281/zenodo.23607500) complete: 14 of 14 expected files |
 | Mad2 | [10.5281/zenodo.23601144](https://doi.org/10.5281/zenodo.23601144) | v1 complete: 14 of 14 expected files |
 
 For downloads, limitations and citation guidance, start with the [dataset guide](../data/README.md) and [resource availability](../docs/distribution-status.md).
+
+The Adk version `scheraga-poster-v1.0.0-corrected` restores the five files omitted from the initial v1 publication and uses a revised public description. All 14 public files match the reviewed package sizes and MD5 checksums. The existing Adk all-versions DOI resolves to the corrected record; v1 remains in the version history.
 
 ## Directory contents
 
@@ -33,7 +35,7 @@ See the [package and command reference](../docs/zenodo-deposition.md) before pre
 
 ## Existing records and versioning
 
-These tools create and resume editable drafts. They do not implement the new-version operation needed to correct the published Adk record. Repeating an original draft-upload command cannot repair a published version. Preserve the existing version and use a reviewed new-version workflow within the same all-versions DOI.
+These tools create and resume editable drafts. They do not implement the new-version operation used for the completed Adk correction. Repeating an original draft-upload command cannot repair a published version. For future corrections, preserve the existing version and use a reviewed new-version workflow within the same all-versions DOI.
 
 A version DOI identifies a particular dataset release; a concept DOI identifies its version family. The production wrapper records a returned concept DOI separately from the reserved version DOI. It does not infer DOI strings from numeric record IDs. Sandbox identifiers are not production citations.
 

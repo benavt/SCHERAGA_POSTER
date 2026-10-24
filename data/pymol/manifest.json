@@ -1,23 +1,73 @@
 {
-  "status": "public_virtual_poster_download_copy",
-  "session_version": "v008",
-  "source_html": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
-  "source_html_sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
-  "files_unchanged_from_embedded_downloads": true,
-  "historical_session_hash_matches_archived_download_catalog": true,
+  "schema_version": 1,
+  "status": "public_corrected_comparison_session",
+  "session_version": "v010",
+  "prepared_date": "2026-10-23",
   "files": [
     {
-      "filename": "Scheraga_four_comparisons_robust_controls_v008.pse",
-      "bytes": 4963017,
-      "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98",
-      "virtual_poster_download_id": "download-pymol-session"
+      "filename": "2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse",
+      "bytes": 4955928,
+      "sha256": "67dfb349c61b24403a33a98a66f10df39fe9ed6fa67db03e9e4d094c9093a107"
     },
     {
-      "filename": "PyMOL-quick-guide.txt",
-      "bytes": 2236,
-      "sha256": "703d411d72468a02d4272ea528c80d941f173a1e2012c0e3527fd6d7b21eaa3c",
-      "virtual_poster_download_id": "download-pymol-guide"
+      "filename": "2026-10-23_PyMOL-quick-guide_v010.txt",
+      "bytes": 2724,
+      "sha256": "90022331e3c24286d8bff6e3da7c536650fd653e42701d9766b0c1585d3c2e84"
     }
   ],
-  "scope": "Four saved open/closed comparison scenes across Adk and Mad2; earlier selected AIS objects are preserved and do not include all final physical-poster S1/S2 selections."
+  "original_session": {
+    "filename": "Scheraga_four_comparisons_robust_controls_v008.pse",
+    "bytes": 4963017,
+    "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98",
+    "virtual_poster_download_id": "download-pymol-session"
+  },
+  "original_guide": {
+    "filename": "PyMOL-quick-guide.txt",
+    "bytes": 2236,
+    "sha256": "703d411d72468a02d4272ea528c80d941f173a1e2012c0e3527fd6d7b21eaa3c",
+    "virtual_poster_download_id": "download-pymol-guide"
+  },
+  "historical_manifest": "history/2026-10-23_v008/manifest.json",
+  "historical_checksums": "history/2026-10-23_v008/SHA256SUMS",
+  "intermediate_predecessor": {
+    "session_version": "v009",
+    "sha256": "e304d2edb2ad2a2a58e118caa107e0026f002ba838d5006ae2affaf9e1e0916b",
+    "scope": "Validated Adk state replacement before portable-provenance packaging"
+  },
+  "selected_Adk_states": [
+    {
+      "object": "Adk_S1_AI_open",
+      "state": "S1",
+      "model_id": "AlphaFlow_MD_native__1AKE_alphaflow-md_0703",
+      "source_sha256": "3428ad08efa59e091a10f83a0a53381e0649d8636e3f014b5a7112afb72f1517",
+      "native_sha256": "3428ad08efa59e091a10f83a0a53381e0649d8636e3f014b5a7112afb72f1517",
+      "source_bytes": 134097,
+      "CA_count": 214,
+      "source_manifest": "zenodo/manifests/adk-ais-native-source.tsv",
+      "analysis_manifest": "zenodo/manifests/adk-ais-analysis.tsv"
+    },
+    {
+      "object": "Adk_S2_AI_closed",
+      "state": "S2",
+      "model_id": "AlphaFlow_PDB_native__1AKE_alphaflow-pdb_0327",
+      "source_sha256": "d944997d104a5303ffc7b60f2cbd72537dfab1cf71c5c344728e0f48f3f674f7",
+      "native_sha256": "d944997d104a5303ffc7b60f2cbd72537dfab1cf71c5c344728e0f48f3f674f7",
+      "source_bytes": 134097,
+      "CA_count": 214,
+      "source_manifest": "zenodo/manifests/adk-ais-native-source.tsv",
+      "analysis_manifest": "zenodo/manifests/adk-ais-analysis.tsv"
+    }
+  ],
+  "scope": "Four open/closed comparison scenes; Adk S1/S2 match final physical-poster AlphaFlow-MD0703 and AlphaFlow-PDB0327. Mad2 comparison selections remain unchanged. This is a selected comparison session, not the complete cohort.",
+  "validation": {
+    "selected_native_hashes_match_source_and_analysis_manifests": true,
+    "all_Adk_residues_and_native_B_fields_preserved": true,
+    "experimental_references_and_Mad2_objects_preserved": true,
+    "four_saved_cameras_and_scene_selections_preserved": true,
+    "all_seven_short_dispatch_controls_verified_in_fresh_PyMOL": true,
+    "Adk_headless_renders_visually_inspected": true,
+    "no_scientific_refitting_scoring_or_regeneration": true,
+    "portable_embedded_provenance": true,
+    "original_v008_files_unchanged": true
+  }
 }
