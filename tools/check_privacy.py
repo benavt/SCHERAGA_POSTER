@@ -1,80 +1,130 @@
 #!/usr/bin/env python3
-"""Run the unmodified Fleet privacy checker with this project's portable allowlist.
+"""Check repository files for credentials, local paths and unsafe artifacts.
 
-Set FLEET_ROOT to the private Fleet checkout; no machine binding is committed.
-Only the explicitly public repository-owner URL is exempt from private user matches.
+By default inspect staged changes. Use --tracked for all indexed files and add
+--working-tree to inspect their current working copies instead of Git blobs.
+Only Python's standard library and Git are required.
 """
-import importlib.util
+import argparse
 import ast
-import subprocess
 import os
 from pathlib import Path
 import re
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_OWNER_URL = b"https://github.com/benavt/"
+ALLOWED_FILES = {
+    '.gitignore', 'README.md', 'CONTRIBUTING.md', 'AGENTS.md',
+    'LICENSE', 'LICENSE-CONTENT.md', 'NOTICE.md', 'CITATION.cff',
+}
+ALLOWED_DIRS = {
+    'scripts', 'docs', 'tests', '.githooks', '.github', 'tools', 'src',
+    'config', 'poster', 'site', 'data', 'zenodo',
+}
+PRIVATE_PARTS = {'.git', 'local', '.ssh', '.aws', '.agents', '.codex', '.env', '__pycache__'}
+PATTERNS = [
+    re.compile(rb'-----BEGIN (?:OPENSSH |RSA |EC |DSA |ENCRYPTED )?PRIVATE KEY-----'),
+    re.compile(rb'\bgh[pousr]_[A-Za-z0-9]{20,}\b'),
+    re.compile(rb'\bgithub_pat_[A-Za-z0-9_]{30,}\b'),
+    re.compile(rb'\bAKIA[A-Z0-9]{16}\b'),
+    re.compile(rb'''\b(?:ZENODO_(?:ACCESS|SANDBOX)_TOKEN|API_KEY|API_TOKEN|ACCESS_TOKEN|SECRET_KEY)\b["']?\s*[:=]\s*["']?[A-Za-z0-9_/-]{30,}\b''', re.I),
+]
 PRIVATE_LOCATION = re.compile(rb"/(?:home|Users)/[^\s\"'<>]+|(?:[a-z0-9-]+[.])+ts[.]net", re.I)
 PRIVATE_ADDRESS = re.compile(rb"(?<![0-9.])(?:10[.](?:[0-9]{1,3}[.]){2}[0-9]{1,3}|192[.]168[.][0-9]{1,3}[.][0-9]{1,3}|172[.](?:1[6-9]|2[0-9]|3[01])[.][0-9]{1,3}[.][0-9]{1,3}|100[.](?:6[4-9]|[7-9][0-9]|1[01][0-9]|12[0-7])[.][0-9]{1,3}[.][0-9]{1,3})(?![0-9.])")
 
-def public_normalized(content):
-    return content.replace(PUBLIC_OWNER_URL, b"https://github.com/PUBLIC-OWNER/")
 
 def extra_violations(content):
-    errors=[]
-    if PRIVATE_LOCATION.search(content): errors.append("private filesystem or tailnet location")
-    if PRIVATE_ADDRESS.search(content): errors.append("private network address")
+    errors = []
+    if PRIVATE_LOCATION.search(content):
+        errors.append('local filesystem or tailnet location')
+    if PRIVATE_ADDRESS.search(content):
+        errors.append('private network address')
     return errors
+
+
+def violations(name, content, credential_values=()):
+    path = Path(name)
+    errors = extra_violations(content)
+    if name not in ALLOWED_FILES and (len(path.parts) < 2 or path.parts[0] not in ALLOWED_DIRS):
+        errors.append('path outside public-content allowlist')
+    if (path.is_absolute() or '..' in path.parts
+            or any(part.lower() in PRIVATE_PARTS for part in path.parts)
+            or path.name.startswith(('id_', '.env'))
+            or path.suffix.lower() in {'.pem', '.key', '.p12'}):
+        errors.append('private artifact path')
+    if any(pattern.search(content) for pattern in PATTERNS):
+        errors.append('credential pattern')
+    if any(value.encode() in content for value in credential_values if value):
+        errors.append('local credential value')
+    return sorted(set(errors))
 
 
 def credential_values(directory):
     """Read only known ignored credential files; never expose their contents."""
-    directory=Path(directory)
+    directory = Path(directory)
     if any(p.is_symlink() for p in [directory, directory.parent]):
-        raise ValueError("Private credential directory must not be a symlink.")
-    values=[]
-    for name, variable in [("production.env", "ZENODO_ACCESS_TOKEN"), ("sandbox.env", "ZENODO_SANDBOX_TOKEN")]:
-        path=directory/name
-        if path.is_symlink(): raise ValueError("Private credential file must not be a symlink.")
-        if not path.exists(): continue
+        raise ValueError('Private credential directory must not be a symlink.')
+    values = []
+    for name, variable in [('production.env', 'ZENODO_ACCESS_TOKEN'), ('sandbox.env', 'ZENODO_SANDBOX_TOKEN')]:
+        path = directory / name
+        if path.is_symlink():
+            raise ValueError('Private credential file must not be a symlink.')
+        if not path.exists():
+            continue
         for line in path.read_text().splitlines():
-            prefix="export "+variable+"="
+            prefix = 'export ' + variable + '='
             if line.startswith(prefix):
                 try:
-                    value=ast.literal_eval(line[len(prefix):])
-                except (ValueError,SyntaxError):
-                    raise ValueError("Cannot parse private credential assignment; value withheld.") from None
-                if isinstance(value,str) and value: values.append(value)
+                    value = ast.literal_eval(line[len(prefix):])
+                except (ValueError, SyntaxError):
+                    raise ValueError('Cannot parse private credential assignment; value withheld.') from None
+                if isinstance(value, str) and value:
+                    values.append(value)
     return values
 
+
 def project_credentials():
-    common=Path(subprocess.check_output(["git", "rev-parse", "--git-common-dir"], cwd=ROOT, text=True).strip())
-    if not common.is_absolute(): common=(ROOT/common).resolve()
-    return credential_values(common.parent/"local"/"zenodo")
+    common = Path(subprocess.check_output(['git', 'rev-parse', '--git-common-dir'], cwd=ROOT, text=True).strip())
+    if not common.is_absolute():
+        common = (ROOT / common).resolve()
+    values = credential_values(common.parent / 'local' / 'zenodo')
+    values.extend(os.environ[key] for key in ('ZENODO_ACCESS_TOKEN', 'ZENODO_SANDBOX_TOKEN') if os.environ.get(key))
+    return values
 
-def main():
-    fleet_root = os.environ.get("FLEET_ROOT")
-    if not fleet_root:
-        print("Set FLEET_ROOT to the private Fleet checkout before the privacy gate.", file=sys.stderr)
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--tracked', action='store_true', help='inspect all indexed files, not just staged changes')
+    parser.add_argument('--working-tree', action='store_true', help='read working copies rather than index content')
+    args = parser.parse_args(argv)
+    command = (['git', 'ls-files', '-z'] if args.tracked else
+               ['git', 'diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z'])
+    try:
+        names = subprocess.check_output(command, cwd=ROOT).decode().split('\0')
+        secrets = project_credentials()
+        failed = False
+        for name in filter(None, names):
+            mode = subprocess.check_output(['git', 'ls-files', '-s', '--', name], cwd=ROOT).decode().split()[0]
+            path = ROOT / name
+            if mode in {'120000', '160000'} or (args.working_tree and path.is_symlink()):
+                errors = ['symlink or external repository cannot be published']
+            else:
+                content = (path.read_bytes() if args.working_tree else
+                           subprocess.check_output(['git', 'show', ':' + name], cwd=ROOT))
+                errors = violations(name, content, secrets)
+            if errors:
+                failed = True
+                print(name + ': ' + ', '.join(errors), file=sys.stderr)
+        if failed:
+            print('Privacy check failed. Remove flagged content before publication.', file=sys.stderr)
+            return 1
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        print('Privacy check could not read repository files or local credential configuration; values withheld.', file=sys.stderr)
         return 2
-    source = Path(fleet_root).resolve()/"scripts/check_privacy.py"
-    spec=importlib.util.spec_from_file_location("fleet_privacy", source)
-    module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
-    values=module.private_values(); secrets=module.notification_secrets()+project_credentials()
-    module.ROOT=ROOT
-    module.ALLOWED_FILES.update({"LICENSE", "LICENSE-CONTENT.md", "NOTICE.md", "CITATION.cff"})
-    module.ALLOWED_DIRS.update({"tools", "src", "config", "poster", "site", "data", "zenodo"})
-    module.private_values=lambda: values
-    module.notification_secrets=lambda: secrets
-    upstream=module.violations
-    def inspect(name, content, private_values=(), credential_values=()):
-        # Credentials are checked against the original bytes as well as normalized prose.
-        errors=upstream(name, public_normalized(content), private_values, credential_values)
-        if any(v.encode() in content for v in credential_values):
-            errors.append("local notification credential")
-        return sorted(set(errors+extra_violations(content)))
-    module.violations=inspect
-    return module.main()
+    print('Privacy check passed.')
+    return 0
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     raise SystemExit(main())

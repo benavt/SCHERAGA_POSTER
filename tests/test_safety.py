@@ -36,11 +36,10 @@ class Safety(unittest.TestCase):
             (root/"sandbox.env").symlink_to(root/"production.env")
             with self.assertRaises(ValueError):m.credential_values(root)
 
-    def test_locations_and_public_owner(self):
+    def test_locations_and_public_attribution(self):
         m=load("check_privacy")
         for value in [b"/"+b"home"+b"/private-user/data", b"192"+b".168.1.23", b"private-node"+b".ts.net"]:
             self.assertTrue(m.extra_violations(value))
-        self.assertEqual(b"https://github.com/PUBLIC-OWNER/SCHERAGA_POSTER",m.public_normalized(b"https://github.com/benavt/SCHERAGA_POSTER"))
-        self.assertIn(b"private-user",m.public_normalized(b"private-user"))
+        self.assertEqual([],m.violations("README.md",b"https://github.com/example/poster"))
 
 if __name__=="__main__": unittest.main()

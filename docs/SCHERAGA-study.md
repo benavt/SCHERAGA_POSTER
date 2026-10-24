@@ -1,6 +1,6 @@
-# SCHERAGA study guide
+# Study guide
 
-This independent poster companion describes **22,000 original AIS monomer predictions: 11,000 per target, 1,000 per sampling method**. Each original has a matched Boltz2 no-MSA template-only refold with confidence and original-versus-refold TM measurements. The canonical scientific data remain outside Git; the [verified offline inventory](../zenodo/manifests/README.md) records relative paths, byte counts and SHA-256 hashes.
+This conference-poster companion describes **22,000 original artificial intelligence sampling (AIS) monomer predictions: 11,000 per target, 1,000 per sampling method**. Each original has a matched Boltz2 no-MSA template-only refold with confidence and original-versus-refold TM measurements. The canonical scientific data remain outside Git; the [verified offline inventory](../zenodo/manifests/README.md) records relative paths, byte counts and SHA-256 hashes.
 
 ## Targets and experimental controls
 
@@ -17,6 +17,6 @@ Both preserved movies run open to closed through 100 observed AIS models over te
 
 ## What this repository contains
 
-This source-only companion is not the full interactive clustering application. It includes the [scoring adapters](../scripts/studies/SCHERAGA/original_refold_tm/), [printed figure conventions](SCHERAGA-physical-figure-style.md), model-label schemas and [method bibliography](SCHERAGA-references.md). Source pins and intentional sanitization are recorded in [provenance](source-provenance.md). Frozen scientific inputs and the external workflow runtime are required to reproduce analyses; cloning this repository does not execute them.
+This companion includes a selected source snapshot of the interactive clustering application, with the [scoring adapters](../scripts/studies/SCHERAGA/original_refold_tm/), [printed figure conventions](SCHERAGA-physical-figure-style.md), model-label schemas and [method bibliography](SCHERAGA-references.md). Source revisions and reproduction scope are recorded in [provenance](source-provenance.md). Reproducing the analyses requires the frozen scientific inputs, run plans and analysis environment. See the reproduction scope in the provenance guide.
 
 The [poster](../poster/README.md), [website](../site/README.md) and [data](../data/README.md) guides describe current distribution. Both Zenodo concept DOIs are published: [Adk](https://doi.org/10.5281/zenodo.23601146) and [Mad2](https://doi.org/10.5281/zenodo.23601144). Mad2 v1 is complete; Adk v1 contains 9 of 14 expected upload files and requires a corrected version. See [distribution status](distribution-status.md) and the [Zenodo runbook](../zenodo/README.md).
