@@ -26,7 +26,7 @@ Repair Adk through a corrected new version within the existing concept DOI. Pres
 | Interactive poster HTML | v025 | Local; 14 saved browser checks; includes both concept DOIs and v014 phone PDF |
 | Public website | Landing page | Five disabled “Coming soon” links; interactive poster not deployed |
 | Companion source | `scheraga-poster-v1.0.0` | Public GitHub release; no attached artifact files |
-| PyMOL comparison session | Historical export | Prior comparison states; new physical-poster S1/S2 selections are not all included |
+| PyMOL comparison session and guide | Preserved v008 | [Dedicated GitHub folder](../data/pymol/README.md); exact copies of the virtual poster's downloads; new physical-poster S1/S2 selections are not all included |
 
 The [machine-readable artifact inventory](SCHERAGA-downloads.json) records the final filenames and hashes. Historical private-source download metadata is preserved in `docs/archive/`; it is not the current public download catalog.
 

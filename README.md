@@ -28,6 +28,7 @@ Each target has 1,000 predictions from AF2/AFSample2, AF3/AFSample3, OpenDDE, Bo
 - [Method papers, software and references](docs/SCHERAGA-references.md)
 - [Measured original AIS versus matched refold TM similarity](docs/SCHERAGA-original-refold-TM.md)
 - [Physical poster](poster/README.md), [interactive poster](site/README.md), [data availability](data/README.md) and [Zenodo handling](zenodo/README.md)
+- [PyMOL comparison session](data/pymol/README.md): [download the virtual poster's PSE file (5.0 MB)](data/pymol/Scheraga_four_comparisons_robust_controls_v008.pse?raw=true) and [quick guide](data/pymol/PyMOL-quick-guide.txt). The preserved v008 session contains earlier selected comparison states.
 - [Distribution status and remaining release work](docs/distribution-status.md). The final physical poster is available in this repository; interactive poster v025 remains local. The [poster landing page](https://scheraga-poster.netlify.app) currently displays disabled “Coming soon” links.
 - [Zenodo metadata rework plan](zenodo/metadata-rework-plan.md): resume later to revise titles, descriptions and field handling, then prepare Adk's corrected version.
 
