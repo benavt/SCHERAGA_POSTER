@@ -1,0 +1,23 @@
+{
+  "status": "public_virtual_poster_download_copy",
+  "session_version": "v008",
+  "source_html": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
+  "source_html_sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
+  "files_unchanged_from_embedded_downloads": true,
+  "historical_session_hash_matches_archived_download_catalog": true,
+  "files": [
+    {
+      "filename": "Scheraga_four_comparisons_robust_controls_v008.pse",
+      "bytes": 4963017,
+      "sha256": "94521cc0014aafdd10bdfdc55e693343c93810a10960d63fe0f1e7d186124d98",
+      "virtual_poster_download_id": "download-pymol-session"
+    },
+    {
+      "filename": "PyMOL-quick-guide.txt",
+      "bytes": 2236,
+      "sha256": "703d411d72468a02d4272ea528c80d941f173a1e2012c0e3527fd6d7b21eaa3c",
+      "virtual_poster_download_id": "download-pymol-guide"
+    }
+  ],
+  "scope": "Four saved open/closed comparison scenes across Adk and Mad2; earlier selected AIS objects are preserved and do not include all final physical-poster S1/S2 selections."
+}
