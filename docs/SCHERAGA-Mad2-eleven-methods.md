@@ -1,4 +1,4 @@
-# Mad2 eleven-method update
+# Mad2: eleven-method comparison
 
 The current Mad2 analysis contains **11,000 original AIS monomer predictions**, 1,000 from each of eleven methods, plus the unscored experimental controls [1DUJ open](https://www.rcsb.org/structure/1DUJ) and [1S2H closed](https://www.rcsb.org/structure/1S2H). The corresponding Adk analysis also contains 11,000 predictions; see its [results page](SCHERAGA-Adk-eleven-methods.md). All former native physicality-filter failures are retained.
 
@@ -36,6 +36,6 @@ The manuscript abstract is maintained separately from these frozen numerical res
 
 The reusable model-label configuration is [`SCHERAGA_Mad2_eleven_methods`](../src/app/templates/model_type_configs/SCHERAGA_Mad2_eleven_methods.json). Select this schema when reusing the analysis; it preserves the original six-method rules and adds specific model-name/source-path rules for the five new methods.
 
-## Preservation and delivery
+## Related resources and availability
 
-Earlier analyses, poster versions, raw coordinates, movie media, Adk figures and reference structures are preserved. The downloadable PyMOL session retains the prior comparison states; it does not yet include the new physical-poster S1, AF-Cluster 0675. The update uses local CPU analysis only, with no new folding/refolding jobs or paid calls. Validated v014 print and phone PDFs are cataloged in the [distribution guide](../poster/README.md), awaiting public distribution. Both Zenodo concept DOIs are published; [distribution status](distribution-status.md) distinguishes complete Mad2 v1 from incomplete Adk v1 and the undeployed interactive poster.
+Earlier analyses, poster versions, raw coordinates, movie media, Adk figures and reference structures are preserved. The downloadable PyMOL session retains the prior comparison states; it does not yet include the new physical-poster S1, AF-Cluster 0675. Validated v014 print and phone PDFs are cataloged in the [distribution guide](../poster/README.md), available in this repository. Both Zenodo concept DOIs are published; [distribution status](distribution-status.md) distinguishes complete Mad2 v1 from incomplete Adk v1 and the undeployed interactive poster.

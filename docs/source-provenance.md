@@ -1,13 +1,23 @@
-# Source snapshot provenance
+# Source provenance and reproducibility
 
-This repository starts from a README-only bootstrap and imports selected files **without source Git history**. Source: `https://github.com/benavt/Structure_Clustering`, branch `SCHERAGA`, resolved commit `c75f30ff9524fe11ba76ddd73a96fb80b3004ecf`. The source may be access restricted; public copies here are independently reviewable. No source branch or worktree was changed.
+This companion includes selected code and documentation from [Structure_Clustering](https://github.com/benavt/Structure_Clustering), branch `SCHERAGA`, at commit `c75f30ff9524fe11ba76ddd73a96fb80b3004ecf`. The included source can be inspected independently in this repository.
 
-Included: SCHERAGA study/reference/display documentation, two native poster-panel exports, four original/refold TM adapters, the printed-style helper, the two eleven-method labeling schemas, and the required US-align average-length TM parser. The parser function is copied verbatim; unrelated medoid dependencies are omitted. Private phone-preview tooling and machine bindings are excluded. The original scorer v1 is historical provenance; use v002 as the format-corrected implementation, subject to a separately approved execution plan.
+## Included components
 
-`tools/zenodo_deposition.py` and the upstream implementation notes derive from MIT-licensed source commit `6aee527d69d53f71f9e481b28e3f75efb2974704`; no live Zenodo requests or credentials were used during that initial source preparation. Later work added a separate production-draft wrapper; the owner subsequently published both records manually. See the [current runbook](../zenodo/README.md) and [distribution status](distribution-status.md). The wrappers do not authorize publication, invented metadata or unreviewed release creation.
+- Study documentation, method references and figure conventions.
+- Two poster-panel image exports.
+- Four original-versus-refold TM scoring and display adapters.
+- A helper for printed figure styling and two eleven-method model-label configurations.
+- The US-align average-length TM parser, with unrelated medoid dependencies omitted.
 
-Private infrastructure wording and paths are removed from public copies while preserving scientific content. The MIT source copyright is retained in `LICENSE`; authored-content licensing is separate. No raw model, score-array, bulk archive, runtime binding, token or private history is included.
+The original scoring implementation is retained for historical comparison. Use `score_pairs_v002.py` for the corrected input-format handling, with the required run plan, input files, US-align executable and Python dependencies. This repository does not provide a complete end-to-end reproduction environment or the full interactive analysis application.
 
-Public-facing study-guide and extension-page introductions are reconciled to the final eleven-method cohort; historical six-method status claims and development-only links are replaced with current companion links. Numerical results, frozen media distinctions and source pins are preserved.
+## Deposition tools
 
-Bibliography identities and source links are preserved while virtual reference numbers follow the revised 22,000-model abstract. The earlier fourteen-entry JSON is retained under `docs/archive/` as historical metadata; it is not the active bibliography.
+`tools/zenodo_deposition.py` derives from MIT-licensed source commit `6aee527d69d53f71f9e481b28e3f75efb2974704`. The companion adds wrappers for Sandbox and production drafts, manifest-backed asset selection and local validation. See the [deposition guide](../zenodo/README.md) for supported operations and limitations.
+
+## Scientific assets and attribution
+
+Bulk coordinates, score arrays and model outputs are distributed separately from source code. Portable inventories record identities and hashes; the [distribution status](distribution-status.md) describes which files are publicly available. Source revision identifiers document code provenance and do not establish dataset completeness.
+
+The original source copyright is preserved in [LICENSE](../LICENSE) and [NOTICE.md](../NOTICE.md). Authored content has separate [CC BY 4.0 terms](../LICENSE-CONTENT.md); third-party material retains its own rights and citations.

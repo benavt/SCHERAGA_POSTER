@@ -1,6 +1,6 @@
-# Zenodo metadata rework plan
+# Dataset metadata roadmap
 
-Saved for later work on 2026-10-23. Redesign how the Adk and Mad2 deposition fields are authored, reviewed and filled, with particular attention to the scientific description. Keep the final physical poster unchanged in [`poster/final/`](../poster/final/README.md). This is a plan; no Zenodo metadata, files or records are changed by saving it.
+Proposed improvements to the Adk and Mad2 dataset descriptions, metadata and archive organization, as of 23 October 2026. These proposals have not yet been implemented. Final poster exports are available in [`poster/final/`](../poster/final/README.md).
 
 ## Current records and title changes
 
@@ -9,13 +9,13 @@ Saved for later work on 2026-10-23. Redesign how the Adk and Mad2 deposition fie
 | Adk | Adk: all models and scores | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | v1 has 9 of 14 expected upload files |
 | Mad2 | Mad2: all models and scores | [10.5281/zenodo.23601144](https://doi.org/10.5281/zenodo.23601144) | v1 has all 14 expected upload files |
 
-**Yes, the title can change in a future version.** A new-version draft has its own editable metadata and files, with a distinct version DOI linked to the same version family. Zenodo also permits editing an already published record's title and description without changing its DOI. A metadata-only wording change does not require a new version. See [Manage records](https://help.zenodo.org/docs/deposit/manage-records/) and [Manage versions](https://help.zenodo.org/docs/deposit/manage-versions/), checked 2026-10-23.
+Titles and descriptions can be revised. A new-version draft has its own editable metadata and files, with a distinct version DOI linked to the same version family. Zenodo also permits editing an already published record's title and description without changing its DOI. A metadata-only wording change does not require a new version. See [Manage records](https://help.zenodo.org/docs/deposit/manage-records/) and [Manage versions](https://help.zenodo.org/docs/deposit/manage-versions/), checked 2026-10-23.
 
 Keep both existing concept DOIs. Use a corrected Adk version for its missing files, with a revised title and description if desired. Decide separately whether Mad2 needs only metadata edits or a new file version. Metadata edits to one published version should not be assumed to update other versions; review each intended record explicitly.
 
 ## Proposed authoring approach
 
-Keep the human-authored metadata separate from the bulk data package and private upload state. The present `plan()` in `tools/zenodo_deposition.py` appends release provenance and archive navigation directly to `description`; package preparation then reuses that combined text in its landing documents. This mixes the scientific narrative with operational detail and makes independent editorial changes awkward.
+Keep the human-authored metadata separate from the bulk data package and local upload state. The present `plan()` in `tools/zenodo_deposition.py` appends release provenance and archive navigation directly to `description`; package preparation then reuses that combined text in its landing documents. This mixes the scientific narrative with operational detail and makes independent editorial changes awkward.
 
 At implementation time, add a small reviewed metadata layer under `zenodo/metadata/` with the following responsibilities. Do not fill the historical `zenodo/configs/` templates in place or treat them as current runtime configs.
 
@@ -29,7 +29,7 @@ At implementation time, add a small reviewed metadata layer under `zenodo/metada
 
 The future adapter should render only the reviewed description into the Zenodo description field. Put detailed inventories and long provenance blocks in the package README/manifest, linked from a short download guide. Additional descriptions for methods or technical notes can be used if the chosen API supports them; otherwise retain that information in the linked README. Zenodo supports formatted descriptions and separate description types in its deposit form. See [Descriptions](https://help.zenodo.org/docs/deposit/describe-records/descriptions/).
 
-## Description structure to agree
+## Proposed description structure
 
 Write the description as a scientific resource abstract, followed by a brief reuse guide. Agree a shared outline, then author target-specific prose:
 
@@ -44,7 +44,7 @@ Agree the title and opening paragraph first. Possible title patterns can emphasi
 
 ## Field review checklist
 
-| Fields | Decision for the later editing session |
+| Fields | Review decision |
 | --- | --- |
 | Title and description | Choose target-specific titles; approve the narrative and its exact rendered appearance |
 | Resource type and version | Confirm dataset classification and an explicit dataset-version scheme, separately from the source-code tag |
@@ -58,18 +58,12 @@ Agree the title and opening paragraph first. Possible title patterns can emphasi
 
 The existing planner ties dataset `version` to the source tag. Review that coupling before implementing a separate dataset-version scheme; do not bypass the frozen source-release identity.
 
-## Execution stages for the later session
+## Implementation stages
 
 1. **Read current state.** Fetch both public records and inspect any existing editable/new-version drafts with read-only operations. Save timestamped metadata and file inventories privately so changes since this plan are visible.
 2. **Author and review offline.** Create the metadata layer, draft both titles/descriptions, map each field to its source and show the old/new diff. Preview the exact formatted description. Resolve rights, date and field choices with the authors.
 3. **Choose the operation per target.** Adk needs a corrected file version under its existing concept DOI. Mad2 can use a metadata edit if files are unchanged. Decide whether smaller archives improve Adk delivery without changing scientific bytes or dropping aliases. Preserve the existing verified packages.
 4. **Implement the required adapter.** Add a reviewed path for new-version recovery; the current production wrapper blocks action endpoints and cannot perform it. Keep DOI identity checks, durable intent receipts, explicit upload selections and outcome reconciliation. Support metadata-only changes without unnecessary scientific packaging or uploads. Check the current Zenodo API/schema before implementing either path.
 5. **Prepare the exact draft.** Obtain approval of the concrete target, field diff and file selection before remote writes. Reconcile uncertain outcomes before retries. For a new version, use its returned version DOI in citation files and regenerate affected metadata, landing documents and package seals consistently.
-6. **Verify before manual publication.** Compare every remote file's size/checksum and the exact metadata with the reviewed version. Ensure the rendered description claims only present contents. The owner reviews and publishes manually.
+6. **Verify before manual publication.** Compare every remote file's size/checksum and the exact metadata with the reviewed version. Ensure the rendered description claims only present contents. Publication follows author review and manual verification.
 7. **Reconcile distribution links.** Read the resulting public record, verify its title, description and complete files, then update GitHub status/catalog entries and citations. Keep poster concept DOI links and final poster bytes unchanged.
-
-## Resume here
-
-Start with: **“Resume `zenodo/metadata-rework-plan.md`. First show the current Adk and Mad2 titles/descriptions and propose a clearer shared description outline and field policy. Keep the final poster unchanged. Prepare the metadata diff before any Zenodo writes.”**
-
-The next editorial decisions are the title wording, description length and emphasis, which details belong in the package README, and whether to reorganize archives. No API implementation or upload is required to make those decisions.

@@ -1,6 +1,6 @@
 # Physical poster
 
-The owner confirmed **v014 as the final physical poster** on 2026-10-23. The final distribution is in [`final/`](final/README.md), with the original bytes preserved:
+**v014 is the final conference poster export (23 October 2026).** The final distribution is in [`final/`](final/README.md), with the original bytes preserved:
 
 - [36 × 48 inch print PDF](final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true)
 - [Smaller phone PDF](final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true)
@@ -8,7 +8,7 @@ The owner confirmed **v014 as the final physical poster** on 2026-10-23. The fin
 - [PNG preview](final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png)
 - [Verbatim abstract](final/abstract-verbatim-v014.txt)
 
-Both dataset concept DOIs are linked in the poster. The editable PPTX remains local. These files are tracked in the repository rather than attached to the earlier source release.
+Both dataset concept DOIs are linked in the poster. The editable PPTX is not included in this repository. These files are tracked in the repository rather than attached to the earlier source release.
 
 [Panel A](../docs/assets/SCHERAGA/Adk-poster-panel.png) and [panel B](../docs/assets/SCHERAGA/Mad2-poster-panel.png) are lightweight figure exports. The [artifact inventory](../docs/SCHERAGA-downloads.json) records the current filenames, sizes and hashes; earlier download metadata is preserved under `docs/archive/`.
 

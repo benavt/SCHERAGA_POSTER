@@ -1,42 +1,32 @@
-# Distribution status — 2026-10-23
+# Resource availability
 
-The scientific cohort and final poster exports already exist. The remaining work is distribution, deposition repair and presentation. No folding, refolding, clustering or alignment rerun is needed to recover the verified packages.
+**Status checked: 23 October 2026.** This page records the available poster, datasets and companion resources. Availability can change; follow the linked records for subsequent versions.
 
-## Published datasets
+## Research datasets
 
-| Target | All-versions DOI | Published version | Verified availability |
+| Target | All-versions DOI | Checked version | Availability |
 | --- | --- | --- | --- |
-| Adk | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | [v1: 23601147](https://zenodo.org/records/23601147) | 9 of 14 expected files; incomplete |
-| Mad2 | [10.5281/zenodo.23601144](https://doi.org/10.5281/zenodo.23601144) | [v1: 23601145](https://zenodo.org/records/23601145) | 14 of 14 expected files; complete |
+| Adk | [10.5281/zenodo.23601146](https://doi.org/10.5281/zenodo.23601146) | [v1: 23601147](https://zenodo.org/records/23601147) | **Incomplete: 9 of 14 expected files** |
+| Mad2 | [10.5281/zenodo.23601144](https://doi.org/10.5281/zenodo.23601144) | [v1: 23601145](https://zenodo.org/records/23601145) | Complete: 14 of 14 expected files |
 
-The public record APIs were read on 2026-10-23. Every present file matched the expected size and MD5 checksum. All 14 files in each complete local package also passed fresh SHA-256 and MD5 comparisons against its saved package seal. Earlier saved validation covers individual archive members and privacy review; this audit did not rerun the science.
+All files present in the checked public records matched the expected sizes and MD5 checksums. The complete prepared packages also passed SHA-256 and MD5 checks against their package manifests. File verification does not independently validate the scientific conclusions.
 
-The Adk `outputs.tar.gz` upload (1,022,694,730 bytes) returned HTTP 500 before manual publication. Five files are absent from the published record: `outputs.tar.gz`, `provenance.tar.gz`, `reports.tar.gz`, `source.tar.gz` and `zenodo-metadata.json`. The published record cannot be treated as a complete model distribution. Its local receipt still says `uploading`; the public record establishes that v1 has since been published.
+**Adk v1 does not provide the complete model distribution.** The following expected files are missing: `outputs.tar.gz`, `provenance.tar.gz`, `reports.tar.gz`, `source.tar.gz` and `zenodo-metadata.json`. A corrected dataset version is needed under the existing Adk all-versions DOI. Until it is published, use the present record only within its documented file coverage.
 
-Repair Adk through a corrected new version within the existing concept DOI. Preserve public v1 and the verified local packages. The current draft-upload wrapper does not implement the new-version action and deliberately blocks action endpoints; recovery needs a separately reviewed new-version workflow. Repeating its original draft command is not a repair for a published record.
+All-versions (concept) DOIs provide durable navigation to a dataset's version family. For reproducible work, cite the exact version used.
 
-## Current artifact inventory
+## Poster and companion resources
 
-| Artifact | Current validated version | Distribution state |
+| Resource | Version | Where to find it |
 | --- | --- | --- |
-| Print and phone poster PDFs | Final v014, confirmed by owner | [Public repository files](../poster/final/README.md); original bytes preserved |
-| Compact print PDF | v014 derivative, 120 dpi | [2.1 MB printer download](../poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true); same 36 × 48 inch page and links |
-| Preview and abstract text | Final v014 | In `poster/final/`; hashes recorded |
-| Editable PPTX | v014 | Retained locally |
-| Interactive poster HTML | v025 | Local; 14 saved browser checks; includes both concept DOIs and v014 phone PDF |
-| Public website | Landing page | Five disabled “Coming soon” links; interactive poster not deployed |
-| Companion source | `scheraga-poster-v1.0.0` | Public GitHub release; no attached artifact files |
-| PyMOL comparison session and guide | Preserved v008 | [Dedicated GitHub folder](../data/pymol/README.md); exact copies of the virtual poster's downloads; new physical-poster S1/S2 selections are not all included |
+| Full-resolution print and screen-reading PDFs | Final v014 | [Poster downloads](../poster/final/README.md) |
+| Compact print PDF | v014, 120 dpi | [2.1 MB download and printing guide](../poster/print-friendly/README.md) |
+| Poster preview and abstract | Final v014 | [Poster files](../poster/final/README.md) |
+| Editable presentation source | v014 | Not included in this repository |
+| Interactive poster | v025 | Not yet publicly deployed; [availability guide](../site/README.md) |
+| Companion source snapshot | `scheraga-poster-v1.0.0` | [GitHub source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) |
+| PyMOL comparison session | v008, earlier selected states | [Session and quick guide](../data/pymol/README.md); does not include all final-poster S1/S2 selections |
 
-The [machine-readable artifact inventory](SCHERAGA-downloads.json) records the final filenames and hashes. Historical private-source download metadata is preserved in `docs/archive/`; it is not the current public download catalog.
+The [poster landing page](https://scheraga-poster.netlify.app) showed disabled “Coming soon” links at the status check. Use the repository's poster downloads above. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
 
-## Finalization order
-
-1. Resume the [Zenodo metadata rework plan](../zenodo/metadata-rework-plan.md) to agree titles, descriptions, field handling and archive organization. Keep one record per target and retain both concept DOIs unless the scientific resource boundaries change. A useful organization separates native coordinates, analysis copies, matched refolds, scores, reports and provenance; method-level coordinate archives would reduce individual transfer size. Retain alias mappings and exact member hashes.
-2. Prepare the corrected Adk version from verified existing data. Reconcile remote state before writing; verify every remote file and the metadata before manual publication. Preserve AF3 output notices, PDB attribution, creator order and the distinction between authored CC BY content and third-party rights.
-3. Rework Mad2 metadata or files only where the agreed organization calls for it. Its present v1 package is complete.
-4. The final poster PDFs, preview and abstract are distributed in `poster/final/` with fixed filenames and hashes. Editable source remains local. Decide whether to update the historical PyMOL session to the final selected states or label its earlier scope.
-5. Deploy the validated interactive poster and replace all five disabled landing-page entries with verified destinations. Display an accurate Adk availability notice until the corrected version is published.
-6. Check GitHub README, release notes, citation metadata, website and poster links together. Use concept DOIs for durable navigation and exact version DOIs for dataset citations. Keep release history and old hashes rather than renaming old artifacts as final.
-
-Zenodo publication remains manual. Website deployment and new release creation require their concrete reviewed scope; this status cleanup performs neither.
+For dataset packaging and maintenance, see the [deposition guide](../zenodo/README.md). Planned metadata improvements are described in the [metadata roadmap](../zenodo/metadata-rework-plan.md).
