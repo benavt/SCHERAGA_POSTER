@@ -4,6 +4,8 @@ The virtual poster is a static HTML/CSS/JavaScript application with two target d
 
 The current validated local export is **v025**. It contains both published dataset concept DOI links and embeds the v014 phone PDF. Its saved validation records 14 browser checks; the file hash was rechecked on 2026-10-23.
 
+The virtual poster's embedded [PyMOL session and quick guide](../data/pymol/README.md) also have a dedicated GitHub location in `data/pymol/`. Both files are exact copies of those embedded downloads, with filenames and SHA-256 hashes recorded. The v008 session retains its earlier selected comparison objects.
+
 The public [poster landing page](https://scheraga-poster.netlify.app) currently shows five disabled “Coming soon” links. The v025 interactive poster has not been deployed there. A reachable landing page does not establish that the interactive poster or downloads are available.
 
 See [distribution status](../docs/distribution-status.md) and the [artifact inventory](../docs/SCHERAGA-downloads.json). The full HTML/media payload stays outside source Git. No server-side PHP is required.
