@@ -27,6 +27,6 @@ All-versions (concept) DOIs provide durable navigation to a dataset's version fa
 | Companion source snapshot | `scheraga-poster-v1.0.0` | [GitHub source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) |
 | PyMOL comparison session | Corrected v010 | [Session and quick guide](../data/pymol/README.md); Adk S1/S2 match the final physical poster, while Mad2 comparisons remain unchanged; original v008 retained |
 
-GitHub Pages hosts the standalone interactive poster. The earlier [Netlify landing page](https://scheraga-poster.netlify.app) is unchanged. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
+GitHub Pages hosts the standalone interactive poster. As verified on 24 October 2026, the earlier [Netlify address](https://scheraga-poster.netlify.app/) permanently redirects to GitHub Pages, so the poster's existing QR code reaches the updated poster. Existing Netlify `/files/` downloads remain available with unchanged checksums. The [redirect configuration](../site/netlify-redirect/README.md) documents maintenance and rollback. The [machine-readable artifact inventory](SCHERAGA-downloads.json) records filenames and checksums; superseded metadata is documented in [the archive](archive/README.md).
 
 For dataset packaging and maintenance, see the [deposition guide](../zenodo/README.md). Planned metadata improvements are described in the [metadata roadmap](../zenodo/metadata-rework-plan.md).
