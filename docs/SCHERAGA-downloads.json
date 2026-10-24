@@ -83,18 +83,21 @@
       "finalized_date": "2026-10-23"
     },
     "interactive_html": {
-      "filename": "SCHERAGA_virtual_poster_design_polish_v036.html",
+      "filename": "SCHERAGA_virtual_poster_reference_colors_v037.html",
       "bytes": 88933716,
-      "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
-      "url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-23_virtual-poster-v036/SCHERAGA_virtual_poster_design_polish_v036.html",
+      "sha256": "ac1df9d5dd3851f4100a91fd70e8bbef6165b54a51299234eb615ab97d9081c2",
+      "url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-24_virtual-poster-v037/SCHERAGA_virtual_poster_reference_colors_v037.html",
       "status": "published_standalone_offline_html",
       "predecessor": {
-        "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
-        "bytes": 88285521,
-        "sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
-        "url": null,
-        "status": "validated_local_not_deployed",
-        "saved_browser_checks": 14
+        "filename": "SCHERAGA_virtual_poster_design_polish_v036.html",
+        "bytes": 88933716,
+        "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+        "url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-23_virtual-poster-v036/SCHERAGA_virtual_poster_design_polish_v036.html"
+      },
+      "reference_colors": {
+        "open": "#1f77b4",
+        "closed": "#ff7f0e",
+        "matches_physical_poster": "v014"
       }
     },
     "compact_print_pdf": {
@@ -135,13 +138,13 @@
     "interactive_website": {
       "url": "https://benavt.github.io/SCHERAGA_POSTER/",
       "status": "published_github_pages",
-      "version": "web-v001",
+      "version": "web-v002",
       "index_bytes": 10559049,
-      "index_sha256": "41cda0a29a38b8b824f208b244c873b6d034f5c51bd5833b596a5f739092aa7d",
-      "bundle_release": "https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-23_virtual-poster-web-v001",
-      "bundle_bytes": 53492754,
-      "bundle_sha256": "16cd839456c95edeb11320a8d1d2de72b5bdea8f51711157ab7d255bc4bf82f9",
-      "offline_predecessor_sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+      "index_sha256": "eb4eb7a04f5fb8f251533228019601b7a6d0ee0f63bcc7f806cd3ca9ffa04a9b",
+      "bundle_release": "https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-24_virtual-poster-web-v002",
+      "bundle_bytes": 53492702,
+      "bundle_sha256": "331b1c2711e5815200a565319de00edfe60cb4a2246672b5e7c83d19e8a7ed75",
+      "offline_predecessor_sha256": "ac1df9d5dd3851f4100a91fd70e8bbef6165b54a51299234eb615ab97d9081c2",
       "asset_count": 423,
       "publication_manifest": "site/virtual-poster/publication.json"
     }
@@ -232,7 +235,7 @@
       "Mad2": 197
     },
     "quantity": "Measured coordinate similarity, distinct from pTM confidence",
-    "virtual_projection_option": "AIS \u2194 Boltz2 refold TM",
+    "virtual_projection_option": "AIS ↔ Boltz2 refold TM",
     "virtual_default_unchanged": "Boltz2 refold pTM",
     "palette": "Plasma; observed full-cohort minimum/maximum per target",
     "ranges": {

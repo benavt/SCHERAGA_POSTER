@@ -34,7 +34,7 @@ subset of the full matrix. Four older Mad2 display crops are removed. No metric
 is recomputed. Clicking either matrix opens the existing image viewer with a
 1100px image surface that can pan horizontally on a phone.
 
-## Reproduce the current final export
+## Reproduce the v036 design predecessor
 
 Run from the repository root. `PSE_V010` and `GUIDE_V010` below should point to the
 validated immutable v010 files, named respectively
@@ -70,9 +70,31 @@ portrait phone, landscape phone, tablet and desktop layouts, playback/frame
 seeking, all metric and palette choices, matrix zoom and downloads. Create a new
 date-first immutable run when inputs or scientific settings change.
 
+## Match physical-poster reference colors (v037)
+
+`reference-colors.json` records the final v014 palette: **open blue
+`#1f77b4`** (4AKE and 1DUJ), **closed orange `#ff7f0e`** (1AKE and 1S2H).
+The renderer uses these colors for projection stars, labels, legends and Bonsai
+reference overlays regardless of the selected prediction-color metric.
+
+After reproducing v036 above, create the current export:
+
+```sh
+python3 site/virtual-poster/match_reference_colors.py \
+  --input local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html \
+  --output local/site-exports/2026-10-24_reference-colors_002/SCHERAGA_virtual_poster_reference_colors_v037.html
+```
+
+The transformer verifies the v036 and physical-poster hashes, changes exactly
+four reference display-color fields and the two reference fills in each Bonsai
+SVG (both dashboard and supporting-figure copies). Restoring those colors
+reproduces the original HTML byte for byte. Executable scripts, other media,
+coordinates, scores, prediction colors and red navigation styling stay identical.
+Prior versioned exports and releases remain available.
+
 ## Package a smaller static website
 
-`package_web.py` converts the frozen v036 offline HTML to a buildless static
+`package_web.py` converts the frozen v037 offline HTML to a buildless static
 bundle. It replaces only literal base64 data URIs with relative, content-addressed
 asset paths. Every asset's decoded bytes remain identical; replacing those paths
 with the original URIs must reproduce the offline file byte for byte. The offline
@@ -80,9 +102,10 @@ release remains unchanged.
 
 ```sh
 python3 site/virtual-poster/package_web.py \
-  --input local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html \
-  --expected-sha256 f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef \
-  --output-dir local/2026-10-23_static-web_001
+  --input local/site-exports/2026-10-24_reference-colors_002/SCHERAGA_virtual_poster_reference_colors_v037.html \
+  --expected-sha256 ac1df9d5dd3851f4100a91fd70e8bbef6165b54a51299234eb615ab97d9081c2 \
+  --version web-v002 --release-date 2026-10-24 \
+  --output-dir local/site-exports/2026-10-24_static-web_002
 ```
 
 Use a new output directory for a new run; the packager refuses to overwrite an
