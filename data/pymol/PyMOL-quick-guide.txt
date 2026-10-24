@@ -1,0 +1,23 @@
+# Optional pLDDT coloring
+
+The right-side panel now offers **pLDDT (AlphaFold)** alongside Chainbow and Variance regions R1/R2. The session still starts in the Mad2 closed comparison with chainbow coloring; choosing a scene preserves the selected scheme.
+
+|AIS object|Resolved CA scores / residues|CA pLDDT range|
+|---|---:|---:|
+|Adk_S1_AI_open|214 / 214|53.66–94.35|
+|Adk_S2_AI_closed|214 / 214|85.40–98.35|
+|Mad2_S1_AI_open|197 / 197|38.94–96.38|
+|Mad2_S2_AI_closed|197 / 197|36.57–98.53|
+
+All four selected AIS models have existing confidence values. The values match their native prediction files and saved confidence summaries. OpenDDE records per-atom pLDDT; the actual atom values are colored directly. The cartoon and sequence viewer use their corresponding atom colors. No missing values are imputed, scores refolded, or coordinates changed.
+
+The official AlphaFold palette uses orange #FF7D45 for 0≤pLDDT<50, yellow #FFDB13 for 50≤pLDDT<70, cyan #65CBF3 for 70≤pLDDT<90, and blue #0053D6 for 90≤pLDDT≤100. The primary color source is the tagged AlphaFold v2.3.2 notebook; its confidence implementation defines the band thresholds.
+
+PDB experimental reference structures are neutral gray in this mode. Their crystallographic B values are not treated as pLDDT. The verified Mad2 substitution remains pink on both partners as an explicit mutation-color override; pink is not a confidence value. Its actual confidence value remains unchanged in the object B field and is inspectable using PyMOL atom information.
+
+The original eight proteins, all residues, cameras, four scenes, sequences, AIS/PDB headings, small mutation labels, magenta sticks and other two coloring buttons are retained. This PSE contains no displayed TM-score numbers, so there was no TM text to round in this display-only update.
+
+Primary sources: https://raw.githubusercontent.com/google-deepmind/alphafold/v2.3.2/notebooks/AlphaFold.ipynb and https://github.com/google-deepmind/alphafold/blob/v2.3.2/alphafold/common/confidence.py
+
+
+The current v008 session repairs a PyMOL GUI command-length limit. Buttons use short dispatch commands, with the complete instructions saved inside the session. No plugin or companion script is required.

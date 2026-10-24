@@ -1,0 +1,2 @@
+# Preserve the selected session bytes and suppress binary session diffs.
+*.pse binary
