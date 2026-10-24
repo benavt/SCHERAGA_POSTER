@@ -8,9 +8,9 @@
     "status": "published_github_pages",
     "interactive_poster_deployed": true,
     "legacy_landing_url": "https://scheraga-poster.netlify.app",
-    "legacy_redirect_status": 301,
-    "legacy_redirect_target": "https://benavt.github.io/SCHERAGA_POSTER/",
-    "legacy_redirect_checked_date": "2026-10-24"
+    "legacy_landing_status": "published_landing_page",
+    "legacy_virtual_poster_url": "https://benavt.github.io/SCHERAGA_POSTER/",
+    "legacy_landing_checked_date": "2026-10-24"
   },
   "Zenodo": {
     "Adk_resources": {
@@ -232,7 +232,7 @@
       "Mad2": 197
     },
     "quantity": "Measured coordinate similarity, distinct from pTM confidence",
-    "virtual_projection_option": "AIS ↔ Boltz2 refold TM",
+    "virtual_projection_option": "AIS \u2194 Boltz2 refold TM",
     "virtual_default_unchanged": "Boltz2 refold pTM",
     "palette": "Plasma; observed full-cohort minimum/maximum per target",
     "ranges": {
