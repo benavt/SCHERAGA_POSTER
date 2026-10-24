@@ -7,7 +7,10 @@
     "url": "https://benavt.github.io/SCHERAGA_POSTER/",
     "status": "published_github_pages",
     "interactive_poster_deployed": true,
-    "legacy_landing_url": "https://scheraga-poster.netlify.app"
+    "legacy_landing_url": "https://scheraga-poster.netlify.app",
+    "legacy_redirect_status": 301,
+    "legacy_redirect_target": "https://benavt.github.io/SCHERAGA_POSTER/",
+    "legacy_redirect_checked_date": "2026-10-24"
   },
   "Zenodo": {
     "Adk_resources": {
