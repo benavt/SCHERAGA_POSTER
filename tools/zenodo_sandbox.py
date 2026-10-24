@@ -11,7 +11,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 ALLOWED={"plan", "prepare", "verify", "draft"}
-SOURCE_ADDITIONS=["tools", "zenodo", "poster", "site", "data", "CITATION.cff", "NOTICE.md", "LICENSE-CONTENT.md"]
+SOURCE_ADDITIONS=["tools", "zenodo", "poster", "site", "data", "CITATION.cff", "NOTICE.md", "LICENSE-CONTENT.md", "CONTRIBUTING.md"]
 
 def validate(argv, environ):
     if not argv or argv[0] not in ALLOWED:

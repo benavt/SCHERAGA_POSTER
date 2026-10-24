@@ -44,7 +44,7 @@
       "bytes": 9338829,
       "sha256": "d8c2f7da31d2b5112e5235e35ee8073bd05412734185c3e90c881f348626021b",
       "url": null,
-      "status": "validated_local_private_source"
+      "status": "not_distributed"
     },
     "phone_pdf": {
       "filename": "SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf",
@@ -53,7 +53,7 @@
       "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true",
       "status": "final_public_repository_file",
       "repository_path": "poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf",
-      "owner_confirmed_final_date": "2026-10-23"
+      "finalized_date": "2026-10-23"
     },
     "print_pdf": {
       "filename": "SCHERAGA_poster_36x48_both_11methods_print_v014.pdf",
@@ -62,7 +62,7 @@
       "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true",
       "status": "final_public_repository_file",
       "repository_path": "poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf",
-      "owner_confirmed_final_date": "2026-10-23"
+      "finalized_date": "2026-10-23"
     },
     "preview_png": {
       "filename": "SCHERAGA_poster_36x48_both_11methods_v014_preview.png",
@@ -71,7 +71,7 @@
       "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/poster/final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png?raw=true",
       "status": "final_public_repository_file",
       "repository_path": "poster/final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png",
-      "owner_confirmed_final_date": "2026-10-23"
+      "finalized_date": "2026-10-23"
     },
     "abstract_text": {
       "filename": "abstract-verbatim-v014.txt",
@@ -80,7 +80,7 @@
       "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/poster/final/abstract-verbatim-v014.txt?raw=true",
       "status": "final_public_repository_file",
       "repository_path": "poster/final/abstract-verbatim-v014.txt",
-      "owner_confirmed_final_date": "2026-10-23"
+      "finalized_date": "2026-10-23"
     },
     "interactive_html": {
       "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
@@ -174,8 +174,8 @@
         "TM_similarity_display": "0.83"
       }
     ],
-    "movie": "Retained original100-model open-to-closed movie; its opening model remains OpenDDE0787 and differs from new physical S1.",
-    "abstract": "Preserved unchanged at author request; current cohort counts are reported outside the abstract."
+    "movie": "Retained original 100-model open-to-closed movie; its opening model remains OpenDDE 0787 and differs from physical-poster S1.",
+    "abstract": "Verbatim poster abstract; expanded cohort counts are documented in the study guide."
   },
   "Adk_analysis": {
     "prediction_groups": 6,
@@ -200,7 +200,7 @@
       }
     ],
     "movie": "Retained original 100-model open-to-closed movie, AFSample2 0348 to OpenDDE 0572; its endpoints differ from new physical S1/S2.",
-    "abstract": "Preserved unchanged at author request; current cohort counts are reported outside the abstract."
+    "abstract": "Verbatim poster abstract; expanded cohort counts are documented in the study guide."
   },
   "original_refold_TM": {
     "models_per_target": 11000,

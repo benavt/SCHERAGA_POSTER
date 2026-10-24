@@ -1,49 +1,65 @@
-# AI sampling of protein conformational landscapes
+# Beyond a Single Structure
 
-Code and documentation for **Beyond a Single Structure: Exploring Multistate Protein Conformational Landscapes with AI Structure Prediction**, by T.L. Benavides and G.T. Montelione.
+**Exploring Multistate Protein Conformational Landscapes with AI Structure Prediction**
 
-**Adk dataset:** [![Adk dataset Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601146.svg)](https://doi.org/10.5281/zenodo.23601146) · **Mad2 dataset:** [![Mad2 dataset Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601144.svg)](https://doi.org/10.5281/zenodo.23601144)
+T.L. Benavides and G.T. Montelione
 
-[Final poster PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf) · [Study guide](docs/SCHERAGA-study.md) · [Adk dataset](https://doi.org/10.5281/zenodo.23601146) · [Mad2 dataset](https://doi.org/10.5281/zenodo.23601144) · [Source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0)
+Public companion to a conference poster, with poster downloads, study explanations, analysis code and links to the research datasets. It is intended for researchers, students, conference visitors and anyone curious about how AI can help explore protein shapes.
 
-The **final physical poster** is preserved in [`poster/final/`](poster/final/README.md): [full-resolution print PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true), [smaller phone PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true), preview and abstract. The owner confirmed this v014 export as final; its bytes are unchanged.
+[Read the poster](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true) · [Study guide](docs/SCHERAGA-study.md) · [Data downloads](data/README.md) · [Methods and references](docs/SCHERAGA-references.md)
 
-For printers with upload or memory limits, use the [compact print PDF (2.1 MB)](poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true). It preserves the 36 × 48 inch layout and links, with a 120-dpi compressed image; the print master remains available above.
+[![Adk dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601146.svg)](https://doi.org/10.5281/zenodo.23601146)
+[![Mad2 dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601144.svg)](https://doi.org/10.5281/zenodo.23601144)
 
-**Data availability:** Mad2 v1 is complete. Adk v1 was published after an upload failure and contains 9 of 14 expected files; its model-output archive is absent. A corrected version is needed under the existing Adk concept DOI. See [distribution status](docs/distribution-status.md) before downloading or reusing the data.
+## Why study more than one protein shape?
 
-We compare AI-sampled protein conformations with experimental open and closed references, then explore them through projections, structural comparisons and synchronized molecular views. This independent repository is a **snapshot**, not a fork of the private development history.
+Proteins change shape as they work. A single predicted structure can therefore tell only part of the story. This study asks how well eleven AI sampling methods explore different shapes of two proteins: **adenylate kinase (Adk)**, an enzyme involved in cellular energy balance, and **Mad2**, a protein involved in controlling cell division.
 
-| Target | Current models | Experimental controls |
+We compare 1,000 predictions from each method with experimentally determined open and closed structures. The study contains **22,000 original predictions**, split equally between the two proteins. Structural comparisons and visualizations help show which shapes the methods reach and how those shapes differ.
+
+## Start exploring
+
+| If you want to… | Start here |
+| --- | --- |
+| View the conference poster | [Screen-reading PDF, 11.2 MB](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true) |
+| Print the poster | [Full-resolution PDF, 24 MB](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true) or [compact PDF, 2.1 MB](poster/print-friendly/SCHERAGA_poster_36x48_print_compact_v014.pdf?raw=true); 36 × 48 inches |
+| Understand the study and terminology | [Study guide](docs/SCHERAGA-study.md) and [reading guide](docs/README.md) |
+| Examine the results | [Adk analysis](docs/SCHERAGA-Adk-eleven-methods.md) and [Mad2 analysis](docs/SCHERAGA-Mad2-eleven-methods.md) |
+| Explore selected structures in PyMOL | [Comparison session and quick guide](data/pymol/README.md) |
+| Download or reuse research data | [Dataset guide and availability](data/README.md) |
+| Inspect the code or contribute | [Repository guide](#repository-guide) and [contributing](CONTRIBUTING.md) |
+
+**Availability, checked 23 October 2026:** the poster PDFs are included here. Mad2 v1 contains all 14 expected files. **Adk v1 is incomplete (9 of 14 files); its model-output archive is missing.** Read the [availability details](docs/distribution-status.md) before using that dataset. The interactive poster is not yet publicly deployed; see the [interactive-poster guide](site/README.md).
+
+[![Conference poster preview](poster/final/SCHERAGA_poster_36x48_both_11methods_v014_preview.png)](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true)
+
+## Study at a glance
+
+| Protein | Original predictions | Experimental open / closed references |
 | --- | ---: | --- |
-| E. coli adenylate kinase | 11,000 monomers | [4AKE open](https://www.rcsb.org/structure/4AKE), [1AKE closed](https://www.rcsb.org/structure/1AKE) |
-| Mad2 mitotic spindle checkpoint protein | 11,000 monomers | [1DUJ open](https://www.rcsb.org/structure/1DUJ), [1S2H closed](https://www.rcsb.org/structure/1S2H) |
+| *E. coli* adenylate kinase (Adk) | 11,000 | [4AKE](https://www.rcsb.org/structure/4AKE) / [1AKE](https://www.rcsb.org/structure/1AKE) |
+| Mad2 | 11,000 | [1DUJ](https://www.rcsb.org/structure/1DUJ) / [1S2H](https://www.rcsb.org/structure/1S2H) |
 
-Each target has 1,000 predictions from AF2/AFSample2, AF3/AFSample3, OpenDDE, Boltz2, BioEmu, BioEmu2-preview, SPEACH_AF, AF-Cluster, AlphaFlow-PDB, AlphaFlow-MD and ESMFlow-PDB. The original four methods use stochastic 40% MSA column masking; additional methods retain their native protocols. Native physicality-filter failures remain in the analysis with flags.
+The eleven methods are AF2/AFSample2, AF3/AFSample3, OpenDDE, Boltz2, BioEmu, BioEmu2-preview, SPEACH_AF, AF-Cluster, AlphaFlow-PDB, AlphaFlow-MD and ESMFlow-PDB. The original four methods use stochastic masking of 40% of multiple-sequence-alignment columns; the additional methods retain their native protocols. Each original prediction has a matched Boltz2 template-only refold for comparison. Predictions that failed native physicality filters remain included and flagged.
 
-## Explore
+Prediction confidence and structural similarity answer different questions. Neither establishes how often a protein adopts a shape in an experiment. Movies order observed models by a structural-display heuristic; they do not establish a physical transition pathway or its timing. See the [study guide](docs/SCHERAGA-study.md) for definitions and limitations.
 
-- [Study guide and selected states](docs/SCHERAGA-study.md)
-- [Adk eleven-method analysis](docs/SCHERAGA-Adk-eleven-methods.md) and [Mad2 eleven-method analysis](docs/SCHERAGA-Mad2-eleven-methods.md)
-- [Method papers, software and references](docs/SCHERAGA-references.md)
-- [Measured original AIS versus matched refold TM similarity](docs/SCHERAGA-original-refold-TM.md)
-- [Physical poster](poster/README.md), [interactive poster](site/README.md), [data availability](data/README.md) and [Zenodo handling](zenodo/README.md)
-- [PyMOL comparison session](data/pymol/README.md): [download the virtual poster's PSE file (5.0 MB)](data/pymol/Scheraga_four_comparisons_robust_controls_v008.pse?raw=true) and [quick guide](data/pymol/PyMOL-quick-guide.txt). The preserved v008 session contains earlier selected comparison states.
-- [Distribution status and remaining release work](docs/distribution-status.md). The final physical poster is available in this repository; interactive poster v025 remains local. The [poster landing page](https://scheraga-poster.netlify.app) currently displays disabled “Coming soon” links.
-- [Zenodo metadata rework plan](zenodo/metadata-rework-plan.md): resume later to revise titles, descriptions and field handling, then prepare Adk's corrected version.
+## Repository guide
 
-<table><tr><th>A · E. coli adenylate kinase</th><th>B · Mad2</th></tr><tr><td width="50%"><a href="docs/assets/SCHERAGA/Adk-poster-panel.png"><img src="docs/assets/SCHERAGA/Adk-poster-panel.png" width="100%" alt="Adk poster figures"></a></td><td width="50%"><a href="docs/assets/SCHERAGA/Mad2-poster-panel.png"><img src="docs/assets/SCHERAGA/Mad2-poster-panel.png" width="100%" alt="Mad2 poster figures"></a></td></tr></table>
+| Directory | Contents |
+| --- | --- |
+| [`poster/`](poster/README.md) | Final poster, preview, abstract and printing options |
+| [`docs/`](docs/README.md) | Study guide, target results, references and figure conventions |
+| [`data/`](data/README.md) | Dataset links, availability and reuse guidance |
+| [`site/`](site/README.md) | Interactive-poster description and availability |
+| [`src/`](src/) and [`scripts/`](scripts/) | Selected analysis utilities and model-label configurations |
+| [`zenodo/`](zenodo/README.md) | Data inventories and deposition tooling documentation |
+| [`tools/`](tools/) and [`tests/`](tests/) | Repository checks, packaging tools and automated checks |
 
-## Scope and provenance
+The code is a selected source snapshot accompanying the poster. It does not include the complete interactive analysis application, model weights or bulk datasets. Analysis scripts need their documented inputs and dependencies; see [source provenance](docs/source-provenance.md). The [source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) identifies the initial code snapshot.
 
-[Source provenance](docs/source-provenance.md) pins the imported source snapshot. This companion contains a small set of scoring/display adapters and conventions, not the complete clustering application or its environments. Scripts require externally supplied reviewed run plans, source files and dependencies; cloning this repository does not trigger analysis, folding, uploads or publication. Experimental references are controls, not AIS predictions. Confidence is not relative state population, and movie ordering is a structural-display heuristic, not a claimed physical pathway.
+## Citation and reuse
 
-## Reuse
+Use [CITATION.cff](CITATION.cff) to cite this companion, and cite the exact dataset version and relevant [method papers](docs/SCHERAGA-references.md) when reusing results.
 
-Code is MIT licensed, with the original copyright notice preserved. Authored poster text, documentation and data use [CC BY 4.0](LICENSE-CONTENT.md), excluding third-party material and logos, which retain their own terms. See [CITATION.cff](CITATION.cff), method references and the applicable dataset-version citation. Preserve the separate AlphaFold 3 output notices supplied with the data.
-
-## Contributor safeguards
-
-Set `FLEET_ROOT` privately to the Fleet checkout, then run `python3 tools/check_privacy.py --tracked` before every push. The adapter runs Fleet's unchanged checker with this project's portable path allowlist, adds private-path/address checks, and permits only the explicit public GitHub owner URL. Install the hook with `git config core.hooksPath .githooks`. Private machine bindings and tokens belong outside tracked content.
-
-Run offline safety checks with `python3 -m unittest discover -s tests`. The Sandbox wrapper rejects production, publication, abbreviated flags and unauthenticated remote draft writes before calling upstream. Its source-archive allowlist adds this companion's tools, manifests and content directories; ignored private state is never selected.
+Code is available under the [MIT license](LICENSE). Authored poster text, documentation and data use [CC BY 4.0](LICENSE-CONTENT.md), with third-party material and logos retaining their own terms. Dataset users must also preserve the supplied AlphaFold 3 output notices. See [attribution](NOTICE.md) and the dataset-specific rights information.

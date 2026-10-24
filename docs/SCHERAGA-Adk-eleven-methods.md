@@ -1,4 +1,4 @@
-# Adk eleven-method update
+# Adenylate kinase (Adk): eleven-method comparison
 
 The current E. coli adenylate kinase analysis contains **11,000 original AIS monomer predictions**, 1,000 from each of eleven methods, plus the unscored experimental controls [4AKE open](https://www.rcsb.org/structure/4AKE) and [1AKE closed](https://www.rcsb.org/structure/1AKE). Together with the preserved 11,000-model Mad2 analysis, the study now contains **22,000 predictions**. All 35 former Adk native physicality-filter failures are retained.
 
@@ -36,6 +36,6 @@ The reusable model-label configuration is [`SCHERAGA_Adk_eleven_methods`](../src
 
 The manuscript abstract is maintained separately from these frozen numerical results; the current study cohort is 22,000 original predictions.
 
-## Preservation and delivery
+## Related resources and availability
 
-Mad2 coordinates, scores, projections, tree, figures and movie remain unchanged. Earlier Adk analyses, raw coordinates, movies and PDB sources are preserved. The downloadable PyMOL session retains the prior comparison states and does not yet contain the new physical Adk S1/S2. No new folding/refolding jobs, paid calls or environment installs were used. Validated v014 phone and print PDFs are cataloged in the [distribution guide](../poster/README.md), awaiting public distribution. Both Zenodo concept DOIs are published; [distribution status](distribution-status.md) documents the incomplete Adk v1 upload and the undeployed interactive poster.
+Mad2 coordinates, scores, projections, tree, figures and movie remain unchanged. Earlier Adk analyses, raw coordinates, movies and PDB sources are preserved. The downloadable PyMOL session retains the prior comparison states and does not yet contain the new physical Adk S1/S2. Validated v014 phone and print PDFs are cataloged in the [distribution guide](../poster/README.md), available in this repository. Both Zenodo concept DOIs are published; [distribution status](distribution-status.md) documents the incomplete Adk v1 upload and the undeployed interactive poster.
