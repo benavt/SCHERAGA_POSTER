@@ -1,11 +1,9 @@
 # Interactive poster
 
-The virtual poster is a static HTML/CSS/JavaScript application with two target dashboards and an Abstract page. It shows synchronized observed-model movies, UMAP/PCA/t-SNE/Bonsai, experimental controls, confidence and measured similarity coloring.
+The interactive poster presents the two proteins through linked structural views, plots and observed-model movies. It includes the study abstract, experimental reference structures, model confidence and structural-similarity comparisons.
 
-The current validated local export is **v025**. It contains both published dataset concept DOI links and embeds the v014 phone PDF. Its saved validation records 14 browser checks; the file hash was rechecked on 2026-10-23.
+**Availability, checked 23 October 2026:** the v025 interactive export is not yet publicly deployed. The [poster landing page](https://scheraga-poster.netlify.app) currently displays “Coming soon” links. For immediate access to the study, use the [poster PDF](../poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true) and [study guide](../docs/SCHERAGA-study.md).
 
-The virtual poster's embedded [PyMOL session and quick guide](../data/pymol/README.md) also have a dedicated GitHub location in `data/pymol/`. Both files are exact copies of those embedded downloads, with filenames and SHA-256 hashes recorded. The v008 session retains its earlier selected comparison objects.
+The interactive export includes PCA, UMAP and t-SNE projections, Bonsai structural trees and synchronized molecular views. Its movies show ordered examples of observed predictions; they do not represent measured molecular motion or transition timing.
 
-The public [poster landing page](https://scheraga-poster.netlify.app) currently shows five disabled “Coming soon” links. The v025 interactive poster has not been deployed there. A reachable landing page does not establish that the interactive poster or downloads are available.
-
-See [distribution status](../docs/distribution-status.md) and the [artifact inventory](../docs/SCHERAGA-downloads.json). The full HTML/media payload stays outside source Git. No server-side PHP is required.
+The export is a static HTML/CSS/JavaScript application. Its full media payload is distributed separately from this source snapshot. See [resource availability](../docs/distribution-status.md) and the [artifact inventory](../docs/SCHERAGA-downloads.json).

@@ -19,7 +19,7 @@
     "Adk_resources": null,
     "Mad2_resources": null
   },
-  "visibility": "Private GitHub repository; unchanged. Website and Zenodo not published.",
+  "visibility": "Historical pre-publication snapshot; superseded by docs/SCHERAGA-downloads.json.",
   "Adk_confidence": {
     "models": 11000,
     "physical_projection": "Boltz2 template-only refold pTM",
