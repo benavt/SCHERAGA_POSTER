@@ -4,9 +4,10 @@
   "repository": "https://github.com/benavt/SCHERAGA_POSTER",
   "source_release": "https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0",
   "website": {
-    "url": "https://scheraga-poster.netlify.app",
-    "status": "landing_page_with_five_disabled_coming_soon_links",
-    "interactive_poster_deployed": false
+    "url": "https://benavt.github.io/SCHERAGA_POSTER/",
+    "status": "published_github_pages",
+    "interactive_poster_deployed": true,
+    "legacy_landing_url": "https://scheraga-poster.netlify.app"
   },
   "Zenodo": {
     "Adk_resources": {
@@ -79,12 +80,21 @@
       "finalized_date": "2026-10-23"
     },
     "interactive_html": {
-      "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
-      "bytes": 88285521,
-      "sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
-      "url": null,
-      "status": "validated_local_not_deployed",
-      "saved_browser_checks": 14
+      "filename": "SCHERAGA_virtual_poster_design_polish_v036.html",
+      "bytes": 88933716,
+      "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+      "url": "https://benavt.github.io/SCHERAGA_POSTER/",
+      "download_url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-23_virtual-poster-v036/SCHERAGA_virtual_poster_design_polish_v036.html",
+      "status": "published_github_pages",
+      "publication_manifest": "site/virtual-poster/publication.json",
+      "predecessor": {
+        "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
+        "bytes": 88285521,
+        "sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3",
+        "url": null,
+        "status": "validated_local_not_deployed",
+        "saved_browser_checks": 14
+      }
     },
     "compact_print_pdf": {
       "filename": "SCHERAGA_poster_36x48_print_compact_v014.pdf",
