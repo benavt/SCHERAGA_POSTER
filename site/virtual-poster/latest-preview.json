@@ -42,5 +42,15 @@
     "navigation_and_selects": 34,
     "playback_toolbar": 36,
     "frame_input_width": 42
+  },
+  "web_bundle": {
+    "version": "web-v001",
+    "output": "local/site-exports/2026-10-23_static-web_001/2026-10-23_virtual-poster-web-v001.zip",
+    "sha256": "16cd839456c95edeb11320a8d1d2de72b5bdea8f51711157ab7d255bc4bf82f9",
+    "bytes": 53492754,
+    "index_sha256": "41cda0a29a38b8b824f208b244c873b6d034f5c51bd5833b596a5f739092aa7d",
+    "index_bytes": 10559049,
+    "roundtrip_to_offline_predecessor_byte_identical": true,
+    "external_assets": 423
   }
 }

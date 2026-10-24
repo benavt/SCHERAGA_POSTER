@@ -83,10 +83,8 @@
       "filename": "SCHERAGA_virtual_poster_design_polish_v036.html",
       "bytes": 88933716,
       "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
-      "url": "https://benavt.github.io/SCHERAGA_POSTER/",
-      "download_url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-23_virtual-poster-v036/SCHERAGA_virtual_poster_design_polish_v036.html",
-      "status": "published_github_pages",
-      "publication_manifest": "site/virtual-poster/publication.json",
+      "url": "https://github.com/benavt/SCHERAGA_POSTER/releases/download/2026-10-23_virtual-poster-v036/SCHERAGA_virtual_poster_design_polish_v036.html",
+      "status": "published_standalone_offline_html",
       "predecessor": {
         "filename": "SCHERAGA_virtual_poster_published_DOIs_v025.html",
         "bytes": 88285521,
@@ -130,6 +128,19 @@
       "url": "https://github.com/benavt/SCHERAGA_POSTER/blob/main/data/pymol/2026-10-23_PyMOL-quick-guide_v010.txt?raw=true",
       "status": "public_corrected_comparison_guide",
       "session_version": "v010"
+    },
+    "interactive_website": {
+      "url": "https://benavt.github.io/SCHERAGA_POSTER/",
+      "status": "published_github_pages",
+      "version": "web-v001",
+      "index_bytes": 10559049,
+      "index_sha256": "41cda0a29a38b8b824f208b244c873b6d034f5c51bd5833b596a5f739092aa7d",
+      "bundle_release": "https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-23_virtual-poster-web-v001",
+      "bundle_bytes": 53492754,
+      "bundle_sha256": "16cd839456c95edeb11320a8d1d2de72b5bdea8f51711157ab7d255bc4bf82f9",
+      "offline_predecessor_sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+      "asset_count": 423,
+      "publication_manifest": "site/virtual-poster/publication.json"
     }
   },
   "historical_download_metadata": "docs/archive/SCHERAGA-downloads-pre-publication.json",

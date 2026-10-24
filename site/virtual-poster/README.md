@@ -69,3 +69,35 @@ Source checks do not establish rendered quality. Browser QA additionally checks
 portrait phone, landscape phone, tablet and desktop layouts, playback/frame
 seeking, all metric and palette choices, matrix zoom and downloads. Create a new
 date-first immutable run when inputs or scientific settings change.
+
+## Package a smaller static website
+
+`package_web.py` converts the frozen v036 offline HTML to a buildless static
+bundle. It replaces only literal base64 data URIs with relative, content-addressed
+asset paths. Every asset's decoded bytes remain identical; replacing those paths
+with the original URIs must reproduce the offline file byte for byte. The offline
+release remains unchanged.
+
+```sh
+python3 site/virtual-poster/package_web.py \
+  --input local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html \
+  --expected-sha256 f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef \
+  --output-dir local/2026-10-23_static-web_001
+```
+
+Use a new output directory for a new run; the packager refuses to overwrite an
+existing directory. The output contains `site/index.html`, `.nojekyll`,
+`assets/`, and `asset-manifest.json`, plus an immutable release ZIP. The manifest's
+`files` array lists the path, byte count and SHA256 of every served file except
+the manifest itself; the ZIP hash authenticates that manifest. ZIP members are
+regular files only. Provenance, the URI map, source snapshot and validation stay
+outside the public ZIP.
+
+The first web bundle has a 10.56 MB index (1.96 MB gzipped), 423 deduplicated
+assets, and a 53.49 MB ZIP. It externalizes 425 URI occurrences. The existing
+runtime accepts ordinary URLs through `Image.src` and anchor `href`, and contains
+no data-URI-only decoder. Frame images still use the original preload behavior;
+GIF/MP4/PDF/PyMOL downloads no longer travel inside the initial HTML response.
+This packaging step changes no scientific calculations, model order, metrics,
+coordinates, text or event handlers. Browser QA remains necessary to verify
+network loading, playback, palette changes, figure enlargement and downloads.
