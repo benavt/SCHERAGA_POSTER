@@ -34,7 +34,7 @@ jobs:
           manifest = json.loads(pathlib.Path('site/virtual-poster/publication.json').read_text())
           assert manifest['schema_version'] == 1, 'Unsupported publication manifest'
           assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,150}', manifest['release_tag']), 'Invalid release tag'
-          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,200}\.html', manifest['asset_name']), 'Invalid HTML asset name'
+          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,200}\.(html|zip)', manifest['asset_name']), 'Invalid static asset name'
           assert re.fullmatch(r'[0-9a-f]{64}', manifest['sha256']), 'Invalid SHA-256'
           assert type(manifest['bytes']) is int and manifest['bytes'] > 0, 'Invalid byte count'
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
@@ -56,10 +56,10 @@ jobs:
       - name: Verify artifact and prepare static site
         run: |
           python3 - <<'PY'
-          import hashlib, json, os, pathlib, shutil
+          import hashlib, json, os, pathlib, shutil, stat, zipfile
           manifest = json.loads(pathlib.Path('site/virtual-poster/publication.json').read_text())
           source = pathlib.Path(os.environ['RUNNER_TEMP']) / 'poster-release' / manifest['asset_name']
-          assert source.is_file() and not source.is_symlink(), 'Expected one regular HTML asset'
+          assert source.is_file() and not source.is_symlink(), 'Expected one regular release asset'
           assert source.stat().st_size == manifest['bytes'], 'Release asset size differs from reviewed manifest'
           digest = hashlib.sha256()
           with source.open('rb') as handle:
@@ -68,7 +68,34 @@ jobs:
           assert digest.hexdigest() == manifest['sha256'], 'Release asset SHA-256 differs from reviewed manifest'
           destination = pathlib.Path('_site')
           destination.mkdir()
-          shutil.copyfile(source, destination / 'index.html')
+          if source.suffix == '.html':
+              shutil.copyfile(source, destination / 'index.html')
+          else:
+              with zipfile.ZipFile(source) as archive:
+                  members = archive.infolist()
+                  names = {member.filename for member in members}
+                  assert len(names) == len(members), 'Duplicate ZIP members'
+                  assert {'index.html', 'asset-manifest.json'} <= names, 'Missing site entry point or member manifest'
+                  assert sum(member.file_size for member in members) <= 1_000_000_000, 'Expanded site exceeds 1 GB'
+                  for member in members:
+                      name = member.filename
+                      path = pathlib.PurePosixPath(name)
+                      assert name == member.orig_filename == path.as_posix(), 'Noncanonical ZIP path'
+                      assert not path.is_absolute() and '..' not in path.parts and '\\' not in name, 'Unsafe ZIP path'
+                      assert name in {'index.html', '.nojekyll', 'asset-manifest.json'} or (len(path.parts) > 1 and path.parts[0] == 'assets'), 'Unexpected site member'
+                      assert not member.is_dir() and stat.S_IFMT(member.external_attr >> 16) in {0, stat.S_IFREG}, 'ZIP must contain regular files only'
+                      assert not member.flag_bits & 1, 'Encrypted ZIP members are unsupported'
+                  inventory = json.loads(archive.read('asset-manifest.json'))['files']
+                  expected = {row['path']: row for row in inventory}
+                  assert len(expected) == len(inventory) and set(expected) == names - {'asset-manifest.json'}, 'ZIP member manifest differs'
+                  for member in members:
+                      content = archive.read(member)
+                      if member.filename != 'asset-manifest.json':
+                          row = expected[member.filename]
+                          assert len(content) == row['bytes'] and hashlib.sha256(content).hexdigest() == row['sha256'], 'ZIP member checksum differs'
+                      output = destination / member.filename
+                      output.parent.mkdir(parents=True, exist_ok=True)
+                      output.write_bytes(content)
           (destination / '.nojekyll').touch()
           print('Verified static poster:', manifest['bytes'], 'bytes;', digest.hexdigest())
           PY
