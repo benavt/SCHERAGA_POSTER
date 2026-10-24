@@ -1,13 +1,14 @@
 {
-  "version": "v036",
+  "version": "v037",
   "publication_state": "published_github_pages",
-  "output": "local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html",
-  "mac_output": "local/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v036.html",
-  "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+  "output": "local/site-exports/2026-10-24_reference-colors_002/SCHERAGA_virtual_poster_reference_colors_v037.html",
+  "mac_output": "local/site-exports/2026-10-24_reference-colors_002/SCHERAGA_virtual_poster_reference_colors_v037.html",
+  "sha256": "ac1df9d5dd3851f4100a91fd70e8bbef6165b54a51299234eb615ab97d9081c2",
   "bytes": 88933716,
   "design_predecessor": {
-    "version": "v035",
-    "sha256": "5b588aee05fb2728d836d1cee20ac34371d1e648c9b0c4a6804a3580625510b8"
+    "version": "v036",
+    "sha256": "f2d01925892f42f0e9336f626c4fedc92a29f13635014b937754afcbc128a5ef",
+    "bytes": 88933716
   },
   "pinned_source": {
     "path": "local/site-exports/doi-update_001/SCHERAGA_virtual_poster_published_DOIs_v025.html",
@@ -18,24 +19,27 @@
     "guide_sha256": "90022331e3c24286d8bff6e3da7c536650fd653e42701d9766b0c1585d3c2e84"
   },
   "scientific_json_sha256": {
-    "poster-data": "f9746700542002cc92267f5069c7fbffb775f8dc95b3a6f3c6aa432c5c2c4bbc",
+    "poster-data": "b843072bd8d4755141534602a007c8c5888519cdbb5317d0f14c66e89d4c9f1a",
     "Mad2-refold-structure-data": "8f7108d46f67711401b616707ca90f77dfc7730b16e9f327d9eac28c20a329e6",
     "Adk-refold-structure-data": "7a0911d691b3eaacff2b1b4428c06fc140d84507c2f39591b71525b2063b4c6e",
     "tree-display-data": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
   },
-  "original_script_blocks_byte_identical": 16,
+  "original_script_blocks_byte_identical": 15,
   "executable_scripts_syntax_pass": 13,
   "authorized_payload_changes": {
     "session_and_guide_replacements": 2,
     "Mad2_display_crops_removed": 4,
     "verified_selected_state_matrices_added": 2,
-    "offline_fonts_added": 2
+    "offline_fonts_added": 2,
+    "reference_display_colors_matched_to_physical_poster": 4,
+    "bonsai_svg_reference_fills": 4,
+    "bonsai_svg_occurrences_updated": 4
   },
   "metrics_recomputed": false,
   "scientific_coordinates_changed": false,
   "poster_figure_manifest": "assets/2026-10-23_poster-tm/manifest.json",
   "font_manifest": "fonts/manifest.json",
-  "browser_qa": "Phone portrait/landscape, tablet portrait/landscape, desktop; playback, frame stepping/seeking, projection/palette selection and matrix enlargement verified.",
+  "browser_qa": "Adk and Mad2: blue open/orange closed legend labels and UMAP/PCA/t-SNE reference stars verified across all six projection-color modes; Bonsai reference overlays use the same palette.",
   "responsive_compact_max_width_px": 1200,
   "url": "https://benavt.github.io/SCHERAGA_POSTER/",
   "compact_control_sizes_px": {
@@ -44,13 +48,19 @@
     "frame_input_width": 42
   },
   "web_bundle": {
-    "version": "web-v001",
-    "output": "local/site-exports/2026-10-23_static-web_001/2026-10-23_virtual-poster-web-v001.zip",
-    "sha256": "16cd839456c95edeb11320a8d1d2de72b5bdea8f51711157ab7d255bc4bf82f9",
-    "bytes": 53492754,
-    "index_sha256": "41cda0a29a38b8b824f208b244c873b6d034f5c51bd5833b596a5f739092aa7d",
+    "version": "web-v002",
+    "output": "local/site-exports/2026-10-24_static-web_002/2026-10-24_virtual-poster-web-v002.zip",
+    "sha256": "331b1c2711e5815200a565319de00edfe60cb4a2246672b5e7c83d19e8a7ed75",
+    "bytes": 53492702,
+    "index_sha256": "eb4eb7a04f5fb8f251533228019601b7a6d0ee0f63bcc7f806cd3ca9ffa04a9b",
     "index_bytes": 10559049,
     "roundtrip_to_offline_predecessor_byte_identical": true,
     "external_assets": 423
+  },
+  "reference_colors": {
+    "open": "#1f77b4",
+    "closed": "#ff7f0e",
+    "physical_poster": "v014",
+    "manifest": "reference-colors.json"
   }
 }

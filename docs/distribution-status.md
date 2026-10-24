@@ -23,7 +23,7 @@ All-versions (concept) DOIs provide durable navigation to a dataset's version fa
 | Compact print PDF | v014, 120 dpi | [2.1 MB download and printing guide](../poster/print-friendly/README.md) |
 | Poster preview and abstract | Final v014 | [Poster files](../poster/final/README.md) |
 | Editable presentation source | v014 | Not included in this repository |
-| Interactive poster | Web v001 / offline v036 | [GitHub Pages](https://benavt.github.io/SCHERAGA_POSTER/); [offline HTML release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-23_virtual-poster-v036) |
+| Interactive poster | Web v002 / offline v037 | [GitHub Pages](https://benavt.github.io/SCHERAGA_POSTER/); [offline HTML release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/2026-10-24_virtual-poster-v037) |
 | Companion source snapshot | `scheraga-poster-v1.0.0` | [GitHub source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0) |
 | PyMOL comparison session | Corrected v010 | [Session and quick guide](../data/pymol/README.md); Adk S1/S2 match the final physical poster, while Mad2 comparisons remain unchanged; original v008 retained |
 
