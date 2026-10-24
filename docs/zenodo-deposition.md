@@ -59,4 +59,4 @@ Applied drafts verify the exact source release and require a matching published 
 
 Completed draft files are skipped only when size and checksum match. Conflicting or unexpected remote files stop the upload. If draft creation has an uncertain outcome, inspect the account and reconcile the draft ID before retrying; do not create another deposit blindly. Preserve the package and receipt together.
 
-These tools do not implement editing published records or creating a new version within an existing DOI family. In particular, Adk v1 needs a corrected version, not a resumed original upload. The [metadata roadmap](../zenodo/metadata-rework-plan.md) describes planned changes; it does not describe implemented capabilities.
+These tools do not implement editing published records or creating a new version within an existing DOI family. The [completed Adk correction](https://doi.org/10.5281/zenodo.23607500) used a new version rather than resuming the original v1 upload. The [metadata roadmap](../zenodo/metadata-rework-plan.md) distinguishes that completed correction from proposed tooling changes; it does not establish additional wrapper capabilities.

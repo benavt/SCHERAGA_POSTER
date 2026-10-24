@@ -1,0 +1,87 @@
+name: Deploy reviewed virtual poster
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.repository == 'benavt/SCHERAGA_POSTER' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Read pinned publication manifest
+        id: publication
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          manifest = json.loads(pathlib.Path('site/virtual-poster/publication.json').read_text())
+          assert manifest['schema_version'] == 1, 'Unsupported publication manifest'
+          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,150}', manifest['release_tag']), 'Invalid release tag'
+          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,200}\.html', manifest['asset_name']), 'Invalid HTML asset name'
+          assert re.fullmatch(r'[0-9a-f]{64}', manifest['sha256']), 'Invalid SHA-256'
+          assert type(manifest['bytes']) is int and manifest['bytes'] > 0, 'Invalid byte count'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('release_tag=' + manifest['release_tag'] + '\n')
+              output.write('asset_name=' + manifest['asset_name'] + '\n')
+          PY
+
+      - name: Download reviewed release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.publication.outputs.release_tag }}
+          ASSET_NAME: ${{ steps.publication.outputs.asset_name }}
+        run: |
+          gh release download "$RELEASE_TAG" \
+            --repo benavt/SCHERAGA_POSTER \
+            --pattern "$ASSET_NAME" \
+            --dir "$RUNNER_TEMP/poster-release"
+
+      - name: Verify artifact and prepare static site
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, shutil
+          manifest = json.loads(pathlib.Path('site/virtual-poster/publication.json').read_text())
+          source = pathlib.Path(os.environ['RUNNER_TEMP']) / 'poster-release' / manifest['asset_name']
+          assert source.is_file() and not source.is_symlink(), 'Expected one regular HTML asset'
+          assert source.stat().st_size == manifest['bytes'], 'Release asset size differs from reviewed manifest'
+          digest = hashlib.sha256()
+          with source.open('rb') as handle:
+              for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+                  digest.update(chunk)
+          assert digest.hexdigest() == manifest['sha256'], 'Release asset SHA-256 differs from reviewed manifest'
+          destination = pathlib.Path('_site')
+          destination.mkdir()
+          shutil.copyfile(source, destination / 'index.html')
+          (destination / '.nojekyll').touch()
+          print('Verified static poster:', manifest['bytes'], 'bytes;', digest.hexdigest())
+          PY
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Upload static site artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+          retention-days: 1
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

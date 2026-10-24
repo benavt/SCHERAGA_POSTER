@@ -1,0 +1,40 @@
+{
+  "version": "v034",
+  "publication_state": "local_preview_ready_for_publication",
+  "output": "local/site-exports/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v034.html",
+  "mac_output": "local/2026-10-23_tm-comparison_001/SCHERAGA_virtual_poster_design_polish_v034.html",
+  "sha256": "d05f62922d2dce1b369bea4867dbbb5f5ac514301cf748fc866405bd00b55c15",
+  "bytes": 88933520,
+  "design_predecessor": {
+    "version": "v033",
+    "sha256": "7b8370825666e859a7a91b7bd5edd26d1e48acc0e1ea1db3b380e26d2bbb6cc8"
+  },
+  "pinned_source": {
+    "path": "local/site-exports/doi-update_001/SCHERAGA_virtual_poster_published_DOIs_v025.html",
+    "sha256": "5ec4cb77883910018fd019b617d8b2993b31cb329e6eee4397bd5216a3db31b3"
+  },
+  "pymol_v010": {
+    "session_sha256": "67dfb349c61b24403a33a98a66f10df39fe9ed6fa67db03e9e4d094c9093a107",
+    "guide_sha256": "90022331e3c24286d8bff6e3da7c536650fd653e42701d9766b0c1585d3c2e84"
+  },
+  "scientific_json_sha256": {
+    "poster-data": "f9746700542002cc92267f5069c7fbffb775f8dc95b3a6f3c6aa432c5c2c4bbc",
+    "Mad2-refold-structure-data": "8f7108d46f67711401b616707ca90f77dfc7730b16e9f327d9eac28c20a329e6",
+    "Adk-refold-structure-data": "7a0911d691b3eaacff2b1b4428c06fc140d84507c2f39591b71525b2063b4c6e",
+    "tree-display-data": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "original_script_blocks_byte_identical": 16,
+  "executable_scripts_syntax_pass": 13,
+  "authorized_payload_changes": {
+    "session_and_guide_replacements": 2,
+    "Mad2_display_crops_removed": 4,
+    "verified_selected_state_matrices_added": 2,
+    "offline_fonts_added": 2
+  },
+  "metrics_recomputed": false,
+  "scientific_coordinates_changed": false,
+  "poster_figure_manifest": "assets/2026-10-23_poster-tm/manifest.json",
+  "font_manifest": "fonts/manifest.json",
+  "browser_qa": "Parent task owns responsive interaction and publication QA",
+  "responsive_compact_max_width_px": 1200
+}
