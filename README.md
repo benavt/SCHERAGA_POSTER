@@ -2,6 +2,8 @@
 
 Code and documentation for **Beyond a Single Structure: Exploring Multistate Protein Conformational Landscapes with AI Structure Prediction**, by T.L. Benavides and G.T. Montelione.
 
+**Adk dataset:** [![Adk dataset Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601146.svg)](https://doi.org/10.5281/zenodo.23601146) · **Mad2 dataset:** [![Mad2 dataset Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23601144.svg)](https://doi.org/10.5281/zenodo.23601144)
+
 [Final poster PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf) · [Study guide](docs/SCHERAGA-study.md) · [Adk dataset](https://doi.org/10.5281/zenodo.23601146) · [Mad2 dataset](https://doi.org/10.5281/zenodo.23601144) · [Source release](https://github.com/benavt/SCHERAGA_POSTER/releases/tag/scheraga-poster-v1.0.0)
 
 The **final physical poster** is preserved in [`poster/final/`](poster/final/README.md): [full-resolution print PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_print_v014.pdf?raw=true), [smaller phone PDF](poster/final/SCHERAGA_poster_36x48_both_11methods_phone_v014.pdf?raw=true), preview and abstract. The owner confirmed this v014 export as final; its bytes are unchanged.
