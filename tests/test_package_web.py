@@ -38,11 +38,11 @@ class PackageWebOutputValidation(unittest.TestCase):
             'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
         )
         png_uri = 'data:image/png;base64,' + base64.b64encode(png_data).decode()
-        
+
         # Create a tiny SVG
         svg_data = b'<svg xmlns="http://www.w3.org/2000/svg"/>'
         svg_uri = 'data:image/svg+xml;base64,' + base64.b64encode(svg_data).decode()
-        
+
         html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +60,7 @@ class PackageWebOutputValidation(unittest.TestCase):
     def run_package_web(self, input_file, output_dir, expected_sha):
         """Run package_web.py as a subprocess."""
         result = subprocess.run(
-            ['python3', str(self.script_path), 
+            ['python3', str(self.script_path),
              '--input', str(input_file),
              '--output-dir', str(output_dir),
              '--expected-sha256', expected_sha],
@@ -78,13 +78,13 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         # Find the generated ZIP
         zip_files = list(output_dir.glob('*.zip'))
         self.assertEqual(len(zip_files), 1, 'Expected exactly one ZIP file')
-        
+
         with zipfile.ZipFile(zip_files[0]) as zf:
             names = set(zf.namelist())
             self.assertIn('index.html', names, 'index.html must be present')
@@ -97,14 +97,14 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             members = zf.infolist()
             names = [m.filename for m in members]
-            self.assertEqual(len(names), len(set(names)), 
+            self.assertEqual(len(names), len(set(names)),
                            'ZIP must not contain duplicate members')
 
     def test_only_allowed_paths(self):
@@ -114,9 +114,9 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             for member in zf.infolist():
@@ -135,19 +135,19 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             for member in zf.infolist():
                 name = member.filename
                 path = Path(name)
-                self.assertFalse(path.is_absolute(), 
+                self.assertFalse(path.is_absolute(),
                                f'Path must not be absolute: {name}')
-                self.assertNotIn('..', path.parts, 
+                self.assertNotIn('..', path.parts,
                                f'Path must not contain ..: {name}')
-                self.assertNotIn('\\', name, 
+                self.assertNotIn('\\', name,
                                f'Path must not contain backslash: {name}')
 
     def test_regular_files_only(self):
@@ -157,17 +157,17 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             for member in zf.infolist():
-                self.assertFalse(member.is_dir(), 
+                self.assertFalse(member.is_dir(),
                                f'Member must not be a directory: {member.filename}')
                 # Check external_attr for file type
                 file_type = stat.S_IFMT(member.external_attr >> 16)
-                self.assertIn(file_type, {0, stat.S_IFREG}, 
+                self.assertIn(file_type, {0, stat.S_IFREG},
                             f'Member must be a regular file: {member.filename}')
 
     def test_checksums_and_sizes_match(self):
@@ -177,34 +177,34 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             manifest_content = zf.read('asset-manifest.json')
             manifest = json.loads(manifest_content)
-            
+
             # Build expected inventory from manifest
             expected = {row['path']: row for row in manifest['files']}
-            
+
             # Verify manifest doesn't list itself
             self.assertNotIn('asset-manifest.json', expected)
-            
+
             # Verify all members except asset-manifest.json
             for member in zf.infolist():
                 if member.filename == 'asset-manifest.json':
                     continue
-                    
+
                 content = zf.read(member.filename)
                 row = expected.get(member.filename)
-                
-                self.assertIsNotNone(row, 
+
+                self.assertIsNotNone(row,
                                    f'Member {member.filename} not in manifest')
-                self.assertEqual(len(content), row['bytes'], 
+                self.assertEqual(len(content), row['bytes'],
                                f'Size mismatch for {member.filename}')
                 actual_sha = hashlib.sha256(content).hexdigest()
-                self.assertEqual(actual_sha, row['sha256'], 
+                self.assertEqual(actual_sha, row['sha256'],
                                f'Checksum mismatch for {member.filename}')
 
     def test_manifest_covers_all_members(self):
@@ -214,18 +214,18 @@ class PackageWebOutputValidation(unittest.TestCase):
         offline.write_text(html)
         output_dir = self.temp_dir / 'output'
         expected_sha = hashlib.sha256(html.encode()).hexdigest()
-        
+
         self.run_package_web(offline, output_dir, expected_sha)
-        
+
         zip_files = list(output_dir.glob('*.zip'))
         with zipfile.ZipFile(zip_files[0]) as zf:
             names = set(zf.namelist())
             manifest_content = zf.read('asset-manifest.json')
             manifest = json.loads(manifest_content)
             manifest_paths = {row['path'] for row in manifest['files']}
-            
+
             expected_in_manifest = names - {'asset-manifest.json'}
-            self.assertEqual(manifest_paths, expected_in_manifest, 
+            self.assertEqual(manifest_paths, expected_in_manifest,
                            'Manifest must list all members except itself')
 
 
