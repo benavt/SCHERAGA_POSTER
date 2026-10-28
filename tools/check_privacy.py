@@ -32,20 +32,32 @@ PATTERNS = [
 ]
 PRIVATE_LOCATION = re.compile(rb"/(?:home|Users)/[^\s\"'<>]+|(?:[a-z0-9-]+[.])+ts[.]net", re.I)
 PRIVATE_ADDRESS = re.compile(rb"(?<![0-9.])(?:10[.](?:[0-9]{1,3}[.]){2}[0-9]{1,3}|192[.]168[.][0-9]{1,3}[.][0-9]{1,3}|172[.](?:1[6-9]|2[0-9]|3[01])[.][0-9]{1,3}[.][0-9]{1,3}|100[.](?:6[4-9]|[7-9][0-9]|1[01][0-9]|12[0-7])[.][0-9]{1,3}[.][0-9]{1,3})(?![0-9.])")
+# Private hostnames: case-insensitive match for whole words and embedded forms (e.g., Mimas_Folding_Skills).
+# Excluded from binary/compressed assets and protein data files to avoid false positives in encoded data.
+PRIVATE_HOSTNAME = re.compile(rb'\b(?:pax|mimas)(?:[_-][a-z0-9]+)*\b', re.I)
 
 
-def extra_violations(content):
+def extra_violations(content, name):
     errors = []
     if PRIVATE_LOCATION.search(content):
         errors.append('local filesystem or tailnet location')
     if PRIVATE_ADDRESS.search(content):
         errors.append('private network address')
+    # Check for private hostnames, but exclude:
+    # - Binary/compressed assets and protein data (false positives from encoded bytes)
+    # - Test files and the checker itself (intentional test data and pattern definitions)
+    path = Path(name)
+    if (path.suffix.lower() not in {'.pdf', '.zip', '.gz', '.tar', '.pdb', '.cif', '.mmcif', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.webm'}
+            and not name.startswith('tests/')
+            and name != 'tools/check_privacy.py'):
+        if PRIVATE_HOSTNAME.search(content):
+            errors.append('private hostname')
     return errors
 
 
 def violations(name, content, credential_values=()):
     path = Path(name)
-    errors = extra_violations(content)
+    errors = extra_violations(content, name)
     if name not in ALLOWED_FILES and (len(path.parts) < 2 or path.parts[0] not in ALLOWED_DIRS):
         errors.append('path outside public-content allowlist')
     if (path.is_absolute() or '..' in path.parts

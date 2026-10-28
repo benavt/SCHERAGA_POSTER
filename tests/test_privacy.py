@@ -62,6 +62,30 @@ class Privacy(unittest.TestCase):
                     self.assertEqual(1, privacy.main(['--tracked']))
             self.assertNotIn('example-local-canary', output.getvalue())
 
+    def test_private_hostname_detection_in_text_files(self):
+        """Verify that private hostnames are detected case-insensitively in human-readable files."""
+        # Test various capitalizations and embedded forms
+        for content in (b'Pax exports', b'PAX machine', b'pax-config', 
+                       b'Mimas_Folding_Skills', b'mimas system', b'MIMAS node'):
+            with self.subTest(content=content):
+                self.assertIn('private hostname', privacy.violations('docs/README.md', content))
+        
+        # Test that hostnames alone (without other violations) are caught
+        self.assertEqual(['private hostname'], privacy.violations('docs/README.md', b'The Pax system.'))
+
+    def test_private_hostname_exclusion_from_binary_assets(self):
+        """Verify that encoded coincidences in binary/compressed files do not trigger false positives."""
+        # These extensions should be excluded from hostname checks to avoid false positives
+        # from random byte sequences that happen to match the pattern
+        for extension in ('.pdf', '.zip', '.gz', '.png', '.jpg', '.mp4'):
+            filename = f'poster/document{extension}'
+            with self.subTest(filename=filename):
+                # Even if "pax" or "mimas" appears as bytes, it should not be flagged
+                self.assertEqual([], privacy.violations(filename, b'...PaX%C9...MImAs...'))
+        
+        # But the same content in a text file SHOULD be detected
+        self.assertIn('private hostname', privacy.violations('docs/notes.md', b'PaX exports'))
+
 
 if __name__ == '__main__':
     unittest.main()
