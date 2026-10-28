@@ -2,6 +2,7 @@
 import contextlib
 import importlib.util
 import io
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -89,35 +90,47 @@ class Privacy(unittest.TestCase):
                 self.assertEqual([], privacy.violations('docs/README.md', safe_content))
 
     def test_private_hostname_exclusion_from_binary_assets(self):
-        """Verify that genuinely opaque binary data (low decodable ratio) is handled gracefully."""
+        """Verify that genuinely opaque binary data is handled, but metadata is scanned."""
         # Build test hostnames from fragments
         h1 = b'P' + b'ax'
         h2 = b'M' + b'imas'
         
-        # Create genuinely opaque binary data (< 1% decodable) simulating compressed streams
-        # Real compressed data in PDFs/images would be mostly non-UTF-8 bytes
+        # Create genuinely opaque binary data (random non-ASCII bytes)
+        # Real compressed data in PDFs/images would be mostly non-ASCII bytes
         binary_noise = bytes(range(256)) * 100  # 25KB of binary data
-        # Insert hostname-like bytes in the binary noise (should be skipped due to low decodable ratio)
-        opaque_binary = binary_noise[:1000] + h1.upper() + binary_noise[1000:2000] + h2.upper() + binary_noise[2000:]
         
-        # These genuinely opaque formats with low decodable content should not be flagged
+        # Binary noise without any printable ASCII runs >=4 should pass
         for extension in ('.png', '.jpg', '.mp4'):
             filename = f'poster/document{extension}'
-            with self.subTest(filename=filename, test='opaque_binary'):
-                self.assertEqual([], privacy.violations(filename, opaque_binary))
+            with self.subTest(filename=filename, test='pure_binary'):
+                self.assertEqual([], privacy.violations(filename, binary_noise))
         
-        # However, if a binary format file contains substantial decodable text with hostnames,
-        # it SHOULD be caught (no exemption by extension)
-        mostly_text = b'This is mostly readable text from ' + h1 + b' system.'
+        # However, if a binary format contains printable ASCII strings with hostnames
+        # (like PNG tEXt chunks, EXIF metadata, XMP), those SHOULD be caught
+        # Simulate PNG tEXt chunk with hostname in metadata
+        png_with_metadata = (
+            binary_noise[:1000] +
+            b'tEXtComment\x00Created on ' + h1.lower() + b' workstation\x00' +
+            binary_noise[1000:2000] +
+            b'Author: user@' + h2.lower() + b'.example.com\x00' +
+            binary_noise[2000:]
+        )
         for extension in ('.png', '.jpg'):
             filename = f'poster/document{extension}'
-            with self.subTest(filename=filename, test='decodable_text'):
-                self.assertIn('private hostname', privacy.violations(filename, mostly_text))
+            with self.subTest(filename=filename, test='metadata_with_hostname'):
+                self.assertIn('private hostname', privacy.violations(filename, png_with_metadata))
         
         # Archives should extract and scan members
-        # A .zip/.gz with hostname in metadata should be caught
-        short_with_hostname = b'Archive metadata ' + h1.lower() + b' data'
-        self.assertIn('private hostname', privacy.violations('poster/archive.zip', short_with_hostname))
+        # A .zip with hostname in member content should be caught
+        import zipfile
+        import io
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, 'w') as zf:
+            zf.writestr('readme.txt', b'Data from ' + h1.lower() + b' server')
+        errors = privacy.violations('data.zip', zip_buffer.getvalue())
+        # Should report the hostname in the archive member
+        self.assertTrue(any('private hostname' in e and 'readme.txt' in e for e in errors),
+                       f'Expected hostname in archive member, got: {errors}')
 
     def test_pdf_with_dirty_visible_text_is_refused(self):
         """Verify that a PDF whose extracted text contains a private hostname is refused."""
@@ -285,9 +298,12 @@ startxref
                 self.assertTrue(any('private hostname' in str(e) for e in errors),
                                f'Expected hostname in attachment, got: {errors}')
             except (subprocess.CalledProcessError, FileNotFoundError) as e:
-                # If pdfattach is not available, skip this specific test case
-                # The main PDF text extraction test above is more critical
-                self.skipTest(f'pdfattach not available for attachment test: {e}')
+                # pdfattach must be available in CI (provided by poppler-utils)
+                # Outside CI, skip this test if pdfattach is not installed
+                if os.environ.get('CI') == 'true':
+                    self.fail(f'pdfattach must be available in CI but is not: {e}')
+                else:
+                    self.skipTest(f'pdfattach not available for attachment test: {e}')
 
 
 if __name__ == '__main__':
