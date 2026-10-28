@@ -39,7 +39,7 @@ class Safety(unittest.TestCase):
     def test_locations_and_public_attribution(self):
         m=load("check_privacy")
         for value in [b"/"+b"home"+b"/private-user/data", b"192"+b".168.1.23", b"private-node"+b".ts.net"]:
-            self.assertTrue(m.extra_violations(value))
+            self.assertTrue(m.extra_violations(value, "docs/test.md"))
         self.assertEqual([],m.violations("README.md",b"https://github.com/example/poster"))
 
 if __name__=="__main__": unittest.main()
