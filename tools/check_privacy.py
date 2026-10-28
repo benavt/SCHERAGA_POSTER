@@ -151,36 +151,73 @@ def extract_archive_members(content, name):
     path = Path(name)
     members = []
     
+    # Archive extraction failures should be reported as violations, not silently passed
     try:
         if path.suffix.lower() == '.zip':
             import zipfile
             import io
-            with zipfile.ZipFile(io.BytesIO(content)) as zf:
-                for member in zf.namelist():
-                    if not member.endswith('/'):  # Skip directories
-                        try:
-                            members.append((member, zf.read(member)))
-                        except Exception:
-                            pass  # Skip unreadable members
+            try:
+                with zipfile.ZipFile(io.BytesIO(content)) as zf:
+                    for member in zf.namelist():
+                        if not member.endswith('/'):  # Skip directories
+                            try:
+                                members.append((member, zf.read(member)))
+                            except Exception as e:
+                                raise ValueError(f'Cannot read archive member {member}: {e}')
+            except zipfile.BadZipFile as e:
+                raise ValueError(f'Corrupt or invalid zip archive: {e}')
         elif path.suffix.lower() in {'.tar', '.gz', '.tgz'}:
             import tarfile
             import io
             # Handle both .tar and .tar.gz/.tgz
             mode = 'r:gz' if path.suffix.lower() in {'.gz', '.tgz'} or name.endswith('.tar.gz') else 'r'
-            with tarfile.open(fileobj=io.BytesIO(content), mode=mode) as tf:
-                for member in tf.getmembers():
-                    if member.isfile():
-                        try:
-                            extracted = tf.extractfile(member)
-                            if extracted:
-                                members.append((member.name, extracted.read()))
-                        except Exception:
-                            pass  # Skip unreadable members
-    except Exception:
-        # If archive extraction fails, return empty list (the raw archive bytes will still be checked)
-        pass
+            try:
+                with tarfile.open(fileobj=io.BytesIO(content), mode=mode) as tf:
+                    for member in tf.getmembers():
+                        if member.isfile():
+                            try:
+                                extracted = tf.extractfile(member)
+                                if extracted:
+                                    members.append((member.name, extracted.read()))
+                                else:
+                                    raise ValueError(f'Cannot extract archive member {member.name}')
+                            except Exception as e:
+                                raise ValueError(f'Cannot read archive member {member.name}: {e}')
+            except tarfile.TarError as e:
+                raise ValueError(f'Corrupt or invalid tar archive: {e}')
+    except ValueError:
+        # Re-raise ValueError (our explicit errors)
+        raise
+    except Exception as e:
+        # Any other unexpected error should also be reported
+        raise ValueError(f'Archive extraction failed: {e}')
     
     return members
+
+
+def extract_printable_ascii_runs(content, min_length=4):
+    """Extract printable ASCII runs of at least min_length from binary content.
+    Similar to 'strings' command - extracts text from binary data like PNG metadata.
+    Returns bytes containing only the extracted runs separated by newlines."""
+    import string
+    # Create a set of printable ASCII byte values (integers)
+    printable_bytes = set(string.printable.encode('ascii'))
+    runs = []
+    current_run = bytearray()
+    
+    for byte in content:
+        if byte in printable_bytes:
+            current_run.append(byte)
+        else:
+            if len(current_run) >= min_length:
+                runs.append(bytes(current_run))
+            current_run = bytearray()
+    
+    # Don't forget the last run
+    if len(current_run) >= min_length:
+        runs.append(bytes(current_run))
+    
+    return b'\n'.join(runs)
 
 
 def scan_content_safely(content, name):
@@ -189,25 +226,24 @@ def scan_content_safely(content, name):
     
     path = Path(name)
     
-    # For genuinely opaque binary formats (images, video), skip non-decodable bytes
-    # by only scanning portions that are valid UTF-8 text
+    # For genuinely opaque binary formats (images, video), extract printable ASCII runs
+    # like 'strings' to scan metadata (PNG tEXt/EXIF/XMP, etc.) without false positives
     if path.suffix.lower() in {'.png', '.jpg', '.jpeg', '.gif', '.webp', '.bmp', '.ico', 
                                 '.mp4', '.webm', '.avi', '.mov', '.mkv'}:
-        # Extract only valid UTF-8 sequences for scanning
-        try:
-            # Attempt strict UTF-8 decoding - if it fails, content is binary
-            decoded = content.decode('utf-8', errors='strict')
-            content = decoded.encode('utf-8')
-        except UnicodeDecodeError:
-            # Content is not valid UTF-8, likely binary - skip hostname check
-            # but still check for other patterns that might appear in binary metadata
-            if PRIVATE_LOCATION.search(content):
-                errors.append('local filesystem or tailnet location')
-            if PRIVATE_ADDRESS.search(content):
-                errors.append('private network address')
-            return errors
+        # Extract printable ASCII strings of length >=4 from binary content
+        printable_content = extract_printable_ascii_runs(content, min_length=4)
+        
+        # Scan the extracted strings for violations
+        if PRIVATE_LOCATION.search(printable_content):
+            errors.append('local filesystem or tailnet location')
+        if PRIVATE_ADDRESS.search(printable_content):
+            errors.append('private network address')
+        if PRIVATE_HOSTNAME.search(printable_content):
+            errors.append('private hostname')
+        
+        return errors
     
-    # Standard checks on content (for text files and decodable binary content)
+    # For text files and other content, scan directly
     if PRIVATE_LOCATION.search(content):
         errors.append('local filesystem or tailnet location')
     if PRIVATE_ADDRESS.search(content):
@@ -239,18 +275,23 @@ def extra_violations(content, name):
     
     # Extract and scan archive members (zip, tar, gz)
     if path.suffix.lower() in {'.zip', '.tar', '.gz', '.tgz'} or name.endswith('.tar.gz'):
-        members = extract_archive_members(content, name)
-        for member_name, member_content in members:
-            member_errors = scan_content_safely(member_content, member_name)
-            for error in member_errors:
-                errors.append(f'{error} in archive member {member_name}')
-        # Also scan the archive itself (in case of embedded metadata)
-        # but only if it's not being skipped as binary
-        if not members:  # If extraction failed, scan the raw content
-            errors.extend(scan_content_safely(content, name))
-    else:
-        # Standard scanning for all other files (including .pdb, .cif, .mmcif which are plain text)
-        errors.extend(scan_content_safely(content, name))
+        try:
+            members = extract_archive_members(content, name)
+            for member_name, member_content in members:
+                member_errors = scan_content_safely(member_content, member_name)
+                for error in member_errors:
+                    errors.append(f'{error} in archive member {member_name}')
+            # Also scan the archive itself (in case of embedded metadata)
+            # but only if extraction succeeded
+            if members:
+                return errors
+        except ValueError as e:
+            # Archive corruption or unreadable members are violations
+            errors.append(f'archive inspection failed: {e}')
+            return errors
+    
+    # Standard scanning for all other files (including .pdb, .cif, .mmcif which are plain text)
+    errors.extend(scan_content_safely(content, name))
     
     return errors
 
