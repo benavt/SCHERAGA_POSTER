@@ -74,23 +74,50 @@ class Privacy(unittest.TestCase):
             with self.subTest(content=content):
                 self.assertIn('private hostname', privacy.violations('docs/README.md', content))
         
+        # Test underscore-prefixed forms (historical leak pattern: DD1_<name>_RFD3, run_<name>)
+        for content in (b'DD1_' + h1.upper() + b'_RFD3', b'run_' + h1.lower(), 
+                       b'config_' + h2.lower() + b'_settings', b'X_' + h2.upper() + b'_Y'):
+            with self.subTest(content=content):
+                self.assertIn('private hostname', privacy.violations('docs/README.md', content))
+        
         # Test that hostnames alone (without other violations) are caught
         self.assertEqual(['private hostname'], privacy.violations('docs/README.md', b'The ' + h1 + b' system.'))
+        
+        # Test that words containing the 3-letter sequence but not as a separate component are NOT flagged
+        for safe_content in (b'paxos consensus', b'compax device', b'climaxing'):
+            with self.subTest(safe_content=safe_content):
+                self.assertEqual([], privacy.violations('docs/README.md', safe_content))
 
     def test_private_hostname_exclusion_from_binary_assets(self):
-        """Verify that opaque media files are excluded from hostname checks."""
+        """Verify that genuinely opaque binary data (low decodable ratio) is handled gracefully."""
         # Build test hostnames from fragments
         h1 = b'P' + b'ax'
         h2 = b'M' + b'imas'
-        # Truly opaque media (no meaningful text extraction) should be excluded
-        for extension in ('.zip', '.gz', '.png', '.jpg', '.mp4'):
-            filename = f'poster/document{extension}'
-            with self.subTest(filename=filename):
-                # Even if hostname bytes appear, they should not be flagged in binary assets
-                self.assertEqual([], privacy.violations(filename, b'...' + h1.upper() + b'%C9...' + h2.upper() + b'...'))
         
-        # But the same content in a text file SHOULD be detected
-        self.assertIn('private hostname', privacy.violations('docs/notes.md', h1.upper() + b' exports'))
+        # Create genuinely opaque binary data (< 1% decodable) simulating compressed streams
+        # Real compressed data in PDFs/images would be mostly non-UTF-8 bytes
+        binary_noise = bytes(range(256)) * 100  # 25KB of binary data
+        # Insert hostname-like bytes in the binary noise (should be skipped due to low decodable ratio)
+        opaque_binary = binary_noise[:1000] + h1.upper() + binary_noise[1000:2000] + h2.upper() + binary_noise[2000:]
+        
+        # These genuinely opaque formats with low decodable content should not be flagged
+        for extension in ('.png', '.jpg', '.mp4'):
+            filename = f'poster/document{extension}'
+            with self.subTest(filename=filename, test='opaque_binary'):
+                self.assertEqual([], privacy.violations(filename, opaque_binary))
+        
+        # However, if a binary format file contains substantial decodable text with hostnames,
+        # it SHOULD be caught (no exemption by extension)
+        mostly_text = b'This is mostly readable text from ' + h1 + b' system.'
+        for extension in ('.png', '.jpg'):
+            filename = f'poster/document{extension}'
+            with self.subTest(filename=filename, test='decodable_text'):
+                self.assertIn('private hostname', privacy.violations(filename, mostly_text))
+        
+        # Archives should extract and scan members
+        # A .zip/.gz with hostname in metadata should be caught
+        short_with_hostname = b'Archive metadata ' + h1.lower() + b' data'
+        self.assertIn('private hostname', privacy.violations('poster/archive.zip', short_with_hostname))
 
     def test_pdf_with_dirty_visible_text_is_refused(self):
         """Verify that a PDF whose extracted text contains a private hostname is refused."""
