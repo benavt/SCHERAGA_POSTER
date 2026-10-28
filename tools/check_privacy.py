@@ -10,8 +10,10 @@ import ast
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED_FILES = {
@@ -33,25 +35,143 @@ PATTERNS = [
 PRIVATE_LOCATION = re.compile(rb"/(?:home|Users)/[^\s\"'<>]+|(?:[a-z0-9-]+[.])+ts[.]net", re.I)
 PRIVATE_ADDRESS = re.compile(rb"(?<![0-9.])(?:10[.](?:[0-9]{1,3}[.]){2}[0-9]{1,3}|192[.]168[.][0-9]{1,3}[.][0-9]{1,3}|172[.](?:1[6-9]|2[0-9]|3[01])[.][0-9]{1,3}[.][0-9]{1,3}|100[.](?:6[4-9]|[7-9][0-9]|1[01][0-9]|12[0-7])[.][0-9]{1,3}[.][0-9]{1,3})(?![0-9.])")
 # Private hostnames: case-insensitive match for whole words and embedded forms (e.g., Mimas_Folding_Skills).
-# Excluded from binary/compressed assets and protein data files to avoid false positives in encoded data.
+# PDFs are inspected via extracted text rather than raw bytes. Truly opaque media is skipped.
 PRIVATE_HOSTNAME = re.compile(rb'\b(?:pax|mimas)(?:[_-][a-z0-9]+)*\b', re.I)
+
+
+def check_poppler_utils():
+    """Verify poppler-utils (pdftotext, pdfdetach) is available. Fail loudly if missing."""
+    if not shutil.which('pdftotext') or not shutil.which('pdfdetach'):
+        raise RuntimeError(
+            'poppler-utils (pdftotext, pdfdetach) is required for PDF inspection but not found. '
+            'Install it in CI or locally: apt-get install poppler-utils'
+        )
+
+
+def extract_pdf_text(pdf_path):
+    """Extract visible text from a PDF using pdftotext. Returns bytes."""
+    try:
+        result = subprocess.run(
+            ['pdftotext', '-enc', 'UTF-8', str(pdf_path), '-'],
+            capture_output=True,
+            check=True,
+            timeout=10
+        )
+        return result.stdout
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        # If extraction fails, treat as suspicious rather than passing blindly
+        raise ValueError(f'PDF text extraction failed for {pdf_path}: {e}')
+
+
+def extract_pdf_attachments(pdf_path):
+    """Extract and return content of all embedded attachments from a PDF. Returns list of (name, bytes)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir_path = Path(tmpdir)
+        # List attachments first
+        try:
+            list_result = subprocess.run(
+                ['pdfdetach', '-list', str(pdf_path)],
+                capture_output=True,
+                check=False,
+                timeout=5
+            )
+            # If no attachments, pdfdetach returns non-zero but that's fine
+            if b'file' not in list_result.stdout.lower():
+                return []
+        except subprocess.TimeoutExpired:
+            raise ValueError(f'PDF attachment listing timed out for {pdf_path}')
+        
+        # Extract all attachments
+        try:
+            subprocess.run(
+                ['pdfdetach', '-saveall', '-o', str(tmpdir_path), str(pdf_path)],
+                capture_output=True,
+                check=False,  # Non-zero exit if no attachments is normal
+                timeout=10
+            )
+        except subprocess.TimeoutExpired:
+            raise ValueError(f'PDF attachment extraction timed out for {pdf_path}')
+        
+        # Read all extracted files
+        attachments = []
+        for attachment_file in tmpdir_path.iterdir():
+            if attachment_file.is_file():
+                attachments.append((attachment_file.name, attachment_file.read_bytes()))
+        return attachments
+
+
+def inspect_pdf(content, name):
+    """Inspect a PDF by extracting and scanning visible text and embedded attachments."""
+    # Write content to temporary file for pdftotext/pdfdetach
+    with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        tmp.write(content)
+        tmp_path = Path(tmp.name)
+    
+    try:
+        errors = []
+        
+        # Extract and scan visible text
+        try:
+            text = extract_pdf_text(tmp_path)
+            if PRIVATE_LOCATION.search(text):
+                errors.append('local filesystem or tailnet location')
+            if PRIVATE_ADDRESS.search(text):
+                errors.append('private network address')
+            if PRIVATE_HOSTNAME.search(text):
+                errors.append('private hostname')
+        except ValueError as e:
+            # Extraction failure is suspicious
+            errors.append(f'PDF inspection failed: {e}')
+        
+        # Extract and scan embedded attachments
+        try:
+            attachments = extract_pdf_attachments(tmp_path)
+            for att_name, att_content in attachments:
+                if PRIVATE_LOCATION.search(att_content):
+                    errors.append(f'local filesystem or tailnet location in attachment {att_name}')
+                if PRIVATE_ADDRESS.search(att_content):
+                    errors.append(f'private network address in attachment {att_name}')
+                if PRIVATE_HOSTNAME.search(att_content):
+                    errors.append(f'private hostname in attachment {att_name}')
+        except ValueError as e:
+            errors.append(f'PDF attachment inspection failed: {e}')
+        
+        return errors
+    finally:
+        tmp_path.unlink(missing_ok=True)
 
 
 def extra_violations(content, name):
     errors = []
+    
+    path = Path(name)
+    
+    # PDFs are inspected via extracted text and attachments rather than raw bytes
+    if path.suffix.lower() == '.pdf':
+        try:
+            check_poppler_utils()
+            return inspect_pdf(content, name)
+        except RuntimeError as e:
+            # Missing tools - fail loudly rather than silently passing
+            raise
+    
+    # Exclude specific test files that contain intentional fake fixtures and the checker itself
+    # from location/address/hostname checks
+    if name in {'tests/test_privacy.py', 'tools/check_privacy.py'}:
+        return errors
+    
+    # Standard location/address checks for all other files
     if PRIVATE_LOCATION.search(content):
         errors.append('local filesystem or tailnet location')
     if PRIVATE_ADDRESS.search(content):
         errors.append('private network address')
-    # Check for private hostnames, but exclude:
-    # - Binary/compressed assets and protein data (false positives from encoded bytes)
-    # - Test files and the checker itself (intentional test data and pattern definitions)
-    path = Path(name)
-    if (path.suffix.lower() not in {'.pdf', '.zip', '.gz', '.tar', '.pdb', '.cif', '.mmcif', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.webm'}
-            and not name.startswith('tests/')
-            and name != 'tools/check_privacy.py'):
+    
+    # Hostname check: exclude truly opaque media (no meaningful text extraction possible).
+    # PDFs are handled above via text extraction.
+    if path.suffix.lower() not in {'.zip', '.gz', '.tar', '.pdb', '.cif', '.mmcif', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.webm'}:
         if PRIVATE_HOSTNAME.search(content):
             errors.append('private hostname')
+    
     return errors
 
 
