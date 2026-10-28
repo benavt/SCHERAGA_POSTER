@@ -37,9 +37,11 @@ PRIVATE_ADDRESS = re.compile(rb"(?<![0-9.])(?:10[.](?:[0-9]{1,3}[.]){2}[0-9]{1,3
 # Private hostnames: case-insensitive match for whole words and embedded forms.
 # PDFs are inspected via extracted text rather than raw bytes. Truly opaque media is skipped.
 # Build pattern from fragments to avoid literal occurrence
+# Use custom boundaries (?<![a-z0-9]) / (?![a-z0-9]) so underscore and hyphen act as separators.
+# This matches X_<name>_Y, <Name>_Folding_Skills, <name>-x but not 'paxos' or 'compax'.
 _h1 = 'p' + 'ax'
 _h2 = 'm' + 'imas'
-PRIVATE_HOSTNAME = re.compile(rb'\b(?:' + _h1.encode() + rb'|' + _h2.encode() + rb')(?:[_-][a-z0-9]+)*\b', re.I)
+PRIVATE_HOSTNAME = re.compile(rb'(?<![a-z0-9])(?:' + _h1.encode() + rb'|' + _h2.encode() + rb')(?:[_-][a-z0-9]+)*(?![a-z0-9])', re.I)
 
 
 def check_poppler_utils():
@@ -144,6 +146,78 @@ def inspect_pdf(content, name):
         tmp_path.unlink(missing_ok=True)
 
 
+def extract_archive_members(content, name):
+    """Extract and return members of zip/tar/gz archives for scanning. Returns list of (member_name, bytes)."""
+    path = Path(name)
+    members = []
+    
+    try:
+        if path.suffix.lower() == '.zip':
+            import zipfile
+            import io
+            with zipfile.ZipFile(io.BytesIO(content)) as zf:
+                for member in zf.namelist():
+                    if not member.endswith('/'):  # Skip directories
+                        try:
+                            members.append((member, zf.read(member)))
+                        except Exception:
+                            pass  # Skip unreadable members
+        elif path.suffix.lower() in {'.tar', '.gz', '.tgz'}:
+            import tarfile
+            import io
+            # Handle both .tar and .tar.gz/.tgz
+            mode = 'r:gz' if path.suffix.lower() in {'.gz', '.tgz'} or name.endswith('.tar.gz') else 'r'
+            with tarfile.open(fileobj=io.BytesIO(content), mode=mode) as tf:
+                for member in tf.getmembers():
+                    if member.isfile():
+                        try:
+                            extracted = tf.extractfile(member)
+                            if extracted:
+                                members.append((member.name, extracted.read()))
+                        except Exception:
+                            pass  # Skip unreadable members
+    except Exception:
+        # If archive extraction fails, return empty list (the raw archive bytes will still be checked)
+        pass
+    
+    return members
+
+
+def scan_content_safely(content, name):
+    """Scan content for violations, handling binary data gracefully. Returns list of errors."""
+    errors = []
+    
+    path = Path(name)
+    
+    # For genuinely opaque binary formats (images, video), skip non-decodable bytes
+    # by only scanning portions that are valid UTF-8 text
+    if path.suffix.lower() in {'.png', '.jpg', '.jpeg', '.gif', '.webp', '.bmp', '.ico', 
+                                '.mp4', '.webm', '.avi', '.mov', '.mkv'}:
+        # Extract only valid UTF-8 sequences for scanning
+        try:
+            # Attempt strict UTF-8 decoding - if it fails, content is binary
+            decoded = content.decode('utf-8', errors='strict')
+            content = decoded.encode('utf-8')
+        except UnicodeDecodeError:
+            # Content is not valid UTF-8, likely binary - skip hostname check
+            # but still check for other patterns that might appear in binary metadata
+            if PRIVATE_LOCATION.search(content):
+                errors.append('local filesystem or tailnet location')
+            if PRIVATE_ADDRESS.search(content):
+                errors.append('private network address')
+            return errors
+    
+    # Standard checks on content (for text files and decodable binary content)
+    if PRIVATE_LOCATION.search(content):
+        errors.append('local filesystem or tailnet location')
+    if PRIVATE_ADDRESS.search(content):
+        errors.append('private network address')
+    if PRIVATE_HOSTNAME.search(content):
+        errors.append('private hostname')
+    
+    return errors
+
+
 def extra_violations(content, name):
     errors = []
     
@@ -163,17 +237,20 @@ def extra_violations(content, name):
     if name in {'tests/test_privacy.py', 'tools/check_privacy.py'}:
         return errors
     
-    # Standard location/address checks for all other files
-    if PRIVATE_LOCATION.search(content):
-        errors.append('local filesystem or tailnet location')
-    if PRIVATE_ADDRESS.search(content):
-        errors.append('private network address')
-    
-    # Hostname check: exclude truly opaque media (no meaningful text extraction possible).
-    # PDFs are handled above via text extraction.
-    if path.suffix.lower() not in {'.zip', '.gz', '.tar', '.pdb', '.cif', '.mmcif', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.webm'}:
-        if PRIVATE_HOSTNAME.search(content):
-            errors.append('private hostname')
+    # Extract and scan archive members (zip, tar, gz)
+    if path.suffix.lower() in {'.zip', '.tar', '.gz', '.tgz'} or name.endswith('.tar.gz'):
+        members = extract_archive_members(content, name)
+        for member_name, member_content in members:
+            member_errors = scan_content_safely(member_content, member_name)
+            for error in member_errors:
+                errors.append(f'{error} in archive member {member_name}')
+        # Also scan the archive itself (in case of embedded metadata)
+        # but only if it's not being skipped as binary
+        if not members:  # If extraction failed, scan the raw content
+            errors.extend(scan_content_safely(content, name))
+    else:
+        # Standard scanning for all other files (including .pdb, .cif, .mmcif which are plain text)
+        errors.extend(scan_content_safely(content, name))
     
     return errors
 
