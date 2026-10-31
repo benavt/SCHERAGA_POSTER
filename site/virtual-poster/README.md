@@ -41,7 +41,7 @@ validated immutable v010 files, named respectively
 `2026-10-23_Scheraga_four_comparisons_poster_Adk_v010.pse` and
 `2026-10-23_PyMOL-quick-guide_v010.txt`. This keeps host-specific locations outside
 tracked source. The Mac working-copy snapshots use `local/` directly; canonical
-HOST exports use `local/site-exports/`.
+local exports use `local/site-exports/`.
 
 ```sh
 python3 site/virtual-poster/build_preview.py \
