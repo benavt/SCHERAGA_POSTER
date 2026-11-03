@@ -33,6 +33,12 @@ def build(source: Path, output: Path) -> dict:
     for row in inventory['files']:
         raw=bodies[row['path']]
         if len(raw)!=row['bytes'] or hashlib.sha256(raw).hexdigest()!=row['sha256']:raise ValueError('Invalid source member')
+    inventory['version']='web-v004'
+    inventory['predecessor_offline_source']=inventory.pop('source')
+    inventory['predecessor_roundtrip_sha256']=inventory.pop('roundtrip_sha256')
+    inventory['presentation_update']={'predecessor_bundle_sha256':SOURCE_SHA256,
+        'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'scientific_assets_unchanged':True}
     bodies['index.html']=simplify(bodies['index.html'].decode()).encode()
     for row in inventory['files']:
         raw=bodies[row['path']];row.update(bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())
@@ -43,10 +49,10 @@ def build(source: Path, output: Path) -> dict:
         path=Path(name)
         if path.is_absolute() or '..' in path.parts:raise ValueError('Unsafe archive member')
         dest=site/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(body)
-    bundle=output/'2026-11-02_virtual-poster-web-v003.zip'
+    bundle=output/'2026-11-02_virtual-poster-web-v004.zip'
     with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
         for name,body in sorted(bodies.items()):archive.writestr(name,body)
-    receipt={'schema_version':1,'release_tag':'2026-11-02_virtual-poster-web-v003','asset_name':bundle.name,'sha256':hashlib.sha256(bundle.read_bytes()).hexdigest(),'bytes':bundle.stat().st_size,'source_sha256':SOURCE_SHA256,'scientific_assets_unchanged':len(bodies)-2,'scientific_computation':False}
+    receipt={'schema_version':1,'release_tag':'2026-11-02_virtual-poster-web-v004','asset_name':bundle.name,'sha256':hashlib.sha256(bundle.read_bytes()).hexdigest(),'bytes':bundle.stat().st_size,'source_sha256':SOURCE_SHA256,'scientific_assets_unchanged':len(bodies)-2,'scientific_computation':False}
     (output/'validation.json').write_text(json.dumps(receipt,indent=2)+'\n')
     return receipt
 if __name__=='__main__':

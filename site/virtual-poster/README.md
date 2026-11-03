@@ -132,3 +132,5 @@ network loading, playback, palette changes, figure enlargement and downloads.
 ```sh
 python3 site/virtual-poster/simplify_interface.py --source /path/to/2026-10-24_virtual-poster-web-v002.zip --output local/site-exports/2026-11-02_compact-web_001
 ```
+
+The web-v004 bundle identifies the earlier offline source and its round-trip checksum as predecessor provenance. It does not claim a byte-identical round trip after the documented interface text changes. The content-addressed scientific assets and visible interface are identical to web-v003.
