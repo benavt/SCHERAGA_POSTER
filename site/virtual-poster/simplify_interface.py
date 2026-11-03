@@ -14,7 +14,7 @@ def simplify(page: str) -> str:
     if count!=1:raise ValueError('Expected the reviewed guide section')
     page=page.replace("['Guide','abstract-section-guide']","['Interpretation','abstract-section-guide']")
     page=page.replace('<p>The structure session requires PyMOL. The HTML and PyMOL session work offline; external links require internet access.</p>','',1)
-    page=re.sub(r'<p class="joint-analysis-label">.*?</p>','',page,flags=re.S)
+    page=re.sub(r'<(?:p|h3) class="joint-analysis-label">.*?</(?:p|h3)>','',page,flags=re.S)
     page=page.replace(ROUTE_NOTE,'')
     page=re.sub(r'(<details class="target-movie-methods"[^>]*><summary>.*?</summary>)',r'\1<p>Cyan paths follow the displayed model order; S and E mark the first and last movie frames.</p>',page,flags=re.S)
     # Only editorial navigation and interaction text may change in scripts. All scientific payloads remain exact.
