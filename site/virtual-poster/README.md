@@ -124,3 +124,11 @@ GIF/MP4/PDF/PyMOL downloads no longer travel inside the initial HTML response.
 This packaging step changes no scientific calculations, model order, metrics,
 coordinates, text or event handlers. Browser QA remains necessary to verify
 network loading, playback, palette changes, figure enlargement and downloads.
+
+## Compact public interface (web-v003)
+
+`simplify_interface.py` repackages the pinned web-v002 ZIP with a shorter navigation and interpretation section. It verifies the input bundle, member checksums and every original script block; only the editorial guide label and redundant interaction caption may change in scripts. Scientific assets, data, coordinate downloads and reference colors remain exact. Use a new output directory; no analysis is executed.
+
+```sh
+python3 site/virtual-poster/simplify_interface.py --source /path/to/2026-10-24_virtual-poster-web-v002.zip --output local/site-exports/2026-11-02_compact-web_001
+```
