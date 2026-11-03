@@ -2,7 +2,7 @@
 (()=>{
  'use strict';
  const index=document.querySelector('.poster-index');
- const overview=[['Abstract','working-abstract-title'],['Reference states','abstract-section-experimental'],['Downloads','abstract-section-physical'],['Guide','abstract-section-guide'],['References','abstract-section-references'],['Acknowledgments','abstract-section-acknowledgments']];
+ const overview=[['Abstract','working-abstract-title'],['Reference states','abstract-section-experimental'],['Downloads','abstract-section-physical'],['Interpretation','abstract-section-guide'],['References','abstract-section-references'],['Acknowledgments','abstract-section-acknowledgments']];
  function refresh(){
   const view=document.body.dataset.focus;
   const links=view==='overview'?overview:[['Movie','movie-'+view],['Distance variance','figure-'+view+'-1'],['TM-score','figure-'+view+'-2'],['Bonsai','figure-'+view+'-3']];
